@@ -20,6 +20,7 @@ void Operacion::ejecutar(int n) {
 	int longitud = 0;
 	t1 = clock();
 	arr = (int*)malloc(longitud * sizeof(int));
+
 	for (int i = 0; i <= n; i++)
 	{
 		for (int j = 0; j <= n; j++)
