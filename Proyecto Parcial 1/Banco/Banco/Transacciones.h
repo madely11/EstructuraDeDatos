@@ -1,17 +1,35 @@
-#include "Transacciones.h"
-#include "ManejoArchivo.h"
-#include <iostream>
+/***********************************************************************
+ * Module:  Transacciones.h
+ * Author:  Madely Betancourt, Kevin Caicedo
+ * Modified: martes, junio 16, 2020 7:17:41 PM
+ * Purpose: Declaration of the class Transacciones
+ ***********************************************************************/
 
-using namespace std;
+#if !defined(__Banco_Transacciones_h)
+#define __Banco_Transacciones_h
+
+#include "Fecha.h"
+
+class Transacciones
+{
+public:
+    void datosTransaccion();
+    int depositar(int, int);
+    int retirar(int, int);
+    string stringConsola(string);
+    void guardarTransaccion(int, int, int);
+
+private:
+    Fecha fecha;
+    string tipoTransaccion;
+    string dato;
+};
+
 
 int Transacciones::depositar(int monto, int numCuenta) {
     int deposito;
     cout << "Ingrese la cantidad de dinero a depositar: " << endl;
     cin >> deposito;
-    while (deposito <= 0) {
-        cout << "Monto invalido. Ingrese de nuevo:" << endl;
-        cin >> deposito;
-    }
     monto += deposito;
     tipoTransaccion = "Deposito";
     guardarTransaccion(numCuenta, monto, deposito);
@@ -24,10 +42,6 @@ int Transacciones::retirar(int monto, int numCuenta) {
     int retiro;
     cout << "Ingrese la cantidad de dinero a retirar: " << endl;
     cin >> retiro;
-    while (retiro <= 0) {
-        cout << "Monto invalido. Ingrese de nuevo:" << endl;
-        cin >> retiro;
-    }
     if (monto > retiro) {
         monto -= retiro;
         tipoTransaccion = "Retiro";
@@ -37,42 +51,42 @@ int Transacciones::retirar(int monto, int numCuenta) {
     }
     else {
         cout << "Saldo insuficiente" << endl;
-        system("pause");
+        Sleep(1000);
     }
     return monto;
 }
 
 inline void Transacciones::guardarTransaccion(int numeroCuenta, int monto, int ingreso)
 {
-    ManejoArchivo am("registroTransaciones.txt");
+    FileManager fm("registroTransaciones.txt");
     dato = to_string(numeroCuenta) + "," + tipoTransaccion + "," + to_string(ingreso) + "," +
         to_string(monto) + "," + fecha.getFecha() + "," + fecha.getHora();
-    am.agregarLinea(dato);
+    fm.agregarLinea(dato);
 }
 
 void Transacciones::datosTransaccion()
 {
     int numeroCuenta;
     int i = 1;
-    ManejoArchivo amc("cuenta.txt");
-    ManejoArchivo am("registroTransaciones.txt");
+    FileManager fmc("cuenta.txt");
+    FileManager fm("registroTransaciones.txt");
     system("cls");
     cout << "Ingrese el numero de cuenta: ";
     cin >> numeroCuenta;
-    if (amc.buscarCuenta(numeroCuenta)._Equal("salir")) {
+    if (fmc.buscarCuenta(numeroCuenta)._Equal("salir")) {
         cout << "Cuenta no existente" << endl;
-        system("pause");
+        Sleep(1000);
         return;
     }
 
-    if (am.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
+    if (fm.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
         cout << "La cuenta no ha realizado ninguna transaccion" << endl;
-        system("pause");
+        Sleep(1000);
         return;
     }
 
-    while (!am.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
-        cout << stringConsola(am.buscarRegistro(numeroCuenta, i)) << endl << endl;
+    while (!fm.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
+        cout << stringConsola(fm.buscarRegistro(numeroCuenta, i)) << endl << endl;
         system("pause");
         i++;
     }
@@ -118,3 +132,4 @@ inline string Transacciones::stringConsola(string mensaje)
     }
     return salida;
 }
+#endif

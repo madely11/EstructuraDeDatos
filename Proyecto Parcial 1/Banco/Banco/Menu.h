@@ -5,12 +5,20 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <math.h>
-#include <iostream>
 #include "Cuenta.h"
 #include "Cliente.h"
-#include "Menu.h"
+#include "FileManager.h"
 
 using namespace std;
+
+class Menu {
+public:
+	void menuTeclas();
+	void ocultarCursor();
+	void submenu1();
+	void submenu2();
+};
+
 
 void Menu::ocultarCursor()
 {
@@ -96,7 +104,7 @@ void Menu::menuTeclas()
 					cout << endl << "<<<<<<<<<Gracias por usar nuestro programa>>>>>>>>>" << endl;
 					Sleep(1000);
 					exit(1);
-					break;
+					break;	
 				}
 			}
 		}
@@ -112,7 +120,7 @@ void Menu::submenu1()
 	system("cls");
 	string menu[] = { "Ahorros      ",
 					  "Credito      ",
-					  "Cancelar     " };
+					  "Cancelar     "};
 
 	for (;;) {
 		system("cls");
@@ -171,12 +179,12 @@ void Menu::submenu1()
 						//Sleep(1000);
 						system("pause");
 						menuTeclas();
-
+						
 						//TipoCuenta tipo1(1);
 					}
 					break;
 				case 1:
-					if (true) {
+					if(true) {
 						system("cls");
 						Cliente cliente;
 						cliente.pedirDatos(2);
@@ -261,7 +269,7 @@ void Menu::submenu2()
 				case 0:
 					if (true) {
 						system("cls");
-
+					
 						Cuenta cuenta;
 						if (!cuenta.verificarCuenta(1)) {
 							menuTeclas();
@@ -275,6 +283,7 @@ void Menu::submenu2()
 				case 1:
 					if (true) {
 						system("cls");
+						FileManager fileM("cuenta.txt");
 						Cuenta cuenta;
 						if (!cuenta.verificarCuenta(2)) {
 							menuTeclas();

@@ -1,6 +1,35 @@
-#include "ManejoArchivo.h"
+#pragma once
+#include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
 
-bool ManejoArchivo::crearEscritura()
+
+class FileManager
+{
+private:
+	string nombreArchivo;
+	ifstream archivoLectura; //archivo de lectura
+	ofstream archivoEscritura; //archivo de escritura
+
+public:
+	FileManager(string);
+	bool crearLectura();
+	bool crearEscritura();
+	void agregarLinea(string);
+	void cerrarLectura();
+	void cerrarEscritura();
+	int contarLineas();
+	string buscarCuenta(int);
+	void actualizar(int, string);
+	string comparar(int, string);
+	string compararRegistro(int, string);
+	string buscarRegistro(int, int);
+};
+
+
+
+bool FileManager::crearEscritura()
 {
 
 	archivoEscritura.open(nombreArchivo, ios::out | ios::app);
@@ -14,15 +43,15 @@ bool ManejoArchivo::crearEscritura()
 	}
 }
 
-ManejoArchivo::ManejoArchivo(string archivo)
+FileManager::FileManager(string archivo)
 {
-
+	
 	nombreArchivo = archivo;
 	crearEscritura();
 	cerrarEscritura();
 }
 
-bool ManejoArchivo::crearLectura()
+bool FileManager::crearLectura()
 {
 	archivoLectura.open(nombreArchivo, ios::in);
 
@@ -35,26 +64,27 @@ bool ManejoArchivo::crearLectura()
 	}
 }
 
-void ManejoArchivo::cerrarLectura()
+void FileManager::cerrarLectura()
 {
 	archivoLectura.close();
 }
 
-void ManejoArchivo::cerrarEscritura()
+void FileManager::cerrarEscritura()
 {
 	archivoEscritura.close();
 }
 
-void ManejoArchivo::agregarLinea(string linea)
+void FileManager::agregarLinea(string linea)
 {
 	crearEscritura();
 	archivoEscritura << linea << endl;
 	cerrarEscritura();
 }
 
-int ManejoArchivo::contarLineas()
+
+inline int FileManager::contarLineas()
 {
-	int cuentaLinea = 0;
+	int cuentaLinea=0;
 	string texto;
 	if (!crearLectura()) {
 		cerrarLectura();
@@ -62,16 +92,16 @@ int ManejoArchivo::contarLineas()
 	}
 	while (!archivoLectura.eof())
 	{
-
+		
 		getline(archivoLectura, texto);
 		cuentaLinea++;
-
+		
 	}
 	cerrarLectura();
 	return cuentaLinea;
 }
 
-string ManejoArchivo::buscarCuenta(int numCuenta)
+string FileManager::buscarCuenta(int numCuenta)
 {
 	crearLectura();
 	string texto;
@@ -90,7 +120,7 @@ string ManejoArchivo::buscarCuenta(int numCuenta)
 	return texto2;
 }
 
-void ManejoArchivo::actualizar(int numCuenta, string datoNuevo)
+inline void FileManager::actualizar(int numCuenta, string datoNuevo)
 {
 	ofstream archivoAux;
 	string dato;
@@ -122,7 +152,7 @@ void ManejoArchivo::actualizar(int numCuenta, string datoNuevo)
 
 }
 
-string ManejoArchivo::comparar(int numCuenta, string dato)
+inline string FileManager::comparar(int numCuenta, string dato)
 {
 	int i = 0;
 	int id = 0;
@@ -144,7 +174,7 @@ string ManejoArchivo::comparar(int numCuenta, string dato)
 	return texto2;
 }
 
-string ManejoArchivo::buscarRegistro(int numCuenta, int coincidencia)
+inline string FileManager::buscarRegistro(int numCuenta, int coincidencia)
 {
 	crearLectura();
 	string texto;
@@ -169,7 +199,7 @@ string ManejoArchivo::buscarRegistro(int numCuenta, int coincidencia)
 	return texto2;
 }
 
-string ManejoArchivo::compararRegistro(int numCuenta, string dato)
+inline string FileManager::compararRegistro(int numCuenta, string dato)
 {
 	int i = 0;
 	int id = 0;
@@ -186,4 +216,5 @@ string ManejoArchivo::compararRegistro(int numCuenta, string dato)
 	}
 	return texto2;
 }
+
 
