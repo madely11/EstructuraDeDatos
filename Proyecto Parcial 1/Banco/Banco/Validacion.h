@@ -96,13 +96,13 @@ bool Validacion::validarString(string entrada, int tipo) {
 			if (isdigit(entrada[i])) {
 				throw 1;
 			}
-			if (!isalpha(entrada[i]) && tipo == 1) {
+			if (!isalpha(entrada[i]) && tipo == 1&&entrada[i]!=32) {
 				throw 1;
 			}
 			if (entrada[i]=='.') {
 				throw 1;
 			}
-			if (isalpha(entrada[i]) == 0) {
+			if (isalpha(entrada[i]) == 0 && i==0 ) {
 				throw 1;
 			}
 		}
