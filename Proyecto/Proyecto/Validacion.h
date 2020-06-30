@@ -7,5 +7,7 @@ class Validacion
 {
 public:
 	bool cedula(string);
+	bool validar(string, int);
+	bool validarString(string, int);
 };
 

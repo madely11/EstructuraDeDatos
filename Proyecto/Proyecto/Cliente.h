@@ -1,5 +1,6 @@
 #pragma once
 #include "Cuenta.h"
+#include "Ingreso.h"
 #include "Validacion.h"
 #include "ManejoArchivo.h"
 #include <iostream>
@@ -26,5 +27,7 @@ private:
     Validacion validar;
     Cuenta* cuenta = NULL;
     string dato;
+    Ingreso ingreso;
+    
 };
 

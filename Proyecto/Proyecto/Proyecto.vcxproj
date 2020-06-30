@@ -143,6 +143,7 @@
     <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="Cuenta.cpp" />
     <ClCompile Include="Fecha.cpp" />
+    <ClCompile Include="Ingreso.cpp" />
     <ClCompile Include="ManejoArchivos.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="TipoCuenta.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Cuenta.h" />
     <ClInclude Include="Fecha.h" />
+    <ClInclude Include="Ingreso.h" />
     <ClInclude Include="ManejoArchivo.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="TipoCuenta.h" />
