@@ -7,8 +7,10 @@ public:
     void datosTransaccion();
     int depositar(int, int);
     int retirar(int, int);
-    string stringConsola(string);
+    void stringConsola(string);
     void guardarTransaccion(int, int, int);
+    //friend ostream& operator<<(ostream& o, Cuenta& c);
+    friend ostream& operator<<(ostream& o, Fecha& f);
 
 private:
     Fecha fecha;

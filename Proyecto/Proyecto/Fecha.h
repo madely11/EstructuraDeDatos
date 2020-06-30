@@ -8,6 +8,8 @@ using namespace std;
 class Fecha
 {
 public:
+    void setFecha(string);
+    void setHora(string);
     string getFecha();
     string getHora();
 

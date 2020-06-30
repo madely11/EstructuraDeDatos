@@ -3,6 +3,15 @@
 #include <iostream>
 using namespace std;
 
+
+void Fecha::setFecha(string newFecha) {
+    fecha = newFecha;
+}
+
+void Fecha::setHora(string newHora) {
+    hora = newHora;
+}
+
 string Fecha::getFecha()
 {
     struct tm pt1;
@@ -24,3 +33,4 @@ string Fecha::getHora()
     hora = to_string(pt1.tm_hour) + ":" + to_string(pt1.tm_min) + ":" + to_string(pt1.tm_sec);
     return hora;
 }
+

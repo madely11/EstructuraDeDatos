@@ -15,7 +15,8 @@ int Transacciones::depositar(int monto, int numCuenta) {
     monto += deposito;
     tipoTransaccion = "Deposito";
     guardarTransaccion(numCuenta, monto, deposito);
-    cout << stringConsola(dato) << endl;
+    stringConsola(dato);
+    cout << endl;
     system("pause");
     return monto;
 }
@@ -32,7 +33,8 @@ int Transacciones::retirar(int monto, int numCuenta) {
         monto -= retiro;
         tipoTransaccion = "Retiro";
         guardarTransaccion(numCuenta, monto, retiro);
-        cout << stringConsola(dato) << endl;
+        stringConsola(dato);
+        cout << endl;
         system("pause");
     }
     else {
@@ -72,49 +74,71 @@ void Transacciones::datosTransaccion()
     }
 
     while (!am.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
-        cout << stringConsola(am.buscarRegistro(numeroCuenta, i)) << endl << endl;
-        system("pause");
+        stringConsola(am.buscarRegistro(numeroCuenta, i));
         i++;
+        cout << endl;
     }
+    system("pause");
 }
 
-inline string Transacciones::stringConsola(string mensaje)
+ostream& operator<<(ostream& o, Fecha& f) {
+    o << "\n\tFecha" << "\t\tHora" << "\t\tMonto" << "\t\tSaldo" << "\n" << "\t" << f.getFecha() << "\t" << f.getHora();
+    return o;
+}
+
+inline void Transacciones::stringConsola(string mensaje)
 {
+    Fecha fecha;
     int i = 0;
     string salida = "";
+    string saldo = "";
+    string fechaT = "";
+    string horaT = "";
+    string valorT = "";
 
     while (mensaje.at(i) != ',' && i < mensaje.length()) {
         i++;
     }
-    salida += "Transaccion realizada: ";
     i++;
     while (mensaje.at(i) != ',' && i < mensaje.length()) {
-        salida += mensaje.at(i);
+        salida += mensaje.at(i);//tiene el tipo de transaccion
         i++;
     }
-    salida += "\nMonto de tansaccion: ";
     i++;
     while (mensaje.at(i) != ',' && i < mensaje.length()) {
-        salida += mensaje.at(i);
+        valorT += mensaje.at(i);
         i++;
     }
-    salida += "\nSaldo actual: ";
     i++;
     while (i < mensaje.length() && mensaje.at(i) != ',') {
-        salida += mensaje.at(i);
+        saldo += mensaje.at(i);
         i++;
     }
-    salida += "\nFecha: ";
     i++;
     while (i < mensaje.length() && mensaje.at(i) != ',') {
-        salida += mensaje.at(i);
+        fechaT += mensaje.at(i);
         i++;
     }
-    salida += "\nHora: ";
+    fecha.setFecha(fechaT);
     i++;
     while (i < mensaje.length() && mensaje.at(i) != ',') {
-        salida += mensaje.at(i);
+        horaT += mensaje.at(i);
         i++;
     }
-    return salida;
+    fecha.setHora(horaT);
+
+    if (salida._Equal("Deposito")) {
+        salida = "";
+        salida = '+';
+    }
+    else {
+        salida = "";
+        salida = '-';
+    }
+    //cout << "Tipo de transaccion: " << salida << endl;
+    salida += valorT;
+    cout << fecha;
+    cout << "\t" << salida;
+    cout << "\t\t" << saldo;
+    cout << endl;
 }
