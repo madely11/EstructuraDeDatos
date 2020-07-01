@@ -10,6 +10,8 @@ class Fecha
 public:
     void setFecha(string);
     void setHora(string);
+    string fechaUnida();
+    string horaUnida();
     string getFecha();
     string getHora();
 

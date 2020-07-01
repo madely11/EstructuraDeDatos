@@ -1,8 +1,19 @@
 #include "ManejoArchivo.h"
 
+ManejoArchivo::ManejoArchivo(string archivo)
+{
+	nombreArchivo = archivo;
+	crearEscritura();
+	cerrarEscritura();
+}
+
+ManejoArchivo::ManejoArchivo()
+{
+	nombreArchivo = "";
+}
+
 bool ManejoArchivo::crearEscritura()
 {
-
 	archivoEscritura.open(nombreArchivo, ios::out | ios::app);
 
 	if (archivoEscritura.fail()) {
@@ -14,12 +25,10 @@ bool ManejoArchivo::crearEscritura()
 	}
 }
 
-ManejoArchivo::ManejoArchivo(string archivo)
+void ManejoArchivo::cerrarEscritura()
 {
-
-	nombreArchivo = archivo;
-	crearEscritura();
-	cerrarEscritura();
+	archivoEscritura.flush();
+	archivoEscritura.close();
 }
 
 bool ManejoArchivo::crearLectura()
@@ -40,11 +49,6 @@ void ManejoArchivo::cerrarLectura()
 	archivoLectura.close();
 }
 
-void ManejoArchivo::cerrarEscritura()
-{
-	archivoEscritura.close();
-}
-
 void ManejoArchivo::agregarLinea(string linea)
 {
 	crearEscritura();
@@ -57,18 +61,73 @@ int ManejoArchivo::contarLineas()
 	int cuentaLinea = 0;
 	string texto;
 	if (!crearLectura()) {
-		cerrarLectura();
+		//cerrarLectura();
 		return -1;
 	}
 	while (!archivoLectura.eof())
 	{
-
 		getline(archivoLectura, texto);
 		cuentaLinea++;
-
 	}
+	if (cuentaLinea > 1)
+		cuentaLinea -= 1;
 	cerrarLectura();
 	return cuentaLinea;
+}
+
+string ManejoArchivo::leerArchivo(string archivo) {
+	string texto, linea;
+	nombreArchivo = archivo;
+
+	if (!crearLectura()) {
+		texto = "salir";
+		return texto;
+	}
+	while (!archivoLectura.eof())
+	{
+		getline(archivoLectura, linea);
+		texto += linea;
+		texto += "\n";
+	}
+	cerrarLectura();
+	return texto;
+}
+
+string ManejoArchivo::buscarRespaldo(string nombreRespaldo) {
+	crearLectura();
+	string linea;
+	string texto = "salir";
+	while (!archivoLectura.eof())
+	{
+		getline(archivoLectura, linea);
+		if (linea._Equal(nombreRespaldo)) {
+			texto = "";
+			texto += linea;
+			cerrarLectura();
+			return texto;
+		}
+	}
+	cerrarLectura();
+	return texto;
+
+}
+
+void ManejoArchivo::actualizarRespaldo(string respaldo, int idRespaldo) {
+	if (idRespaldo == 1) {
+		remove("cliente.txt");
+		rename(respaldo.c_str(), "cliente.txt");
+	}
+
+	if (idRespaldo == 2) {
+		remove("cuenta.txt");
+		rename(respaldo.c_str(), "cuenta.txt");
+	}
+
+	if (idRespaldo == 1) {
+		remove("Transacciones.txt");
+		rename(respaldo.c_str(), "Transacciones.txt");
+	}
+	
 }
 
 string ManejoArchivo::buscarCuenta(int numCuenta)
@@ -166,6 +225,64 @@ string ManejoArchivo::buscarRegistro(int numCuenta, int coincidencia)
 		}
 	}
 	cerrarLectura();
+	return texto2;
+}
+
+string ManejoArchivo::buscarRegistro(string f, int numCuenta, int coincidencia)
+{
+	crearLectura();
+	string texto;
+	string texto2 = "salir";
+	string idString;
+	int i = 0;
+	while (!archivoLectura.eof())
+	{
+		getline(archivoLectura, texto);
+		texto = compararRegistro(numCuenta, texto);
+		texto = compararRegistro(f, texto);
+		if (!texto._Equal("salir")) {
+			i++;
+		}
+		if (!texto._Equal("salir") && i == coincidencia) {
+			//i++;
+			cerrarLectura();
+			return texto;
+		}
+	}
+	cerrarLectura();
+	return texto2;
+}
+
+string ManejoArchivo::compararRegistro(string f, string dato)
+{
+	int i = 0;
+	string texto2 = "salir";
+	string idFecha = "";
+
+	while (i < dato.length() && dato.at(i) != ',') {
+		i++;
+	}
+	i++;
+	while (i < dato.length() && dato.at(i) != ',') {
+		i++;
+	}
+	i++;
+	while (i < dato.length() && dato.at(i) != ',') {
+		i++;
+	}
+	i++;
+	while (i < dato.length() && dato.at(i) != ',') {
+		i++;
+	}
+	i++;
+	while (i < dato.length() && dato.at(i) != ',') {
+		idFecha += dato.at(i);
+		i++;
+	}
+
+	if (idFecha._Equal(f)) {
+		return dato;
+	}
 	return texto2;
 }
 

@@ -4,12 +4,12 @@
 class Transacciones
 {
 public:
-    void datosTransaccion();
+    void datosTransaccion(int);
     int depositar(int, int);
     int retirar(int, int);
     void stringConsola(string);
     void guardarTransaccion(int, int, int);
-    //friend ostream& operator<<(ostream& o, Cuenta& c);
+    string ingresarFecha();
     friend ostream& operator<<(ostream& o, Fecha& f);
 
 private:

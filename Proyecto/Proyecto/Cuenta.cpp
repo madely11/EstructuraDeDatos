@@ -7,7 +7,9 @@ Cuenta::Cuenta(int num, string id) {
     this->numeroCuenta = archivoM.contarLineas();
     this->monto = 5;
     hacerString();
+    cout << dato << endl;
     archivoM.agregarLinea(dato);
+    //archivoM.crearRespaldo();
 }
 
 Cuenta::Cuenta() {

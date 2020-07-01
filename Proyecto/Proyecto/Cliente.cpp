@@ -11,7 +11,6 @@ void Cliente::pedirDatos(int num) {
     while (!validar.cedula(cedula)) {
         cedula.assign(ingreso.ingresaNumericos("\nIngrese la cedula del titular:"), 10);
     }
-
     email = ingreso.leerString("\nIngrese el email del titular : ", 1);
     direccion = ingreso.leerString("Ingrese la direccion del titular : ", 1);
     cuenta = new Cuenta(num, cedula);

@@ -12,6 +12,7 @@ class Ingreso {
 
 public:
 	string leer(string, int);
+	bool leerFecha(string);
 	string leerString(string, int);
 	char* ingresaNumericos(const char*);
 };

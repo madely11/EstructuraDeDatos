@@ -1,5 +1,6 @@
 #include "Transacciones.h"
 #include "ManejoArchivo.h"
+#include "Ingreso.h"
 #include <iostream>
 
 using namespace std;
@@ -8,7 +9,7 @@ int Transacciones::depositar(int monto, int numCuenta) {
     int deposito;
     cout << "Ingrese la cantidad de dinero a depositar: " << endl;
     cin >> deposito;
-    while (deposito <= 0) {
+    while (deposito < 0) {//aqui hacer validacion
         cout << "Monto invalido. Ingrese de nuevo:" << endl;
         cin >> deposito;
     }
@@ -25,7 +26,7 @@ int Transacciones::retirar(int monto, int numCuenta) {
     int retiro;
     cout << "Ingrese la cantidad de dinero a retirar: " << endl;
     cin >> retiro;
-    while (retiro <= 0) {
+    while (retiro < 0) {//aqui hacer validacion
         cout << "Monto invalido. Ingrese de nuevo:" << endl;
         cin >> retiro;
     }
@@ -46,40 +47,67 @@ int Transacciones::retirar(int monto, int numCuenta) {
 
 inline void Transacciones::guardarTransaccion(int numeroCuenta, int monto, int ingreso)
 {
-    ManejoArchivo am("registroTransaciones.txt");
+    ManejoArchivo am("transacciones.txt");
     dato = to_string(numeroCuenta) + "," + tipoTransaccion + "," + to_string(ingreso) + "," +
         to_string(monto) + "," + fecha.getFecha() + "," + fecha.getHora();
     am.agregarLinea(dato);
 }
 
-void Transacciones::datosTransaccion()
+void Transacciones::datosTransaccion(int num)
 {
+    string f;
     int numeroCuenta;
     int i = 1;
-    ManejoArchivo amc("cuenta.txt");
-    ManejoArchivo am("registroTransaciones.txt");
+    ManejoArchivo amC("cuenta.txt");
+    ManejoArchivo maT("transacciones.txt");
     system("cls");
     cout << "Ingrese el numero de cuenta: ";
     cin >> numeroCuenta;
-    if (amc.buscarCuenta(numeroCuenta)._Equal("salir")) {
+    if (amC.buscarCuenta(numeroCuenta)._Equal("salir")) {
         cout << "Cuenta no existente" << endl;
         system("pause");
         return;
     }
 
-    if (am.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
+    if (maT.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
         cout << "La cuenta no ha realizado ninguna transaccion" << endl;
         system("pause");
         return;
     }
 
-    while (!am.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
-        stringConsola(am.buscarRegistro(numeroCuenta, i));
-        i++;
-        cout << endl;
+    if (num == 1) {
+        while (!maT.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
+            stringConsola(maT.buscarRegistro(numeroCuenta, i));
+            i++;
+            cout << endl;
+        }
+        system("pause");
     }
-    system("pause");
+    else {
+        f = ingresarFecha();
+        while (!maT.buscarRegistro(f, numeroCuenta, i)._Equal("salir")) {
+            stringConsola(maT.buscarRegistro(f, numeroCuenta,i));
+            i++;
+            cout << endl;
+        }
+        system("pause");
+    }
+   
 }
+
+string Transacciones::ingresarFecha() {
+    Ingreso ingreso;
+    string f;
+    cout << "Ingrese la fecha" << endl;
+    getline(cin, f);
+    while (!ingreso.leerFecha(f))
+    {
+        cout << "\nDato incorrecto, ingrese de nuevo" << endl;
+        getline(cin, f);
+    }
+    return f;
+}
+
 
 ostream& operator<<(ostream& o, Fecha& f) {
     o << "\n\tFecha" << "\t\tHora" << "\t\tMonto" << "\t\tSaldo" << "\n" << "\t" << f.getFecha() << "\t" << f.getHora();
@@ -135,7 +163,6 @@ inline void Transacciones::stringConsola(string mensaje)
         salida = "";
         salida = '-';
     }
-    //cout << "Tipo de transaccion: " << salida << endl;
     salida += valorT;
     cout << fecha;
     cout << "\t" << salida;

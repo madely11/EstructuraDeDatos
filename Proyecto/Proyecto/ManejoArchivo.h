@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <iostream>
+#include <cstdio>
 
 using namespace std;
 
@@ -15,16 +15,22 @@ private:
 
 public:
 	ManejoArchivo(string);
+	ManejoArchivo();
 	bool crearLectura();
 	bool crearEscritura();
 	void agregarLinea(string);
 	void cerrarLectura();
-	void cerrarEscritura();
+	void cerrarEscritura(); 
 	int contarLineas();
+	void actualizarRespaldo(string, int);
+	string leerArchivo(string);
+	string buscarRespaldo(string);
 	string buscarCuenta(int);
 	void actualizar(int, string);
 	string comparar(int, string);
 	string compararRegistro(int, string);
+	string compararRegistro(string, string);
 	string buscarRegistro(int, int);
+	string buscarRegistro(string, int, int);
 };
 

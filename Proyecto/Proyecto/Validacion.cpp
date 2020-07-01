@@ -100,3 +100,38 @@ bool Validacion::validarString(string entrada, int tipo) {
 	}
 	return false;
 }
+
+bool Validacion::validarFecha(string fecha) {
+
+	string dia;
+	dia += fecha.at(0);
+	dia += fecha.at(1);
+
+	string mes;
+	mes += fecha.at(3);
+	mes += fecha.at(4);
+
+	string anio;
+	anio += fecha.at(6);
+	anio += fecha.at(7);
+	anio += fecha.at(8);
+	anio += fecha.at(9);
+
+	int d = atoi(dia.c_str());
+	int m = atoi(mes.c_str());
+	int a = atoi(anio.c_str());
+
+	if ((d < 0 || d > 31)) {
+		return false;
+	}
+
+	if ((m < 0 || m > 12)) {
+		return false;
+	}
+
+	if ((a < 1920 || a > 2020)) {
+		return false;
+	}
+
+	return true;
+}

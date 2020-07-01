@@ -45,3 +45,45 @@ char* Ingreso::ingresaNumericos(const char* msg) {
 	return valor;
 }
 
+bool Ingreso::leerFecha(string fecha) {
+	char* aux;
+	Validacion validacion;
+	if (fecha.length() != 10) {
+		return false;
+	}
+	else {
+		aux = (char*)malloc(fecha.length() * sizeof(char));
+	}
+
+	for (int i = 0; i < fecha.length(); i++)
+	{
+		*(aux + i) = fecha.at(i);
+	}
+	//retorna 0 si no es numero
+	//retorna 1 si es numero
+	if (!isdigit(*(aux + 0)) || !isdigit(*(aux + 1))) {
+		return false;
+	}
+
+	if (*(aux + 2) != '/') {
+		return false;
+	}
+
+	if (!isdigit(*(aux + 3)) || !isdigit(*(aux + 4))) {
+		return false;
+	}
+
+	if (*(aux + 5) != '/') {
+		return false;
+	}
+
+	if (!isdigit(*(aux + 6)) || !isdigit(*(aux + 7)) || !isdigit(*(aux + 8)) || !isdigit(*(aux + 9))) {
+		return false;
+	}
+
+	if (!validacion.validarFecha(fecha)) {
+		return false;
+	}
+
+	return true;
+}

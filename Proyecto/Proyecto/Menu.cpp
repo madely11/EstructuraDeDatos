@@ -6,8 +6,6 @@
 #include <windows.h>
 #include <math.h>
 #include <iostream>
-#include "Cuenta.h"
-#include "Cliente.h"
 #include "Menu.h"
 
 using namespace std;
@@ -31,12 +29,14 @@ void Menu::menuTeclas()
 	string menu[] = { "Crear Cuenta              ",
 					  "Realizar Transaccion      ",
 					  "Registro de transacciones ",
-					  "Salir                     " };
+					  "Crear Respaldo            ",
+		              "Restaurar archivo         ",
+					  "Salir                     "};
 	for (;;) {
 		system("cls");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
 		cout << "                SELECCIONE UNA OPCION         " << endl;
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			if (cursor == i)
 			{
@@ -59,7 +59,7 @@ void Menu::menuTeclas()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 4)
+				if (cursor == 6)
 				{
 					cursor = 0;
 				}
@@ -70,7 +70,7 @@ void Menu::menuTeclas()
 				cursor--;
 				if (cursor == -1)
 				{
-					cursor = 3;
+					cursor = 5;
 				}
 				break;
 			}
@@ -79,24 +79,43 @@ void Menu::menuTeclas()
 				switch (cursor)
 				{
 				case 0:
-					submenu1();
+					if (true) {
+						//crar cuenta
+						submenu1();
+					}
 					break;
 				case 1:
-					submenu2();
+					if (true) {
+						//realizar transaccion
+						submenu2();
+					}
 					break;
 				case 2:
 					if (true) {
-						Transacciones t;
-						t.datosTransaccion();
-						menuTeclas();
+						//registro de transacciones
+						submenu3();
 					}
 					break;
 				case 3:
-					system("cls");
-					cout << endl << "<<<<<<<<<Gracias por usar nuestro programa>>>>>>>>>" << endl;
-					Sleep(1000);
-					exit(1);
+					if (true) {
+						//crear respaldo
+						submenu4();
+					}
 					break;
+				case 4:
+					if (true) {
+						//restaurar archivo
+						submenu5();
+					} 
+					break;
+				case 5:
+					if (true) {
+						system("cls");
+						cout << endl << "<<<<<<<<<Gracias por usar nuestro programa>>>>>>>>>" << endl;
+						Sleep(1000);
+						exit(1);
+						break;
+					}
 				}
 			}
 		}
@@ -189,10 +208,12 @@ void Menu::submenu1()
 					}
 					break;
 				case 2:
-					system("cls");
-					cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
-					Sleep(1000);
-					menuTeclas();
+					if (true) {
+						system("cls");
+						cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
+						Sleep(1000);
+						menuTeclas();
+					} 
 					break;
 				}
 			}
@@ -286,6 +307,297 @@ void Menu::submenu2()
 					}
 					break;
 				case 2:
+					if (true) {
+						system("cls");
+						cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
+						Sleep(1000);
+						menuTeclas();
+					} 
+					break;
+				}
+			}
+		}
+	}
+}
+
+void Menu::submenu3()
+{
+	int cursor = 0;
+	char tecla;
+	//int opcion;
+	int cont = 1;
+	system("cls");
+	string menu[] = { "Buscar por cuenta      ",
+					  "Buscar por fecha       ",
+					  "Cancelar               "};
+
+	for (;;) {
+		system("cls");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
+		cout << "                SELECCIONE UNA OPCION         " << endl;
+		for (int i = 0; i < 3; i++)
+		{
+			if (cursor == i)
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
+				cout << menu[i] << endl;
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+			}
+			else
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				cout << menu[i] << endl;
+			}
+		}
+
+		ocultarCursor();
+
+		for (;;)
+		{
+			tecla = _getch();
+			if (tecla == 80)
+			{
+				cursor++;
+				if (cursor == 3)
+				{
+					cursor = 0;
+				}
+				break;
+			}
+			if (tecla == 72)
+			{
+				cursor--;
+				if (cursor == -1)
+				{
+					cursor = 2;
+				}
+				break;
+			}
+			if (tecla == 13)
+			{
+				switch (cursor)
+				{
+				case 0:
+					if (true) {
+						system("cls");
+						Transacciones t;
+						t.datosTransaccion(1);
+						Sleep(1000);
+						menuTeclas();
+						//TipoCuenta tipo1(1);
+					}
+					break;
+				case 1:
+					if (true) {
+						system("cls");
+						Transacciones t;
+						t.datosTransaccion(2);
+						Sleep(1000);
+						menuTeclas();
+					}
+					break;
+				case 2:
+					if (true) {
+						system("cls");
+						cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
+						Sleep(1000);
+						menuTeclas();
+					} 
+					break;
+				}
+			}
+		}
+	}
+}
+
+void Menu::submenu4()
+{
+	int cursor = 0;
+	char tecla;
+	//int opcion;
+	int cont = 1;
+	system("cls");
+	string menu[] = { "Respaldo de clientes          ",
+					  "Respaldo de cuentas           ",
+					  "Respaldo de transacciones     ",
+					  "Sallir                        " };
+
+	for (;;) {
+		system("cls");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
+		cout << "                SELECCIONE UNA OPCION         " << endl;
+		for (int i = 0; i < 4; i++)
+		{
+			if (cursor == i)
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
+				cout << menu[i] << endl;
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+			}
+			else
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				cout << menu[i] << endl;
+			}
+		}
+
+		ocultarCursor();
+
+		for (;;)
+		{
+			tecla = _getch();
+			if (tecla == 80)
+			{
+				cursor++;
+				if (cursor == 4)
+				{
+					cursor = 0;
+				}
+				break;
+			}
+			if (tecla == 72)
+			{
+				cursor--;
+				if (cursor == -1)
+				{
+					cursor = 3;
+				}
+				break;
+			}
+			if (tecla == 13)
+			{
+				switch (cursor)
+				{
+				case 0:
+					if (true) {
+						system("cls");
+						Respaldo archivo("cliente.txt");
+						archivo.crearRespaldo();
+						system("pause");
+						menuTeclas();
+					}
+					break;
+				case 1:
+					if (true) {
+						system("cls");
+						Respaldo archivo("cuenta.txt");
+						archivo.crearRespaldo();
+						system("pause");
+						menuTeclas();
+					}
+					break;
+				case 2:
+					if (true) {
+						system("cls");
+						Respaldo archivo("transacciones.txt");
+						archivo.crearRespaldo();
+						system("pause");
+						menuTeclas();
+					}
+					break;
+				case 3:
+					if (true) {
+						system("cls");
+						cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
+						Sleep(1000);
+						menuTeclas();
+					}
+					break;
+				}
+			}
+
+		}
+	}
+}
+
+void Menu::submenu5()
+{
+	int cursor = 0;
+	char tecla;
+	//int opcion;
+	int cont = 1;
+	system("cls");
+	string menu[] = { "Restaurar archivo de clientes          ",
+					  "Restaurar archivo de cuentas           ",
+					  "Restaurar archivo de transacciones     ",
+					  "Salir                                  "};
+
+	for (;;) {
+		system("cls");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
+		cout << "                SELECCIONE UNA OPCION         " << endl;
+		for (int i = 0; i < 4; i++)
+		{
+			if (cursor == i)
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
+				cout << menu[i] << endl;
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+			}
+			else
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				cout << menu[i] << endl;
+			}
+		}
+
+		ocultarCursor();
+
+		for (;;)
+		{
+			tecla = _getch();
+			if (tecla == 80)
+			{
+				cursor++;
+				if (cursor == 4)
+				{
+					cursor = 0;
+				}
+				break;
+			}
+			if (tecla == 72)
+			{
+				cursor--;
+				if (cursor == -1)
+				{
+					cursor = 3;
+				}
+				break;
+			}
+			if (tecla == 13)
+			{
+				switch (cursor)
+				{
+				case 0:
+					if (true) {
+						system("cls");
+						Respaldo respaldo("respaldoClientes.txt");
+						respaldo.obtenerNombreRespaldo(1);
+						system("pause");
+						menuTeclas();
+
+						//TipoCuenta tipo1(1);
+					}
+					break;
+				case 1:
+					if (true) {
+						system("cls");
+						Respaldo respaldo("respaldoCuentas.txt");
+						respaldo.obtenerNombreRespaldo(2);
+						system("pause");
+						menuTeclas();
+					}
+					break;
+				case 2:
+					if (true) {
+						system("cls");
+						Respaldo respaldo("respaldoTransacciones.txt");
+						respaldo.obtenerNombreRespaldo(3);
+						system("pause");
+						menuTeclas();
+					}
+					break;
+				case 3:
 					system("cls");
 					cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
 					Sleep(1000);
@@ -293,6 +605,7 @@ void Menu::submenu2()
 					break;
 				}
 			}
+
 		}
 	}
 }
