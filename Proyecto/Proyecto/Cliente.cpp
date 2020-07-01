@@ -11,8 +11,16 @@ void Cliente::pedirDatos(int num) {
     while (!validar.cedula(cedula)) {
         cedula.assign(ingreso.ingresaNumericos("\nIngrese la cedula del titular:"), 10);
     }
-    email = ingreso.leerString("\nIngrese el email del titular : ", 1);
-    direccion = ingreso.leerString("Ingrese la direccion del titular : ", 1);
+    cout << "\nIngrese el email del titular: "<<endl;
+    getline(cin,email);
+    while (validar.validarEmail(email)) {
+        cout << "Reingrese el email del titular: "<<endl;
+        getline(cin, email);
+    }
+
+    cout<<"Ingrese la direccion del titular : "<<endl;
+    getline(cin, direccion);
+
     cuenta = new Cuenta(num, cedula);
     hacerString();
     ManejoArchivo archivoM("cliente.txt");

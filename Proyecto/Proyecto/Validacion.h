@@ -10,5 +10,6 @@ public:
 	bool validar(string, int);
 	bool validarString(string, int);
 	bool validarFecha(string);
+	bool validarEmail(string);
 };
 

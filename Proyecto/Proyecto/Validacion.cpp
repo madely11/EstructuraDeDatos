@@ -80,6 +80,9 @@ bool Validacion::validar(string entrada, int tipo) {
 bool Validacion::validarString(string entrada, int tipo) {
 	int contador = 0;
 	try {
+		if (entrada.length() == 0) {
+			throw 1;
+		 }
 		for (int i = 0; i < entrada.length(); i++) {
 			if (isdigit(entrada[i])) {
 				throw 1;
@@ -134,4 +137,39 @@ bool Validacion::validarFecha(string fecha) {
 	}
 
 	return true;
+}
+
+bool Validacion::validarEmail(string entrada)
+{
+	try {
+		int cont=0;
+		int cont2=0;
+		if (entrada.length() == 0) {
+			throw 1;
+		}
+		for (int i = 0; i < entrada.length();i++){
+			if (entrada[i] == '@') {
+				cont++;
+			}
+			if (cont == 1 && entrada[i] == '.') {
+				cont2++;
+			}
+			if (cont == 1 && entrada[i]!='.' && isdigit(entrada[i])) {
+				throw 1;
+			}
+
+			if (cont > 1 || cont > 2) {
+				throw 1;
+			}
+
+		}
+		if (cont == 0||cont2<1) {
+			throw 1;
+		}
+		
+	}
+	catch (int e) {
+		return true;
+	}
+	return false;
 }
