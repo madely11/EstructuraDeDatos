@@ -82,6 +82,10 @@ bool Validacion::cedula(string cedula) {
 bool Validacion::validar(string entrada, int tipo) {
 	int contador = 0;
 	try {
+		if (entrada.length() == 0) {
+			throw 1;
+		}
+
 		for (int i = 0; i < entrada.length(); i++) {
 			if (isalpha(entrada[i])) {
 				throw 1;

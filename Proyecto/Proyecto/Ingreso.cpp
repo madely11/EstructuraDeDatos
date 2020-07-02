@@ -8,7 +8,7 @@ string Ingreso::leer(string mensage, int tipo) {
 	cout << mensage << endl;
 	getline(cin, entrada);
 	while (validacion.validar(entrada, tipo)) {
-		cout << "Valor no valido reingrese" << endl;
+		cout << "Entrada no valida, reingrese: " << endl;
 		getline(cin, entrada);
 	}
 	return entrada;
@@ -21,7 +21,7 @@ string Ingreso::leerString(string mensage, int tipo) {
 	cout << mensage << endl;
 	getline(cin, entrada);
 	while (validacion.validarString(entrada, tipo)) {
-		cout << "Ingrese solo letras reingrese:" << endl;
+		cout << "Entrada no valida, reingrese: " << endl;
 		getline(cin, entrada);
 	}
 	return entrada;

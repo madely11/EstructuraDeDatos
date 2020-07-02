@@ -10,9 +10,9 @@ class Cuenta
 {
 public:
     int getNumc(void);
-    double getMonto(void);
+    float getMonto(void);
     void setNumc(int);
-    void setMonto(int);
+    void setMonto(float);
     bool verificarCuenta(int);
 
     void hacerString();
@@ -23,7 +23,7 @@ public:
     Transacciones t;
 protected:
 private:
-    int monto;
+    float monto;
     int numeroCuenta;
     string idCliente;
     string dato;
