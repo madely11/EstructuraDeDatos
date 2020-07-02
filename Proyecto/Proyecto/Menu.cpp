@@ -325,15 +325,12 @@ void Menu::submenu2()
 				case 0:
 					if (true) {
 						system("cls");
-
 						Cuenta cuenta;
 						if (!cuenta.verificarCuenta(1)) {
 							menuTeclas();
 						}
 						Sleep(1000);
 						menuTeclas();
-
-						//TipoCuenta tipo1(1);
 					}
 					break;
 				case 1:
@@ -345,8 +342,6 @@ void Menu::submenu2()
 						}
 						Sleep(1000);
 						menuTeclas();
-
-						//TipoCuenta tipo1(1);
 					}
 					break;
 				case 2:
