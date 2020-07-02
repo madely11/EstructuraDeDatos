@@ -31,7 +31,6 @@ Cuenta::Cuenta(int num, string id) {
     this->numeroCuenta = archivoM.contarLineas();
     this->monto = 5;
     hacerString();
-    cout << dato << endl;
     ManejoArchivo a("cuenta.txt");
     a.agregarLinea(dato);
 }

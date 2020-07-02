@@ -30,8 +30,8 @@ using namespace std;
 */
 
 void Cliente::pedirDatos(int num) {
-    nombre = ingreso.leerString("Ingrese el nombre del titular : ", 1);
-    cedula = cedula.assign(ingreso.ingresaNumericos("Ingrese la cedula del titular:"), 10);
+    nombre = ingreso.leerString("\nIngrese el nombre del titular : ", 1);
+    cedula = cedula.assign(ingreso.ingresaNumericos("\nIngrese la cedula del titular:"), 10);
     while (!validar.cedula(cedula)) {
         cedula.assign(ingreso.ingresaNumericos("\nIngrese la cedula del titular:"), 10);
     }
@@ -42,7 +42,7 @@ void Cliente::pedirDatos(int num) {
         getline(cin, email);
     }
 
-    cout<<"Ingrese la direccion del titular : "<<endl;
+    cout<<"\nIngrese la direccion del titular : "<<endl;
     getline(cin, direccion);
 
     cuenta = new Cuenta(num, cedula);

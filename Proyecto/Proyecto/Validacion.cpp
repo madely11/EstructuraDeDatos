@@ -198,6 +198,9 @@ bool Validacion::validarEmail(string entrada)
 			if (entrada[i] == '@') {
 				cont++;
 			}
+			if (entrada[i] == '@' && i == 0) {
+				throw 1;
+			}
 			if (cont == 1 && entrada[i] == '.') {
 				cont2++;
 			}

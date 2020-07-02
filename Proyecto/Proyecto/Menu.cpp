@@ -26,7 +26,7 @@
 #include <math.h>
 #include <iostream>
 #include "Menu.h"
-#include "Imagen.h"
+
 using namespace std;
 /**
 	@brief Funcion para oculta Cursor en la consola
@@ -59,13 +59,12 @@ void Menu::menuTeclas()
 					  "Crear Respaldo            ",
 		              "Restaurar archivo         ",
 					  "Generar PDF               ",
-					  "Mostrar Imagen            ",
 					  "Salir                     "};
 	for (;;) {
 		system("cls");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
 		cout << "                SELECCIONE UNA OPCION         " << endl;
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 7; i++)
 		{
 			if (cursor == i)
 			{
@@ -88,7 +87,7 @@ void Menu::menuTeclas()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 8)
+				if (cursor == 7)
 				{
 					cursor = 0;
 				}
@@ -99,7 +98,7 @@ void Menu::menuTeclas()
 				cursor--;
 				if (cursor == -1)
 				{
-					cursor = 7;
+					cursor = 6;
 				}
 				break;
 			}
@@ -177,21 +176,6 @@ void Menu::menuTeclas()
 					}
 					break;
 				case 6:
-					//generar imagen
-					if (true) {
-						system("cls");
-						/*hConWnd = GetConsoleWndHandle();
-						if (hConWnd)
-						{
-							BCX_Bitmap("logo.bmp ", hConWnd, 123, 1, 1, 0, 0);
-							Sleep(3000);
-							system("pause");
-						}*/
-						Sleep(3000);
-						menuTeclas();
-					}
-					break;
-				case 7:
 					if (true) {
 						system("cls");
 						cout << endl << "\n\t\t\t\t\t\t\t\t Gracias!" << endl;
@@ -271,15 +255,14 @@ void Menu::submenu1()
 					if (true) {
 						system("cls");
 						Cliente cliente;
-						cliente.pedirDatos(1);
+						cliente.pedirDatos(1);				
+						system("cls");
 						cout << endl << "\n\t\t\t\t\Cuenta creada exitosamente!" << endl;
 						cout << cliente.stringConsola();
 						cout << endl;
 						Sleep(3000);
 						system("pause");
 						menuTeclas();
-
-						//TipoCuenta tipo1(1);
 					}
 					break;
 				case 1:
@@ -287,6 +270,7 @@ void Menu::submenu1()
 						system("cls");
 						Cliente cliente;
 						cliente.pedirDatos(2);
+						system("cls");
 						cout << endl << "\n\t\t\t\t\Cuenta creada exitosamente!" << endl;
 						cout << cliente.stringConsola();
 						cout << endl;
@@ -319,7 +303,6 @@ void Menu::submenu2()
 {
 	int cursor = 0;
 	char tecla;
-	//int opcion;
 	int cont = 1;
 	system("cls");
 	string menu[] = { "Deposito      ",
@@ -416,7 +399,6 @@ void Menu::submenu3()
 {
 	int cursor = 0;
 	char tecla;
-	//int opcion;
 	int cont = 1;
 	system("cls");
 	string menu[] = { "Buscar por cuenta      ",

@@ -123,7 +123,6 @@ int ManejoArchivo::contarLineas()
 		getline(archivoLectura, texto);
 		cuentaLinea++;
 	}
-	cout << " Lineas: " << cuentaLinea << endl;
 	cerrarLectura();
 	return cuentaLinea;
 }
