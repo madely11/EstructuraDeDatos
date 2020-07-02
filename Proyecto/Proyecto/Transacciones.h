@@ -18,14 +18,15 @@
 */
 #pragma once
 #include "Fecha.h"
-template<class T>
+
+
 class Transacciones
 {
 public:
     void datosTransaccion(int);
     void generarPdf();
-    T depositar(T, int);
-    T retirar(T, int);
+    float depositar(float, int);
+    float retirar(float, int);
     void stringConsola(string);
     string stringConsola(string, int);
     void guardarTransaccion(int, float, int);

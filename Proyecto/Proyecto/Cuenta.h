@@ -38,7 +38,7 @@ public:
     Cuenta();
     Cuenta(int, string);
     TipoCuenta* tipo;
-    Transacciones<float> t;
+    Transacciones t;
 protected:
 private:
     float monto;

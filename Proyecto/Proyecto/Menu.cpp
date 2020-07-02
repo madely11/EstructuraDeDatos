@@ -169,7 +169,7 @@ void Menu::menuTeclas()
 					if (true) {
 						remove("documentoPDF.pdf");
 						system("cls");
-						Transacciones<float> t;
+						Transacciones t;
 						t.generarPdf();
 						cout << endl << "\n\t\t\t\t\t\t\t\t Documento PDF creado exitosamente!" << endl;
 						Sleep(3000);
@@ -472,7 +472,7 @@ void Menu::submenu3()
 				case 0:
 					if (true) {
 						system("cls");
-						Transacciones<float> t;
+						Transacciones t;
 						t.datosTransaccion(1);
 						Sleep(3000);
 						menuTeclas();
@@ -481,7 +481,7 @@ void Menu::submenu3()
 				case 1:
 					if (true) {
 						system("cls");
-						Transacciones<float> t;
+						Transacciones t;
 						t.datosTransaccion(2);
 						Sleep(3000);
 						menuTeclas();

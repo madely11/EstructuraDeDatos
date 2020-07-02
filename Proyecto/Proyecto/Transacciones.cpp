@@ -27,8 +27,10 @@ using namespace std;
     @param monto tipo float, numCuenta tipo int
     @returns float monto de la cuenta
 */
-template<class T>
-T Transacciones<T>::depositar(T monto, int numCuenta) {
+
+
+
+float Transacciones::depositar(float monto, int numCuenta) {
     float deposito;
     string valorDeposito;
     Ingreso ingreso;
@@ -54,8 +56,8 @@ T Transacciones<T>::depositar(T monto, int numCuenta) {
     @param monto tipo float, numCuenta tipo int
     @returns float monto de la cuenta
 */
-template<class T>
-T Transacciones<T>::retirar(T monto, int numCuenta) {
+
+float Transacciones::retirar(float monto, int numCuenta) {
     float retiro;
     string valorRetiro;
     Ingreso ingreso;
@@ -87,8 +89,8 @@ T Transacciones<T>::retirar(T monto, int numCuenta) {
     @param numCuenta tipo int, monto tipo float, numCuenta tipo int, ingreso tipo int
     @returns void
 */
-template<class T>
-void Transacciones<T>::guardarTransaccion(int numeroCuenta, float monto, int ingreso)
+
+void Transacciones::guardarTransaccion(int numeroCuenta, float monto, int ingreso)
 {
     ManejoArchivo am("transacciones.txt");
     dato = to_string(numeroCuenta) + "," + tipoTransaccion + "," + to_string(ingreso) + "," +
@@ -102,8 +104,8 @@ void Transacciones<T>::guardarTransaccion(int numeroCuenta, float monto, int ing
     @param num tipo int
     @returns void
 */
-template<class T>
-void Transacciones<T>::datosTransaccion(int num)
+
+void Transacciones::datosTransaccion(int num)
 {
     string f;
     int numeroCuenta;
@@ -153,8 +155,7 @@ void Transacciones<T>::datosTransaccion(int num)
     @param void
     @returns fecha tipo string
 */
-template<class T>
-string Transacciones<T>::ingresarFecha() {
+string Transacciones::ingresarFecha() {
     Ingreso ingreso;
     string f;
     cout << "Ingrese la fecha" << endl;
@@ -180,8 +181,8 @@ ostream& operator<<(ostream& o, Fecha& f) {
     @param Entrada mensaje tipo string
     @returns void
 */
-template<class T>
-void Transacciones<T>::stringConsola(string mensaje)
+
+void Transacciones::stringConsola(string mensaje)
 {
     Fecha fecha;
     int i = 0;
@@ -236,8 +237,8 @@ void Transacciones<T>::stringConsola(string mensaje)
     cout << "\t\t" << saldo;
     cout << endl;
 }
-template<class T>
-string Transacciones<T>::stringConsola(string mensaje, int num) {
+
+string Transacciones::stringConsola(string mensaje, int num) {
     Fecha fecha;
     int i = 0;
     string salida = "";
@@ -290,8 +291,7 @@ string Transacciones<T>::stringConsola(string mensaje, int num) {
     dato = "\n" + fecha.getFecha() + "\t\t" + fecha.getHora() + "\t\t" + salida + "\t\t" + saldo;
     return dato;
 }
-template<class T>
-void Transacciones<T>::generarPdf() {
+void Transacciones::generarPdf() {
     string f;
     int numeroCuenta;
     int i = 1;
