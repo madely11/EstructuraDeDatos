@@ -5,8 +5,8 @@ class Transacciones
 {
 public:
     void datosTransaccion(int);
-    int depositar(int, int);
-    int retirar(int, int);
+    float depositar(float, int);
+    float retirar(float, int);
     void stringConsola(string);
     void guardarTransaccion(int, int, int);
     string ingresarFecha();

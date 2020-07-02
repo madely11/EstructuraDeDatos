@@ -1,4 +1,5 @@
 #include "Cuenta.h"
+#include "Ingreso.h"
 
 Cuenta::Cuenta(int num, string id) {
     tipo = new TipoCuenta(num);
@@ -21,10 +22,11 @@ Cuenta::Cuenta() {
 
 bool Cuenta::verificarCuenta(int num) {
     int id;
-    string mensaje;
+    Ingreso ingreso;
+    string mensaje, cuenta;
     ManejoArchivo archivoM("cuenta.txt");
-    cout << "Ingrese el numero de cuenta: " << endl;
-    cin >> id;
+    cuenta = ingreso.leer("Ingrese el numero de cuenta: ", 1);
+    id = atoi(cuenta.c_str());
     mensaje = archivoM.buscarCuenta(id);
     if (mensaje._Equal("salir")) {
         cout << "Cuenta no existente" << endl;
@@ -87,7 +89,7 @@ int Cuenta::getNumc(void)
     return numeroCuenta;
 }
 
-double Cuenta::getMonto(void)
+float Cuenta::getMonto(void)
 {
     return monto;
 }
@@ -98,7 +100,7 @@ void Cuenta::setNumc(int numC)
 
 }
 
-void Cuenta::setMonto(int monto)
+void Cuenta::setMonto(float monto)
 {
     this->monto = monto;
 }

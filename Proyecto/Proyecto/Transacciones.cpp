@@ -5,12 +5,12 @@
 
 using namespace std;
 
-int Transacciones::depositar(int monto, int numCuenta) {
-    int deposito;
-    cout << "Ingrese la cantidad de dinero a depositar: " << endl;
-    cin >> deposito;
-    cin.clear();
-    cin.sync();
+float Transacciones::depositar(float monto, int numCuenta) {
+    float deposito;
+    string valorDeposito;
+    Ingreso ingreso;
+    valorDeposito = ingreso.leer("Ingrese la cantidad de dinero a depositar: ", 2);
+    deposito = atoi(valorDeposito.c_str());
     while (deposito < 0) {
         cout << "Monto invalido. Ingrese de nuevo:" << endl;
         cin >> deposito;
@@ -26,12 +26,12 @@ int Transacciones::depositar(int monto, int numCuenta) {
     return monto;
 }
 
-int Transacciones::retirar(int monto, int numCuenta) {
-    int retiro;
-    cout << "Ingrese la cantidad de dinero a retirar: " << endl;
-    cin >> retiro;
-    cin.clear();
-    cin.sync();
+float Transacciones::retirar(float monto, int numCuenta) {
+    float retiro;
+    string valorRetiro;
+    Ingreso ingreso;
+    valorRetiro= ingreso.leer("Ingrese la cantidad de dinero a retirar: ", 2);
+    retiro = atoi(valorRetiro.c_str());
     while (retiro < 0) {//aqui hacer validacion
         cout << "Monto invalido. Ingrese de nuevo:" << endl;
         cin >> retiro;
@@ -66,15 +66,13 @@ void Transacciones::datosTransaccion(int num)
     string f;
     int numeroCuenta;
     int i = 1;
+    string numCuenta;
+    Ingreso ingreso;
     ManejoArchivo amC("cuenta.txt");
     ManejoArchivo maT("transacciones.txt");
     system("cls");
-    cin.clear();
-    cin.sync();
-    cout << "Ingrese el numero de cuenta: ";
-    cin >> numeroCuenta;
-    cin.clear();
-    cin.sync();
+    numCuenta = ingreso.leer("Ingrese el numero de cuenta: ", 1);
+    numeroCuenta = atoi(numCuenta.c_str());
     if (amC.buscarCuenta(numeroCuenta)._Equal("salir")) {
         cout << "Cuenta no existente" << endl;
         system("pause");
