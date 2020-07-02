@@ -75,10 +75,10 @@ int ManejoArchivo::contarLineas()
 	return cuentaLinea;
 }
 
-string ManejoArchivo::leerArchivo(string archivo) {
-	string texto, linea;
-	nombreArchivo = archivo;
-
+string ManejoArchivo::leerArchivo() {
+	string texto ;
+	string linea;
+	int i = 0;
 	if (!crearLectura()) {
 		texto = "salir";
 		return texto;
@@ -86,47 +86,91 @@ string ManejoArchivo::leerArchivo(string archivo) {
 	while (!archivoLectura.eof())
 	{
 		getline(archivoLectura, linea);
-		texto += linea;
-		texto += "\n";
+		while (i < linea.length() && linea.at(i) != ',') {
+			texto += linea.at(i);
+			i++;
+		}
+		i = 0;
+		texto += "\n\t";
 	}
 	cerrarLectura();
 	return texto;
 }
 
-string ManejoArchivo::buscarRespaldo(string nombreRespaldo) {
+string ManejoArchivo::buscarRespaldo(string ingresado) {
 	crearLectura();
 	string linea;
+	string dato;
 	string texto = "salir";
+	int i;
 	while (!archivoLectura.eof())
 	{
+		i = 0;
+		dato = "";
 		getline(archivoLectura, linea);
-		if (linea._Equal(nombreRespaldo)) {
-			texto = "";
-			texto += linea;
+		while (i < linea.length() && linea.at(i) != ',') {
+			dato += linea.at(i);
+			i++;
+		}
+		if (dato._Equal(ingresado)) {
+			dato += ",";
+			i++;
+			while (i < linea.length() && linea.at(i) != ',') {
+				dato += linea.at(i);
+				i++;
+			}
+			dato += ",";
+			i++;
+			while (i < linea.length() && linea.at(i) != ',') {
+				dato += linea.at(i);
+				i++;
+			}
+			dato += ",";
+			i++;
+			while (i < linea.length() && linea.at(i) != ',') {
+				dato += linea.at(i);
+				i++;
+			}
 			cerrarLectura();
-			return texto;
+			return dato;
 		}
 	}
 	cerrarLectura();
 	return texto;
-
 }
 
-void ManejoArchivo::actualizarRespaldo(string respaldo, int idRespaldo) {
-	if (idRespaldo == 1) {
-		remove("cliente.txt");
-		rename(respaldo.c_str(), "cliente.txt");
+void ManejoArchivo::actualizarRespaldo(string linea) {
+	crearLectura();
+	string rCuenta, rCliente, rTransacciones;
+	int i=0;
+
+	while (i < linea.length() && linea.at(i) != ',') {
+		i++;
+	}
+	i++;
+	while (i < linea.length() && linea.at(i) != ',') {
+		rCliente += linea.at(i);
+		i++;
+	}
+	i++;
+	while (i < linea.length() && linea.at(i) != ',') {
+		rCuenta += linea.at(i);
+		i++;
+	}
+	i++;
+	while (i < linea.length() && linea.at(i) != ',') {
+		rTransacciones += linea.at(i);
+		i++;
 	}
 
-	if (idRespaldo == 2) {
-		remove("cuenta.txt");
-		rename(respaldo.c_str(), "cuenta.txt");
-	}
+	remove("cliente.txt");
+	rename(rCliente.c_str(), "cliente.txt");
 
-	if (idRespaldo == 1) {
-		remove("Transacciones.txt");
-		rename(respaldo.c_str(), "Transacciones.txt");
-	}
+	remove("cuenta.txt");
+	rename(rCuenta.c_str(), "cuenta.txt");
+
+	remove("Transacciones.txt");
+	rename(rTransacciones.c_str(), "Transacciones.txt");
 	
 }
 

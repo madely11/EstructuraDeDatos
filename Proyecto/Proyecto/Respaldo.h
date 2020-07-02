@@ -14,10 +14,11 @@ public:
 	
 public:
 	Respaldo(string);
+	Respaldo();
 	string nombreRespaldo();
-	void crearRespaldo();
-	void obtenerNombreRespaldo(int);
-	void ingresarRespaldo(int);
-	void guardarRespaldo(string, string);
+	string crearRespaldo();
+	void imprimirNombreRespaldo();
+	void ingresarRespaldo();
+	void guardarRespaldo(string);
 };
 

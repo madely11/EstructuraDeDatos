@@ -98,21 +98,46 @@ void Menu::menuTeclas()
 					break;
 				case 3:
 					if (true) {
-						//crear respaldo
-						submenu4();
+						system("cls");
+						cout << "\n\t\t\t\t Creando respaldo..." << endl;
+						Sleep(2000);
+						string linea;
+						Respaldo archivo("respaldo.txt");
+						linea+=archivo.nombreRespaldo();
+						linea += ",";
+						archivo.nombreArchivo = "cliente.txt";
+						linea+=archivo.crearRespaldo();
+						linea += ",";
+						archivo.nombreArchivo = "cuenta.txt";
+						linea+=archivo.crearRespaldo();
+						linea += ",";
+						archivo.nombreArchivo = "transacciones.txt";
+						linea+=archivo.crearRespaldo();
+						archivo.guardarRespaldo(linea);
+						system("cls");
+						cout << "\n\t\t\t\tRespaldo creado exitosamente!" << endl;
+						Sleep(2000);
+						menuTeclas();
 					}
 					break;
 				case 4:
 					if (true) {
-						//restaurar archivo
-						submenu5();
+						system("cls");
+						cout << "\t\n" << "Respaldos: " << endl << endl;
+						Respaldo respaldo("respaldos.txt");
+						respaldo.imprimirNombreRespaldo();
+						respaldo.ingresarRespaldo();
+						system("cls");
+						cout << "\n\t\t\t\t Documentos restaurados exitosamente!" << endl;
+						Sleep(2000);
+						menuTeclas();
 					} 
 					break;
 				case 5:
 					if (true) {
 						system("cls");
 						cout << endl << "<<<<<<<<<Gracias por usar nuestro programa>>>>>>>>>" << endl;
-						Sleep(1000);
+						Sleep(2000);
 						exit(1);
 						break;
 					}
@@ -410,202 +435,199 @@ void Menu::submenu3()
 	}
 }
 
-void Menu::submenu4()
-{
-	int cursor = 0;
-	char tecla;
-	//int opcion;
-	int cont = 1;
-	system("cls");
-	string menu[] = { "Respaldo de clientes          ",
-					  "Respaldo de cuentas           ",
-					  "Respaldo de transacciones     ",
-					  "Sallir                        " };
+//void Menu::submenu4()
+//{
+//	int cursor = 0;
+//	char tecla;
+//	//int opcion;
+//	int cont = 1;
+//	system("cls");
+//	string menu[] = { "Respaldo de clientes          ",
+//					  "Respaldo de cuentas           ",
+//					  "Respaldo de transacciones     ",
+//					  "Sallir                        " };
+//
+//	for (;;) {
+//		system("cls");
+//		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
+//		cout << "                SELECCIONE UNA OPCION         " << endl;
+//		for (int i = 0; i < 4; i++)
+//		{
+//			if (cursor == i)
+//			{
+//				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
+//				cout << menu[i] << endl;
+//				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+//			}
+//			else
+//			{
+//				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+//				cout << menu[i] << endl;
+//			}
+//		}
+//
+//		ocultarCursor();
+//
+//		for (;;)
+//		{
+//			tecla = _getch();
+//			if (tecla == 80)
+//			{
+//				cursor++;
+//				if (cursor == 4)
+//				{
+//					cursor = 0;
+//				}
+//				break;
+//			}
+//			if (tecla == 72)
+//			{
+//				cursor--;
+//				if (cursor == -1)
+//				{
+//					cursor = 3;
+//				}
+//				break;
+//			}
+//			if (tecla == 13)
+//			{
+//				switch (cursor)
+//				{
+//				case 0:
+//					if (true) {
+//						system("cls");
+//						
+//						system("pause");
+//						menuTeclas();
+//					}
+//					break;
+//				case 1:
+//					if (true) {
+//						system("cls");
+//						
+//						system("pause");
+//						menuTeclas();
+//					}
+//					break;
+//				case 2:
+//					if (true) {
+//						system("cls");
+//						
+//						system("pause");
+//						menuTeclas();
+//					}
+//					break;
+//				case 3:
+//					if (true) {
+//						system("cls");
+//						cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
+//						Sleep(1000);
+//						menuTeclas();
+//					}
+//					break;
+//				}
+//			}
+//
+//		}
+//	}
+//}
 
-	for (;;) {
-		system("cls");
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
-		cout << "                SELECCIONE UNA OPCION         " << endl;
-		for (int i = 0; i < 4; i++)
-		{
-			if (cursor == i)
-			{
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
-				cout << menu[i] << endl;
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-			}
-			else
-			{
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-				cout << menu[i] << endl;
-			}
-		}
-
-		ocultarCursor();
-
-		for (;;)
-		{
-			tecla = _getch();
-			if (tecla == 80)
-			{
-				cursor++;
-				if (cursor == 4)
-				{
-					cursor = 0;
-				}
-				break;
-			}
-			if (tecla == 72)
-			{
-				cursor--;
-				if (cursor == -1)
-				{
-					cursor = 3;
-				}
-				break;
-			}
-			if (tecla == 13)
-			{
-				switch (cursor)
-				{
-				case 0:
-					if (true) {
-						system("cls");
-						Respaldo archivo("cliente.txt");
-						archivo.crearRespaldo();
-						system("pause");
-						menuTeclas();
-					}
-					break;
-				case 1:
-					if (true) {
-						system("cls");
-						Respaldo archivo("cuenta.txt");
-						archivo.crearRespaldo();
-						system("pause");
-						menuTeclas();
-					}
-					break;
-				case 2:
-					if (true) {
-						system("cls");
-						Respaldo archivo("transacciones.txt");
-						archivo.crearRespaldo();
-						system("pause");
-						menuTeclas();
-					}
-					break;
-				case 3:
-					if (true) {
-						system("cls");
-						cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
-						Sleep(1000);
-						menuTeclas();
-					}
-					break;
-				}
-			}
-
-		}
-	}
-}
-
-void Menu::submenu5()
-{
-	int cursor = 0;
-	char tecla;
-	//int opcion;
-	int cont = 1;
-	system("cls");
-	string menu[] = { "Restaurar archivo de clientes          ",
-					  "Restaurar archivo de cuentas           ",
-					  "Restaurar archivo de transacciones     ",
-					  "Salir                                  "};
-
-	for (;;) {
-		system("cls");
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
-		cout << "                SELECCIONE UNA OPCION         " << endl;
-		for (int i = 0; i < 4; i++)
-		{
-			if (cursor == i)
-			{
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
-				cout << menu[i] << endl;
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-			}
-			else
-			{
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-				cout << menu[i] << endl;
-			}
-		}
-
-		ocultarCursor();
-
-		for (;;)
-		{
-			tecla = _getch();
-			if (tecla == 80)
-			{
-				cursor++;
-				if (cursor == 4)
-				{
-					cursor = 0;
-				}
-				break;
-			}
-			if (tecla == 72)
-			{
-				cursor--;
-				if (cursor == -1)
-				{
-					cursor = 3;
-				}
-				break;
-			}
-			if (tecla == 13)
-			{
-				switch (cursor)
-				{
-				case 0:
-					if (true) {
-						system("cls");
-						Respaldo respaldo("respaldoClientes.txt");
-						respaldo.obtenerNombreRespaldo(1);
-						system("pause");
-						menuTeclas();
-
-						//TipoCuenta tipo1(1);
-					}
-					break;
-				case 1:
-					if (true) {
-						system("cls");
-						Respaldo respaldo("respaldoCuentas.txt");
-						respaldo.obtenerNombreRespaldo(2);
-						system("pause");
-						menuTeclas();
-					}
-					break;
-				case 2:
-					if (true) {
-						system("cls");
-						Respaldo respaldo("respaldoTransacciones.txt");
-						respaldo.obtenerNombreRespaldo(3);
-						system("pause");
-						menuTeclas();
-					}
-					break;
-				case 3:
-					system("cls");
-					cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
-					Sleep(1000);
-					menuTeclas();
-					break;
-				}
-			}
-
-		}
-	}
-}
+//void Menu::submenu5()
+//{
+//	int cursor = 0;
+//	char tecla;
+//	//int opcion;
+//	int cont = 1;
+//	system("cls");
+//	string menu[] = { "Restaurar archivo de clientes          ",
+//					  "Restaurar archivo de cuentas           ",
+//					  "Restaurar archivo de transacciones     ",
+//					  "Salir                                  "};
+//
+//	for (;;) {
+//		system("cls");
+//		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
+//		cout << "                SELECCIONE UNA OPCION         " << endl;
+//		for (int i = 0; i < 4; i++)
+//		{
+//			if (cursor == i)
+//			{
+//				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
+//				cout << menu[i] << endl;
+//				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+//			}
+//			else
+//			{
+//				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+//				cout << menu[i] << endl;
+//			}
+//		}
+//
+//		ocultarCursor();
+//
+//		for (;;)
+//		{
+//			tecla = _getch();
+//			if (tecla == 80)
+//			{
+//				cursor++;
+//				if (cursor == 4)
+//				{
+//					cursor = 0;
+//				}
+//				break;
+//			}
+//			if (tecla == 72)
+//			{
+//				cursor--;
+//				if (cursor == -1)
+//				{
+//					cursor = 3;
+//				}
+//				break;
+//			}
+//			if (tecla == 13)
+//			{
+//				switch (cursor)
+//				{
+//				case 0:
+//					if (true) {
+//						system("cls");
+//						Respaldo respaldo("respaldoClientes.txt");
+//						respaldo.obtenerNombreRespaldo(1);
+//						system("pause");
+//						menuTeclas();
+//
+//						//TipoCuenta tipo1(1);
+//					}
+//					break;
+//				case 1:
+//					if (true) {
+//						system("cls");
+//						Respaldo respaldo("respaldoCuentas.txt");
+//						respaldo.obtenerNombreRespaldo(2);
+//						system("pause");
+//						menuTeclas();
+//					}
+//					break;
+//				case 2:
+//					if (true) {
+//						system("cls");
+//						Respaldo respaldo("respaldoTransacciones.txt");
+//						respaldo.obtenerNombreRespaldo(3);
+//						system("pause");
+//						menuTeclas();
+//					}
+//					break;
+//				case 3:
+//					system("cls");
+//					cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
+//					Sleep(1000);
+//					menuTeclas();
+//					break;
+//				}
+//			}
+//
+//		}
+//	}
+//}

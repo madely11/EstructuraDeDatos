@@ -4,10 +4,13 @@ Respaldo::Respaldo(string nombre) {
 	nombreArchivo = nombre;
 }
 
+Respaldo::Respaldo() {
+	nombreArchivo = "";
+}
+
 string Respaldo::nombreRespaldo() {
 	string respaldo = "";
 	int i = 0;
-
 	while (i < nombreArchivo.length() && nombreArchivo.at(i) != '.') {
 		respaldo += nombreArchivo.at(i);
 		i++;
@@ -18,7 +21,7 @@ string Respaldo::nombreRespaldo() {
 	return respaldo;
 }
 
-void Respaldo::crearRespaldo() {
+string Respaldo::crearRespaldo() {
 	string respaldo;
 	int i = 0;
 	respaldo = nombreRespaldo();
@@ -37,52 +40,38 @@ void Respaldo::crearRespaldo() {
 	}
 	aR.close();
 	a.close();
-	guardarRespaldo(nombreArchivo, respaldo);
+	return respaldo;
 }
 
-void Respaldo::guardarRespaldo(string tipoArchivo, string respaldo) {
-	if (tipoArchivo._Equal("cliente.txt")) {
-		ManejoArchivo archivo("respaldoClientes.txt");
-		archivo.agregarLinea(respaldo);
-	}
 
-	if (tipoArchivo._Equal("cuenta.txt")) {
-		ManejoArchivo archivo("respaldoCuentas.txt");
-		archivo.agregarLinea(respaldo);
-	}
-
-	if (tipoArchivo._Equal("transacciones.txt")) {
-		ManejoArchivo archivo("respaldoTransacciones.txt");
-		archivo.agregarLinea(respaldo);
-	}
+void Respaldo::guardarRespaldo(string linea) {
+		ManejoArchivo archivo("respaldos.txt");
+		archivo.agregarLinea(linea);
 }
 
-void Respaldo::obtenerNombreRespaldo(int idRespaldo) {
+void Respaldo::imprimirNombreRespaldo() {
 	string mensaje;
-	ManejoArchivo archivo;
-	mensaje = archivo.leerArchivo(nombreArchivo);
-	if (mensaje._Equal("salir")) {
-		cout << "\nEl archivo " + nombreArchivo + " no existe" << endl;
-	}
-	else {
-		cout << "\n\t" << mensaje << endl;
-		ingresarRespaldo(idRespaldo);
+	ManejoArchivo archivo("respaldos.txt");
+	mensaje = archivo.leerArchivo();
+	if (!mensaje._Equal("salir")) {
+		cout << "\t" << mensaje << endl;
 	}
 }
 
-void Respaldo::ingresarRespaldo(int idRespaldo) {
+void Respaldo::ingresarRespaldo() {
 	string respaldoSeleccionado, texto;
-	cout << "\n\t" << "Ingrese el respaldo que desea restaurar: " << endl;
+	cout << "\n" << "Ingrese el respaldo que desea restaurar: " << endl;
+	cout << "\t";
 	getline(cin, respaldoSeleccionado);
 	ManejoArchivo archivo(nombreArchivo);
 	texto = archivo.buscarRespaldo(respaldoSeleccionado);
 	while (texto._Equal("salir"))
-	{
-		cout << "\n\t" << "Reingrese el respaldo que desea restaurar: " << endl;
+	{ 
+		cout << "\n" << "Reingrese el respaldo que desea restaurar: " << endl;
+		cout << "\t";
 		getline(cin, respaldoSeleccionado);
 		texto = archivo.buscarRespaldo(respaldoSeleccionado);
 	}
-
-	archivo.actualizarRespaldo(texto, idRespaldo);
+	archivo.actualizarRespaldo(texto);
 
 }

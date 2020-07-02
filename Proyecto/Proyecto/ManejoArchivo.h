@@ -22,8 +22,8 @@ public:
 	void cerrarLectura();
 	void cerrarEscritura(); 
 	int contarLineas();
-	void actualizarRespaldo(string, int);
-	string leerArchivo(string);
+	void actualizarRespaldo(string);
+	string leerArchivo();
 	string buscarRespaldo(string);
 	string buscarCuenta(int);
 	void actualizar(int, string);
