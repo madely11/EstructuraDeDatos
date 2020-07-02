@@ -23,9 +23,11 @@ class Transacciones
 {
 public:
     void datosTransaccion(int);
+    void generarPdf();
     float depositar(float, int);
     float retirar(float, int);
     void stringConsola(string);
+    string stringConsola(string, int);
     void guardarTransaccion(int, float, int);
     string ingresarFecha();
     friend ostream& operator<<(ostream& o, Fecha& f);

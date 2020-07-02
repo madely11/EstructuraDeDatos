@@ -166,9 +166,11 @@ void Menu::menuTeclas()
 				case 5:
 					//generar pdf
 					if (true) {
+						remove("documentoPDF.pdf");
 						system("cls");
 						Transacciones t;
-						t.datosTransaccion(1);
+						t.generarPdf();
+						cout << endl << "\n\t\t\t\t\t\t\t\t Documento PDF creado exitosamente!" << endl;
 						Sleep(3000);
 						menuTeclas();
 					}

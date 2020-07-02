@@ -230,3 +230,92 @@ inline void Transacciones::stringConsola(string mensaje)
     cout << "\t\t" << saldo;
     cout << endl;
 }
+
+string Transacciones::stringConsola(string mensaje, int num) {
+    Fecha fecha;
+    int i = 0;
+    string salida = "";
+    string saldo = "";
+    string fechaT = "";
+    string horaT = "";
+    string valorT = "";
+    string dato = "";
+
+    while (mensaje.at(i) != ',' && i < mensaje.length()) {
+        i++;
+    }
+    i++;
+    while (mensaje.at(i) != ',' && i < mensaje.length()) {
+        salida += mensaje.at(i);//tiene el tipo de transaccion
+        i++;
+    }
+    i++;
+    while (mensaje.at(i) != ',' && i < mensaje.length()) {
+        valorT += mensaje.at(i);
+        i++;
+    }
+    i++;
+    while (i < mensaje.length() && mensaje.at(i) != ',') {
+        saldo += mensaje.at(i);
+        i++;
+    }
+    i++;
+    while (i < mensaje.length() && mensaje.at(i) != ',') {
+        fechaT += mensaje.at(i);
+        i++;
+    }
+    fecha.setFecha(fechaT);
+    i++;
+    while (i < mensaje.length() && mensaje.at(i) != ',') {
+        horaT += mensaje.at(i);
+        i++;
+    }
+    fecha.setHora(horaT);
+
+    if (salida._Equal("Deposito")) {
+        salida = "";
+        salida = '+';
+    }
+    else {
+        salida = "";
+        salida = '-';
+    }
+    salida += valorT;
+    dato = "\n" + fecha.getFecha() + "\t\t" + fecha.getHora() + "\t\t" + salida + "\t\t" + saldo;
+    return dato;
+}
+
+void Transacciones::generarPdf() {
+    string f;
+    int numeroCuenta;
+    int i = 1;
+    string numCuenta, dato, primera;
+    Ingreso ingreso;
+    ManejoArchivo amC("cuenta.txt");
+    ManejoArchivo maT("transacciones.txt");
+    ManejoArchivo pdf("pdfDocumento.txt");
+    system("cls");
+    numCuenta = ingreso.leer("Ingrese el numero de cuenta: ", 1);
+    numeroCuenta = atoi(numCuenta.c_str());
+    if (amC.buscarCuenta(numeroCuenta)._Equal("salir")) {
+        cout << "Cuenta no existente" << endl;
+        system("pause");
+        return;
+    }
+    primera += "\nFecha";
+    primera += "\t\t\tHora";
+    primera += "\t\tMonto";
+    primera += "\t\tSaldo";
+    //cout << primera << endl;
+    pdf.agregarLinea(primera);
+    while (!maT.buscarRegistro(numeroCuenta, i)._Equal("salir")) {
+        dato = stringConsola(maT.buscarRegistro(numeroCuenta, i),1);
+        //cout << dato << endl;
+        pdf.agregarLinea(dato);
+        i++;
+        cout << endl;
+    }
+    system("txt2pdf.exe pdfDocumento.txt documentoPDF.pdf");
+    remove("pdfDocumento.txt");
+    system("pause");
+}
