@@ -74,7 +74,12 @@ char* Ingreso::ingresaNumericos(const char* msg) {
 			*(valor + i) = caracter;
 			printf("%c", caracter);
 			i++;
+			
 		}
+		
+	}
+	if (i > 10) {
+		ingresaNumericos(msg);
 	}
 	return valor;
 }
