@@ -1,5 +1,28 @@
- #include "Validacion.h"
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* LIBRERIA PARA LA VALIDACION DE INGRESO DE DATOS                 *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/06/20									  *
+* FECHA DE MODIFICACIÓN: 02/07/20								  *
+******************************************************************/
 
+/**
+	@file Validacion.cpp
+	@brief Clase que contiene metodos para realizar las validaciones de los ingresos de datos
+	@author Madely Betancourt y Kevin Caicedo
+	@date 6/2020
+*/
+
+#include "Validacion.h"
+/**
+	@brief Funcion para validar cedula
+	@param numero de cedula tipo string 
+	@returns verdadero o falso 
+*/
 bool Validacion::cedula(string cedula) {
 	char* aux;
 	int aux_int;
@@ -51,7 +74,11 @@ bool Validacion::cedula(string cedula) {
 
 	return true;
 }
-
+/**
+	@brief Funcion para validar entrada de numeros
+	@param entrada de datos tipo string y entero tipo int  
+	@returns verdadero o falso
+*/
 bool Validacion::validar(string entrada, int tipo) {
 	int contador = 0;
 	try {
@@ -75,8 +102,11 @@ bool Validacion::validar(string entrada, int tipo) {
 	}
 	return false;
 }
-
-
+/**
+	@brief Funcion para validar entrada de Letras
+	@param entrada de datos tipo string y entero tipo int
+	@returns verdadero o falso
+*/
 bool Validacion::validarString(string entrada, int tipo) {
 	int contador = 0;
 	try {
@@ -103,7 +133,11 @@ bool Validacion::validarString(string entrada, int tipo) {
 	}
 	return false;
 }
-
+/**
+	@brief Funcion para validar el ingreso de una fecha
+	@param fecha tipo string 
+	@returns verdadero o falso
+*/
 bool Validacion::validarFecha(string fecha) {
 
 	string dia;
@@ -138,6 +172,11 @@ bool Validacion::validarFecha(string fecha) {
 
 	return true;
 }
+/**
+	@brief Funcion para validar el ingreso del email
+	@param entrada de datos tipo string 
+	@returns verdadero o falso
+*/
 
 bool Validacion::validarEmail(string entrada)
 {
