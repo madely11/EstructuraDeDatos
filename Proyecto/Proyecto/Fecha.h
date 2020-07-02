@@ -11,7 +11,7 @@
 ******************************************************************/
 
 /**
-    @file Fecha.cpp
+    @file Fecha.h
     @brief Clase que contiene metodos para tomar la fecha del sistema
     @author Madely Betancourt y Kevin Caicedo
     @date 6/2020

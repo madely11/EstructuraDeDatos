@@ -11,7 +11,7 @@
 ******************************************************************/
 
 /**
-	@file Respaldo.cpp
+	@file Respaldo.h
 	@brief Clase que contiene metodos para realizar un backup de los datos
 	@author Madely Betancourt y Kevin Caicedo
 	@date 6/2020

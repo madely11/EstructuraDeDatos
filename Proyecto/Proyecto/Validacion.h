@@ -11,7 +11,7 @@
 ******************************************************************/
 
 /**
-	@file Validacion.cpp
+	@file Validacion.h
 	@brief Clase que contiene metodos para realizar las validaciones de los ingresos de datos
 	@author Madely Betancourt y Kevin Caicedo
 	@date 6/2020

@@ -1,6 +1,6 @@
 /******************************************************************
 *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
-* LIBRERIA PARA LA VALIDACION DE INGRESO DE DATOS                 *
+* CLASE PARA DETERMINAR TIPO DE CUENTA                            *
 * AUTORES: Madely Betancourt, Kevin Caicedo                       *
 * CARRERA: Ingenieria de Software                                 *
 * SEMESTRE: Tercer semestre                                       *

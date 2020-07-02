@@ -1,6 +1,29 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE CUENTA                                                    *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/06/20									  *
+* FECHA DE MODIFICACIÓN: 02/07/20								  *
+******************************************************************/
+
+/**
+    @file Cuenta.cpp
+    @brief Clase que contiene metodos para crear los objetos cuenta
+    @author Madely Betancourt y Kevin Caicedo
+    @date 6/2020
+*/
+
 #include "Cuenta.h"
 #include "Ingreso.h"
-
+/**
+    @brief Constructor clase Cuenta
+    @param num cuenta tipo int, id string;
+    @returns Cuenta
+*/
 Cuenta::Cuenta(int num, string id) {
     tipo = new TipoCuenta(num);
     this->idCliente = id;
@@ -12,14 +35,21 @@ Cuenta::Cuenta(int num, string id) {
     ManejoArchivo a("cuenta.txt");
     a.agregarLinea(dato);
 }
-
+/**
+    @brief Constructor clase Cuenta
+    @param void
+    @returns Cuenta
+*/
 Cuenta::Cuenta() {
     monto = 0;
     numeroCuenta = 0;
     idCliente = "";
     dato = "";
-}
-
+}/**
+    @brief Funcion para validar si existe una cuenta
+    @param num cuenta int
+    @returns bool
+*/
 bool Cuenta::verificarCuenta(int num) {
     int id;
     Ingreso ingreso;
@@ -47,7 +77,11 @@ bool Cuenta::verificarCuenta(int num) {
         archivoM.actualizar(id, dato);
     }
 }
-
+/**
+    @brief Funcion para guardar datos
+    @param entrada mensaje string;
+    @returns void
+*/
 void Cuenta::guardarDatos(string mensaje) {
     int i = 0;
     string auxString;
@@ -79,7 +113,11 @@ void Cuenta::guardarDatos(string mensaje) {
     i = atoi(auxString.c_str());//numero identificador de tipo de cuenta
     tipo = new TipoCuenta(i);
 }
-
+/**
+    @brief Funcion para generar un atrind de los datos
+    @param void
+    @returns datos tipo string
+    */
 void Cuenta::hacerString() {
     dato = idCliente + "," + to_string(numeroCuenta) + "," + to_string(monto) + "," + to_string(tipo->getId());
 }

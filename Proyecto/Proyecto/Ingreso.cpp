@@ -1,7 +1,31 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE INGRESO                                                   *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/06/20									  *
+* FECHA DE MODIFICACIÓN: 02/07/20								  *
+******************************************************************/
+
+/**
+	@file Ingreso.cpp
+	@brief Clase que contiene metodos para ingresar los datos	
+	@author Madely Betancourt y Kevin Caicedo
+	@date 6/2020
+*/
+
+
 #include "Ingreso.h"
 #pragma once
 
-
+/**
+	@brief Funcion para leer un numero entero o flotante
+	@param entrada string y tipo entero 
+	@returns string lectura
+*/
 string Ingreso::leer(string mensage, int tipo) {
 	Validacion validacion;
 	string entrada;
@@ -14,6 +38,12 @@ string Ingreso::leer(string mensage, int tipo) {
 	return entrada;
 
 }
+
+/**
+	@brief Funcion para el ingreso de letras
+	@param entrada strin, tipo entero
+	@returns string lectura
+*/
 
 string Ingreso::leerString(string mensage, int tipo) {
 	Validacion validacion;
@@ -28,7 +58,11 @@ string Ingreso::leerString(string mensage, int tipo) {
 
 }
 
-
+/**
+	@brief Funcion para que solo se pueda ingresar numero en la consola
+	@param entrada tipo char*
+	@returns valor char* 
+*/
 char* Ingreso::ingresaNumericos(const char* msg) {
 	int caracter;
 	puts(msg);
@@ -44,7 +78,11 @@ char* Ingreso::ingresaNumericos(const char* msg) {
 	}
 	return valor;
 }
-
+/**
+	@brief Funcion para leer fecha
+	@param entrada string
+	@returns bool
+*/
 bool Ingreso::leerFecha(string fecha) {
 	char* aux;
 	Validacion validacion;
