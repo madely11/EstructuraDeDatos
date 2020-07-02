@@ -1,17 +1,50 @@
-#include "ManejoArchivo.h"
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE MANEJO DE ARCHIVOS                                        *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/06/20									  *
+* FECHA DE MODIFICACIÓN: 02/07/20								  *
+******************************************************************/
 
+/**
+	@file ManejoArchivos.cpp
+	@brief Clase que contiene metodos manejar archivos
+	@author Madely Betancourt y Kevin Caicedo
+	@date 6/2020
+*/
+
+
+
+#include "ManejoArchivo.h"
+/**
+	@brief Constructor de la Clase ManejoArchivo
+	@param entrada archivo tipo string 
+	@returns ManejoArchivo
+*/
 ManejoArchivo::ManejoArchivo(string archivo)
 {
 	nombreArchivo = archivo;
 	crearEscritura();
 	cerrarEscritura();
 }
-
+/**
+	@brief Constructor de la Clase ManejoArchivo
+	@param void
+	@returns ManejoArchivo
+*/
 ManejoArchivo::ManejoArchivo()
 {
 	nombreArchivo = "";
 }
-
+/**
+	@brief Funcion para empezar la escritura de un archivo
+	@param void
+	@returns bool
+*/
 bool ManejoArchivo::crearEscritura()
 {
 	archivoEscritura.open(nombreArchivo, ios::out | ios::app);
@@ -24,13 +57,21 @@ bool ManejoArchivo::crearEscritura()
 		return true;
 	}
 }
-
+/**
+	@brief Funcion para cerrar la escritura de un archivo
+	@param void
+	@returns void
+*/
 void ManejoArchivo::cerrarEscritura()
 {
 	archivoEscritura.flush();
 	archivoEscritura.close();
 }
-
+/**
+	@brief Funcion para crear la lectura de un archivo
+	@param void
+	@returns bool
+*/
 bool ManejoArchivo::crearLectura()
 {
 	archivoLectura.open(nombreArchivo, ios::in);
@@ -43,19 +84,31 @@ bool ManejoArchivo::crearLectura()
 		return true;
 	}
 }
-
+/**
+	@brief Funcion para cerrar la lectura de un archivo
+	@param void
+	@returns void
+*/
 void ManejoArchivo::cerrarLectura()
 {
 	archivoLectura.close();
 }
-
+/**
+	@brief Funcion para agregar linea en un archivo
+	@param string
+	@returns void
+*/
 void ManejoArchivo::agregarLinea(string linea)
 {
 	crearEscritura();
 	archivoEscritura << linea << endl;
 	cerrarEscritura();
 }
-
+/**
+	@brief Funcion para contar las lineas de un archivo
+	@param void
+	@returns int
+*/
 int ManejoArchivo::contarLineas()
 {
 	crearLectura();
@@ -74,7 +127,11 @@ int ManejoArchivo::contarLineas()
 	cerrarLectura();
 	return cuentaLinea;
 }
-
+/**
+	@brief Funcion para leer archivo
+	@param void
+	@returns string
+*/
 string ManejoArchivo::leerArchivo() {
 	string texto ;
 	string linea;
@@ -99,7 +156,11 @@ string ManejoArchivo::leerArchivo() {
 	cerrarLectura();
 	return texto;
 }
-
+/**
+	@brief Funcion para buscar respaldo de datos
+	@param string
+	@returns string
+*/
 string ManejoArchivo::buscarRespaldo(string ingresado) {
 	crearLectura();
 	string linea;
@@ -141,7 +202,11 @@ string ManejoArchivo::buscarRespaldo(string ingresado) {
 	cerrarLectura();
 	return texto;
 }
-
+/**
+	@brief Funcion para actualizar datos al archivo de respaldo
+	@param string
+	@returns void
+*/
 void ManejoArchivo::actualizarRespaldo(string linea) {
 	crearLectura();
 	string rCuenta, rCliente, rTransacciones;
@@ -176,7 +241,11 @@ void ManejoArchivo::actualizarRespaldo(string linea) {
 	rename(rTransacciones.c_str(), "Transacciones.txt");
 	
 }
-
+/**
+	@brief Funcion para buscar una cuenta por numero de cuenta
+	@param int
+	@returns string
+*/
 string ManejoArchivo::buscarCuenta(int numCuenta)
 {
 	crearLectura();
@@ -195,7 +264,11 @@ string ManejoArchivo::buscarCuenta(int numCuenta)
 	cerrarLectura();
 	return texto2;
 }
-
+/**
+	@brief Funcion para actualizar datos de un archivo
+	@param int , string
+	@returns void
+*/
 void ManejoArchivo::actualizar(int numCuenta, string datoNuevo)
 {
 	crearLectura();
@@ -225,7 +298,11 @@ void ManejoArchivo::actualizar(int numCuenta, string datoNuevo)
 	remove("cuenta.txt");
 	rename("cuentaAux.txt", "cuenta.txt");
 }
-
+/**
+	@brief Funcion comparar datos de un archivo
+	@param int , string
+	@returns string
+*/
 string ManejoArchivo::comparar(int numCuenta, string dato)
 {
 	int i = 0;
@@ -247,7 +324,11 @@ string ManejoArchivo::comparar(int numCuenta, string dato)
 	}
 	return texto2;
 }
-
+/**
+	@brief Funcion para buscar registro
+	@param int, int
+	@returns string
+*/
 string ManejoArchivo::buscarRegistro(int numCuenta, int coincidencia)
 {
 	crearLectura();
@@ -272,7 +353,11 @@ string ManejoArchivo::buscarRegistro(int numCuenta, int coincidencia)
 	cerrarLectura();
 	return texto2;
 }
-
+/**
+	@brief Funcion para buscar registro
+	@param string, int, int
+	@returns string
+*/
 string ManejoArchivo::buscarRegistro(string f, int numCuenta, int coincidencia)
 {
 	crearLectura();
@@ -297,7 +382,11 @@ string ManejoArchivo::buscarRegistro(string f, int numCuenta, int coincidencia)
 	cerrarLectura();
 	return texto2;
 }
-
+/**
+	@brief Funcion para comparar registro por fecha
+	@param string, string 
+	@returns string
+*/
 string ManejoArchivo::compararRegistro(string f, string dato)
 {
 	int i = 0;
@@ -330,7 +419,11 @@ string ManejoArchivo::compararRegistro(string f, string dato)
 	}
 	return texto2;
 }
-
+/**
+	@brief Funcion para comparar registro de un archivo
+	@param numCuenta, string
+	@returns String
+*/
 string ManejoArchivo::compararRegistro(int numCuenta, string dato)
 {
 	int i = 0;

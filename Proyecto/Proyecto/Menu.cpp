@@ -5,6 +5,7 @@
 * CARRERA: Ingenieria de Software                                 *
 * SEMESTRE: Tercer semestre                                       *
 * MATERIA: Estructura de Datos                                    *
+* MATERIA: Estructura de Datos                                    *
 * NRC: 6396														  *
 * FECHA DE CREACIÓN: 20/06/20									  *
 * FECHA DE MODIFICACIÓN: 02/07/20								  *
@@ -25,7 +26,7 @@
 #include <math.h>
 #include <iostream>
 #include "Menu.h"
-
+#include "Imagen.h"
 using namespace std;
 /**
 	@brief Funcion para oculta Cursor en la consola
@@ -168,7 +169,7 @@ void Menu::menuTeclas()
 					if (true) {
 						remove("documentoPDF.pdf");
 						system("cls");
-						Transacciones t;
+						Transacciones<float> t;
 						t.generarPdf();
 						cout << endl << "\n\t\t\t\t\t\t\t\t Documento PDF creado exitosamente!" << endl;
 						Sleep(3000);
@@ -179,7 +180,13 @@ void Menu::menuTeclas()
 					//generar imagen
 					if (true) {
 						system("cls");
-						
+						/*hConWnd = GetConsoleWndHandle();
+						if (hConWnd)
+						{
+							BCX_Bitmap("logo.bmp ", hConWnd, 123, 1, 1, 0, 0);
+							Sleep(3000);
+							system("pause");
+						}*/
 						Sleep(3000);
 						menuTeclas();
 					}
@@ -465,7 +472,7 @@ void Menu::submenu3()
 				case 0:
 					if (true) {
 						system("cls");
-						Transacciones t;
+						Transacciones<float> t;
 						t.datosTransaccion(1);
 						Sleep(3000);
 						menuTeclas();
@@ -474,7 +481,7 @@ void Menu::submenu3()
 				case 1:
 					if (true) {
 						system("cls");
-						Transacciones t;
+						Transacciones<float> t;
 						t.datosTransaccion(2);
 						Sleep(3000);
 						menuTeclas();
