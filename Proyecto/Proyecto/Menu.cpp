@@ -57,12 +57,14 @@ void Menu::menuTeclas()
 					  "Registro de transacciones ",
 					  "Crear Respaldo            ",
 		              "Restaurar archivo         ",
+					  "Generar PDF               ",
+					  "Mostrar Imagen            ",
 					  "Salir                     "};
 	for (;;) {
 		system("cls");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
 		cout << "                SELECCIONE UNA OPCION         " << endl;
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 8; i++)
 		{
 			if (cursor == i)
 			{
@@ -85,7 +87,7 @@ void Menu::menuTeclas()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 6)
+				if (cursor == 8)
 				{
 					cursor = 0;
 				}
@@ -96,7 +98,7 @@ void Menu::menuTeclas()
 				cursor--;
 				if (cursor == -1)
 				{
-					cursor = 5;
+					cursor = 7;
 				}
 				break;
 			}
@@ -123,6 +125,7 @@ void Menu::menuTeclas()
 					}
 					break;
 				case 3:
+					//crear respaldo
 					if (true) {
 						system("cls");
 						cout << "\n\t\t\t\t Creando respaldo..." << endl;
@@ -147,6 +150,7 @@ void Menu::menuTeclas()
 					}
 					break;
 				case 4:
+					//restaurar respaldo
 					if (true) {
 						system("cls");
 						cout << "\t\n" << "Respaldos: " << endl << endl;
@@ -160,6 +164,25 @@ void Menu::menuTeclas()
 					} 
 					break;
 				case 5:
+					//generar pdf
+					if (true) {
+						system("cls");
+						Transacciones t;
+						t.datosTransaccion(1);
+						Sleep(3000);
+						menuTeclas();
+					}
+					break;
+				case 6:
+					//generar imagen
+					if (true) {
+						system("cls");
+						
+						Sleep(3000);
+						menuTeclas();
+					}
+					break;
+				case 7:
 					if (true) {
 						system("cls");
 						cout << endl << "\n\t\t\t\t\t\t\t\t Gracias!" << endl;
