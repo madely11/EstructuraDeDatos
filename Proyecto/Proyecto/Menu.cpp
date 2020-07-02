@@ -27,7 +27,11 @@
 #include "Menu.h"
 
 using namespace std;
-
+/**
+	@brief Funcion para oculta Cursor en la consola
+	@param void
+	@returns void
+*/
 void Menu::ocultarCursor()
 {
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -36,7 +40,11 @@ void Menu::ocultarCursor()
 	info.bVisible = FALSE;
 	SetConsoleCursorInfo(consoleHandle, &info);
 }
-
+/**
+	@brief Funcion para manejar el menu con las teclas desde la consola 
+	@param void
+	@returns void
+*/
 void Menu::menuTeclas()
 {
 	int cursor = 0;
@@ -165,6 +173,11 @@ void Menu::menuTeclas()
 	}
 }
 
+/**
+	@brief Funcion para mostrar un submenu con otras opciones
+	@param void
+	@returns void
+*/
 void Menu::submenu1()
 {
 	int cursor = 0;
@@ -265,6 +278,11 @@ void Menu::submenu1()
 	}
 }
 
+/**
+	@brief Funcion de submenu para mostrar otras opciones del programa
+	@param void
+	@returns void
+*/
 void Menu::submenu2()
 {
 	int cursor = 0;
@@ -357,7 +375,11 @@ void Menu::submenu2()
 		}
 	}
 }
-
+/**
+	@brief Funcion de submenu para mostrar otras opciones del programa
+	@param void
+	@returns void
+*/
 void Menu::submenu3()
 {
 	int cursor = 0;

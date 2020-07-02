@@ -157,19 +157,23 @@ bool Validacion::validarFecha(string fecha) {
 	int d = atoi(dia.c_str());
 	int m = atoi(mes.c_str());
 	int a = atoi(anio.c_str());
+	try {
 
-	if ((d < 0 || d > 31)) {
+		if ((d < 0 || d > 31)) {
+			throw 1;
+		}
+
+		if ((m < 0 || m > 12)) {
+			throw 1;
+		}
+
+		if ((a < 1920 || a > 2020)) {
+			throw 1 ;
+		}
+	}
+	catch (int e) {
 		return false;
 	}
-
-	if ((m < 0 || m > 12)) {
-		return false;
-	}
-
-	if ((a < 1920 || a > 2020)) {
-		return false;
-	}
-
 	return true;
 }
 /**

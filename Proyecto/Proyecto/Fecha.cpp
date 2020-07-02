@@ -1,17 +1,49 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE PARA DEFINIR LA FECHA DE LAS TRANSACCIONES                *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/06/20									  *
+* FECHA DE MODIFICACIÓN: 02/07/20								  *
+******************************************************************/
+
+/**
+    @file Fecha.cpp
+    @brief Clase que contiene metodos para tomar la fecha del sistema 
+    @author Madely Betancourt y Kevin Caicedo
+    @date 6/2020
+*/
+
+
 #include "Fecha.h"
 #include <string>
 #include <iostream>
 using namespace std;
 
-
+/**
+    @brief Funcion para cambiar fecha
+    @param Entrada fecha de tipo string
+    @returns void
+*/
 void Fecha::setFecha(string newFecha) {
     fecha = newFecha;
 }
-
+/**
+    @brief Funcion para cambiar la hora
+    @param Entrada hora de tipo string
+    @returns void
+*/
 void Fecha::setHora(string newHora) {
     hora = newHora;
 }
-
+/**
+    @brief Funcion para obtener la fecha del  sistema
+    @param void
+    @returns salida fecha del sistema tipo string
+*/
 string Fecha::getFecha()
 {
     struct tm pt1;
@@ -36,7 +68,11 @@ string Fecha::getFecha()
         fecha = to_string(pt1.tm_mday) + "/" + to_string(pt1.tm_mon + 1) + "/" + to_string(pt1.tm_year + 1900);
     return fecha;
 }
-
+/**
+    @brief Funcion para obtener la fecha completa del sistema
+    @param void
+    @returns salida fecha completa del sistema tipo string
+*/
 string Fecha::fechaUnida() {
     string f;
     int m;
@@ -52,7 +88,11 @@ string Fecha::fechaUnida() {
         f = "_" + to_string(pt1.tm_mday) + to_string(pt1.tm_mon + 1) + to_string(pt1.tm_year + 1900) + "_";
     return f;
 }
-
+/**
+    @brief Funcion para obtener la hora del  sistema
+    @param void
+    @returns salida hora del sistema tipo string
+*/
 string Fecha::getHora()
 {
     struct tm pt1;
@@ -63,7 +103,11 @@ string Fecha::getHora()
     hora = to_string(pt1.tm_hour) + ":" + to_string(pt1.tm_min) + ":" + to_string(pt1.tm_sec);
     return hora;
 }
-
+/**
+    @brief Funcion para obtener la hora completa del  sistema
+    @param void
+    @returns salida hora completa del sistema tipo string
+*/
 string Fecha::horaUnida() {
     string h;
 
