@@ -58,19 +58,19 @@ void ManejoArchivo::agregarLinea(string linea)
 
 int ManejoArchivo::contarLineas()
 {
+	crearLectura();
 	int cuentaLinea = 0;
 	string texto;
-	if (!crearLectura()) {
-		//cerrarLectura();
-		return -1;
-	}
+	//if (!crearLectura()) {
+	//	//cerrarLectura();
+	//	return -1;
+	//}
 	while (!archivoLectura.eof())
 	{
 		getline(archivoLectura, texto);
 		cuentaLinea++;
 	}
-	if (cuentaLinea > 1)
-		cuentaLinea -= 1;
+	cout << " Lineas: " << cuentaLinea << endl;
 	cerrarLectura();
 	return cuentaLinea;
 }
@@ -79,10 +79,13 @@ string ManejoArchivo::leerArchivo() {
 	string texto ;
 	string linea;
 	int i = 0;
-	if (!crearLectura()) {
+
+	crearLectura();
+
+	/*if (!crearLectura()) {
 		texto = "salir";
 		return texto;
-	}
+	}*/
 	while (!archivoLectura.eof())
 	{
 		getline(archivoLectura, linea);
@@ -195,13 +198,12 @@ string ManejoArchivo::buscarCuenta(int numCuenta)
 
 void ManejoArchivo::actualizar(int numCuenta, string datoNuevo)
 {
+	crearLectura();
 	ofstream archivoAux;
 	string dato;
 
 	archivoAux.open("cuentaAux.txt", ios::out | ios::app);
-	if (!crearLectura()) {
-		return;
-	}
+
 
 	if (archivoAux.fail()) {
 		cout << "No se abre el aux" << endl;
@@ -222,7 +224,6 @@ void ManejoArchivo::actualizar(int numCuenta, string datoNuevo)
 	cerrarLectura();
 	remove("cuenta.txt");
 	rename("cuentaAux.txt", "cuenta.txt");
-
 }
 
 string ManejoArchivo::comparar(int numCuenta, string dato)
@@ -301,7 +302,7 @@ string ManejoArchivo::compararRegistro(string f, string dato)
 {
 	int i = 0;
 	string texto2 = "salir";
-	string idFecha = "";
+	string idFecha;
 
 	while (i < dato.length() && dato.at(i) != ',') {
 		i++;
@@ -324,7 +325,7 @@ string ManejoArchivo::compararRegistro(string f, string dato)
 		i++;
 	}
 
-	if (idFecha._Equal(f)) {
+	if (f._Equal(idFecha)) {
 		return dato;
 	}
 	return texto2;

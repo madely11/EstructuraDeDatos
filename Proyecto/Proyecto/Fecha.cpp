@@ -15,15 +15,24 @@ void Fecha::setHora(string newHora) {
 string Fecha::getFecha()
 {
     struct tm pt1;
-    int m;
+    int m,d;
     __time64_t tSac = time(NULL);
     errno_t err;
     _time64(&tSac);
     err = _localtime64_s(&pt1, &tSac);
+    d = pt1.tm_mday;
     m = pt1.tm_mon + 1;
-    if(m < 10)
-        fecha = to_string(pt1.tm_mday) + "/" + '0'+ to_string(pt1.tm_mon + 1) + "/" + to_string(pt1.tm_year + 1900);
-    else
+
+    if (d < 10 && m < 10)
+        fecha = '0' + to_string(pt1.tm_mday) + "/" + '0' + to_string(pt1.tm_mon + 1) + "/" + to_string(pt1.tm_year + 1900);
+    
+    else if (d > 10 && m < 10)
+        fecha = to_string(pt1.tm_mday) + "/" + '0' + to_string(pt1.tm_mon + 1) + "/" + to_string(pt1.tm_year + 1900);
+    
+    else if (d < 10 && m > 10)
+        fecha = '0' + to_string(pt1.tm_mday) + "/" + to_string(pt1.tm_mon + 1) + "/" + to_string(pt1.tm_year + 1900);
+    
+    else if(d>=10 && m>=10)
         fecha = to_string(pt1.tm_mday) + "/" + to_string(pt1.tm_mon + 1) + "/" + to_string(pt1.tm_year + 1900);
     return fecha;
 }

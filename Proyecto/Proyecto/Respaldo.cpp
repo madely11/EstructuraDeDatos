@@ -1,5 +1,6 @@
 #include "Respaldo.h"
 
+
 Respaldo::Respaldo(string nombre) {
 	nombreArchivo = nombre;
 }
@@ -60,15 +61,17 @@ void Respaldo::imprimirNombreRespaldo() {
 
 void Respaldo::ingresarRespaldo() {
 	string respaldoSeleccionado, texto;
-	cout << "\n" << "Ingrese el respaldo que desea restaurar: " << endl;
-	cout << "\t";
+	cout << "\n" << "Ingrese el respaldo que desea restaurar: " << endl << "\t";
 	getline(cin, respaldoSeleccionado);
+	while (respaldoSeleccionado.length() == 0) {
+		cout << "\n" << "Reingrese el respaldo que desea restaurar: " << endl << "\t";
+		getline(cin, respaldoSeleccionado);
+	}
 	ManejoArchivo archivo(nombreArchivo);
 	texto = archivo.buscarRespaldo(respaldoSeleccionado);
 	while (texto._Equal("salir"))
 	{ 
-		cout << "\n" << "Reingrese el respaldo que desea restaurar: " << endl;
-		cout << "\t";
+		cout << "\n" << "Reingrese el respaldo que desea restaurar: " << endl<< "\t";
 		getline(cin, respaldoSeleccionado);
 		texto = archivo.buscarRespaldo(respaldoSeleccionado);
 	}

@@ -9,9 +9,13 @@ int Transacciones::depositar(int monto, int numCuenta) {
     int deposito;
     cout << "Ingrese la cantidad de dinero a depositar: " << endl;
     cin >> deposito;
-    while (deposito < 0) {//aqui hacer validacion
+    cin.clear();
+    cin.sync();
+    while (deposito < 0) {
         cout << "Monto invalido. Ingrese de nuevo:" << endl;
         cin >> deposito;
+        cin.clear();
+        cin.sync();
     }
     monto += deposito;
     tipoTransaccion = "Deposito";
@@ -26,9 +30,13 @@ int Transacciones::retirar(int monto, int numCuenta) {
     int retiro;
     cout << "Ingrese la cantidad de dinero a retirar: " << endl;
     cin >> retiro;
+    cin.clear();
+    cin.sync();
     while (retiro < 0) {//aqui hacer validacion
         cout << "Monto invalido. Ingrese de nuevo:" << endl;
         cin >> retiro;
+        cin.clear();
+        cin.sync();
     }
     if (monto > retiro) {
         monto -= retiro;
@@ -61,8 +69,12 @@ void Transacciones::datosTransaccion(int num)
     ManejoArchivo amC("cuenta.txt");
     ManejoArchivo maT("transacciones.txt");
     system("cls");
+    cin.clear();
+    cin.sync();
     cout << "Ingrese el numero de cuenta: ";
     cin >> numeroCuenta;
+    cin.clear();
+    cin.sync();
     if (amC.buscarCuenta(numeroCuenta)._Equal("salir")) {
         cout << "Cuenta no existente" << endl;
         system("pause");
@@ -81,6 +93,7 @@ void Transacciones::datosTransaccion(int num)
             i++;
             cout << endl;
         }
+        //system("txt2pdf.exe transacciones.txt transacciones.pdf");
         system("pause");
     }
     else {
@@ -90,6 +103,7 @@ void Transacciones::datosTransaccion(int num)
             i++;
             cout << endl;
         }
+        //cout << maT.buscarRegistro(f, numeroCuenta, i) << endl;
         system("pause");
     }
    
@@ -107,7 +121,6 @@ string Transacciones::ingresarFecha() {
     }
     return f;
 }
-
 
 ostream& operator<<(ostream& o, Fecha& f) {
     o << "\n\tFecha" << "\t\tHora" << "\t\tMonto" << "\t\tSaldo" << "\n" << "\t" << f.getFecha() << "\t" << f.getHora();
@@ -165,7 +178,7 @@ inline void Transacciones::stringConsola(string mensaje)
     }
     salida += valorT;
     cout << fecha;
-    cout << "\t" << salida;
+    cout << "\t\t" << salida;
     cout << "\t\t" << saldo;
     cout << endl;
 }

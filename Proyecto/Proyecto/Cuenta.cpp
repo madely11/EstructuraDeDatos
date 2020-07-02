@@ -3,13 +3,13 @@
 Cuenta::Cuenta(int num, string id) {
     tipo = new TipoCuenta(num);
     this->idCliente = id;
-    ManejoArchivo archivoM("cuenta.txt");
+    ManejoArchivo archivoM("cliente.txt");
     this->numeroCuenta = archivoM.contarLineas();
     this->monto = 5;
     hacerString();
     cout << dato << endl;
-    archivoM.agregarLinea(dato);
-    //archivoM.crearRespaldo();
+    ManejoArchivo a("cuenta.txt");
+    a.agregarLinea(dato);
 }
 
 Cuenta::Cuenta() {
@@ -23,16 +23,15 @@ bool Cuenta::verificarCuenta(int num) {
     int id;
     string mensaje;
     ManejoArchivo archivoM("cuenta.txt");
-
     cout << "Ingrese el numero de cuenta: " << endl;
     cin >> id;
-
     mensaje = archivoM.buscarCuenta(id);
     if (mensaje._Equal("salir")) {
         cout << "Cuenta no existente" << endl;
         system("pause");
         return false;
     }
+
     guardarDatos(mensaje);
 
     if (num == 1) {
@@ -55,26 +54,27 @@ void Cuenta::guardarDatos(string mensaje) {
         idCliente += mensaje.at(i);
         i++;
     }
+    //idcliente tiene cedula
     i++;
     while (mensaje.at(i) != ',' && i < mensaje.length()) {
         auxString += mensaje.at(i);
         i++;
     }
-    numeroCuenta = atoi(auxString.c_str());
+    numeroCuenta = atoi(auxString.c_str()); //tiene numero cuenta
     i++;
     auxString = "";
     while (mensaje.at(i) != ',' && i < mensaje.length()) {
         auxString += mensaje.at(i);
         i++;
     }
-    monto = atof(auxString.c_str());
+    monto = atof(auxString.c_str());//monto
     i++;
     auxString = "";
     while (i < mensaje.length() && mensaje.at(i) != ',') {
         auxString += mensaje.at(i);
         i++;
     }
-    i = atoi(auxString.c_str());
+    i = atoi(auxString.c_str());//numero identificador de tipo de cuenta
     tipo = new TipoCuenta(i);
 }
 
