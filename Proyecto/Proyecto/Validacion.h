@@ -9,6 +9,13 @@
 * FECHA DE CREACIÓN: 20/06/20									  *
 * FECHA DE MODIFICACIÓN: 02/07/20								  *
 ******************************************************************/
+
+/**
+	@file Validacion.cpp
+	@brief Clase que contiene metodos para realizar las validaciones de los ingresos de datos
+	@author Madely Betancourt y Kevin Caicedo
+	@date 6/2020
+*/
 #pragma once
 #include<string>
 #include <iostream>

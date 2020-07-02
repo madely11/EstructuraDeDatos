@@ -1,10 +1,32 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE PARA REALIZAR LAS TRANSACCIONES EN EL PROGRAMA            *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/06/20									  *
+* FECHA DE MODIFICACIÓN: 02/07/20								  *
+******************************************************************/
+
+/**
+    @file Transacciones.cpp
+    @brief Clase que contiene metodos para realizar las Transacciones del sistema
+    @author Madely Betancourt y Kevin Caicedo
+    @date 6/2020
+*/
 #include "Transacciones.h"
 #include "ManejoArchivo.h"
 #include "Ingreso.h"
 #include <iostream>
 
 using namespace std;
-
+/**
+    @brief Funcion para realizar un deposito 
+    @param monto tipo float, numCuenta tipo int
+    @returns float monto de la cuenta
+*/
 float Transacciones::depositar(float monto, int numCuenta) {
     float deposito;
     string valorDeposito;
@@ -26,6 +48,11 @@ float Transacciones::depositar(float monto, int numCuenta) {
     return monto;
 }
 
+/**
+    @brief Funcion para realizar un retiro de una cuenta
+    @param monto tipo float, numCuenta tipo int
+    @returns float monto de la cuenta
+*/
 float Transacciones::retirar(float monto, int numCuenta) {
     float retiro;
     string valorRetiro;
@@ -53,7 +80,12 @@ float Transacciones::retirar(float monto, int numCuenta) {
     return monto;
 }
 
-inline void Transacciones::guardarTransaccion(int numeroCuenta, int monto, int ingreso)
+/**
+    @brief Funcion para registrar las transacciones realizadas
+    @param numCuenta tipo int, monto tipo float, numCuenta tipo int, ingreso tipo int
+    @returns void
+*/
+inline void Transacciones::guardarTransaccion(int numeroCuenta, float monto, int ingreso)
 {
     ManejoArchivo am("transacciones.txt");
     dato = to_string(numeroCuenta) + "," + tipoTransaccion + "," + to_string(ingreso) + "," +
@@ -61,6 +93,12 @@ inline void Transacciones::guardarTransaccion(int numeroCuenta, int monto, int i
     am.agregarLinea(dato);
 }
 
+
+/**
+    @brief Funcion para revisar los datos de una transaccion por cuenta
+    @param num tipo int
+    @returns void
+*/
 void Transacciones::datosTransaccion(int num)
 {
     string f;
@@ -106,7 +144,11 @@ void Transacciones::datosTransaccion(int num)
     }
    
 }
-
+/**
+    @brief Funcion para ingresar una fecha
+    @param void
+    @returns fecha tipo string
+*/
 string Transacciones::ingresarFecha() {
     Ingreso ingreso;
     string f;
@@ -119,12 +161,20 @@ string Transacciones::ingresarFecha() {
     }
     return f;
 }
-
+/**
+    @brief Sobrecarga del operador imprimir 
+    @param Fecha tipo Fecha
+    @returns void
+*/
 ostream& operator<<(ostream& o, Fecha& f) {
     o << "\n\tFecha" << "\t\tHora" << "\t\tMonto" << "\t\tSaldo" << "\n" << "\t" << f.getFecha() << "\t" << f.getHora();
     return o;
 }
-
+/**
+    @brief Funcion para imprimir en consola
+    @param Entrada mensaje tipo string
+    @returns void
+*/
 inline void Transacciones::stringConsola(string mensaje)
 {
     Fecha fecha;
