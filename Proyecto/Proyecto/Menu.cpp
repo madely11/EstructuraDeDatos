@@ -170,7 +170,7 @@ void Menu::menuTeclas()
 						system("cls");
 						Transacciones t;
 						t.generarPdf();
-						cout << endl << "\n\t\t\t\t\t\t\t\t Documento PDF creado exitosamente!" << endl;
+						cout << endl << "\t\t\t Documento PDF creado exitosamente!" << endl;
 						Sleep(3000);
 						menuTeclas();
 					}
@@ -258,6 +258,7 @@ void Menu::submenu1()
 						cliente.pedirDatos(1);				
 						system("cls");
 						cout << endl << "\n\t\t\t\t\Cuenta creada exitosamente!" << endl;
+						cout << endl;
 						cout << cliente.stringConsola();
 						cout << endl;
 						Sleep(3000);
@@ -380,7 +381,7 @@ void Menu::submenu2()
 				case 2:
 					if (true) {
 						system("cls");
-						cout << endl << "<<<<<<<<<Proceso Cancelado>>>>>>>>>" << endl;
+						cout << endl << "\n\t\t\t\t\Proceso Cancelado!" << endl;
 						Sleep(3000);
 						menuTeclas();
 					} 

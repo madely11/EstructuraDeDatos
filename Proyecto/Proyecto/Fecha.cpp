@@ -30,6 +30,7 @@ using namespace std;
 */
 void Fecha::setFecha(string newFecha) {
     fecha = newFecha;
+    //cout << "New fecha " << fecha << endl;
 }
 /**
     @brief Funcion para cambiar la hora
@@ -38,6 +39,7 @@ void Fecha::setFecha(string newFecha) {
 */
 void Fecha::setHora(string newHora) {
     hora = newHora;
+    //cout << "New hora " << hora << endl;
 }
 /**
     @brief Funcion para obtener la fecha del  sistema
@@ -118,4 +120,12 @@ string Fecha::horaUnida() {
     err = _localtime64_s(&pt1, &tSac);
     h = "_" + to_string(pt1.tm_hour) + to_string(pt1.tm_min) + to_string(pt1.tm_sec);
     return h;
+}
+
+string Fecha::obtenerFecha() {
+    return fecha;
+}
+
+string Fecha::obtenerHora() {
+    return hora;
 }

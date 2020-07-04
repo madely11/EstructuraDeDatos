@@ -34,13 +34,11 @@ float Transacciones::depositar(float monto, int numCuenta) {
     float deposito;
     string valorDeposito;
     Ingreso ingreso;
-    valorDeposito = ingreso.leer("Ingrese la cantidad de dinero a depositar: ", 2);
+    valorDeposito = ingreso.leer("Ingrese la cantidad de dinero a depositar: ", 1);
     deposito = atoi(valorDeposito.c_str());
     while (deposito < 0) {
-        cout << "Monto invalido. Ingrese de nuevo:" << endl;
-        cin >> deposito;
-        cin.clear();
-        cin.sync();
+        valorDeposito = ingreso.leer("Ingrese la cantidad de dinero a depositar: ", 1);
+        deposito = atoi(valorDeposito.c_str());
     }
     monto += deposito;
     tipoTransaccion = "Deposito";
@@ -57,17 +55,15 @@ float Transacciones::depositar(float monto, int numCuenta) {
     @returns float monto de la cuenta
 */
 
-float Transacciones::retirar(float monto, int numCuenta) {
+float Transacciones::retirar(int monto, int numCuenta) {
     float retiro;
     string valorRetiro;
     Ingreso ingreso;
-    valorRetiro= ingreso.leer("Ingrese la cantidad de dinero a retirar: ", 2);
+    valorRetiro= ingreso.leer("Ingrese la cantidad de dinero a retirar: ", 1);
     retiro = atoi(valorRetiro.c_str());
     while (retiro < 0) {//aqui hacer validacion
-        cout << "Monto invalido. Ingrese de nuevo:" << endl;
-        cin >> retiro;
-        cin.clear();
-        cin.sync();
+        valorRetiro = ingreso.leer("Monto invalido. Ingrese de nuevo: ", 1);
+        retiro = atoi(valorRetiro.c_str());
     }
     if (monto > retiro) {
         monto -= retiro;
@@ -90,7 +86,7 @@ float Transacciones::retirar(float monto, int numCuenta) {
     @returns void
 */
 
-void Transacciones::guardarTransaccion(int numeroCuenta, float monto, int ingreso)
+void Transacciones::guardarTransaccion(int numeroCuenta, int monto, int ingreso)
 {
     ManejoArchivo am("transacciones.txt");
     dato = to_string(numeroCuenta) + "," + tipoTransaccion + "," + to_string(ingreso) + "," +
@@ -135,7 +131,6 @@ void Transacciones::datosTransaccion(int num)
             i++;
             cout << endl;
         }
-        //system("txt2pdf.exe transacciones.txt transacciones.pdf");
         system("pause");
     }
     else {
@@ -145,7 +140,9 @@ void Transacciones::datosTransaccion(int num)
             i++;
             cout << endl;
         }
-        //cout << maT.buscarRegistro(f, numeroCuenta, i) << endl;
+    
+        /*if(i == 1)
+            cout << "\n\t\t\t\t\No se han realizado transacciones con esa fecha!" << endl;*/
         system("pause");
     }
    
@@ -173,7 +170,7 @@ string Transacciones::ingresarFecha() {
     @returns void
 */
 ostream& operator<<(ostream& o, Fecha& f) {
-    o << "\n\tFecha" << "\t\tHora" << "\t\tMonto" << "\t\tSaldo" << "\n" << "\t" << f.getFecha() << "\t" << f.getHora();
+    o << "\n\tFecha" << "\t\tHora" << "\t\tMonto" << "\t\tSaldo" << "\n" << "\t" << f.obtenerFecha() << "\t" << f.obtenerHora();
     return o;
 }
 /**
@@ -215,14 +212,17 @@ void Transacciones::stringConsola(string mensaje)
         fechaT += mensaje.at(i);
         i++;
     }
+
     fecha.setFecha(fechaT);
+   
     i++;
     while (i < mensaje.length() && mensaje.at(i) != ',') {
         horaT += mensaje.at(i);
         i++;
     }
+ 
     fecha.setHora(horaT);
-
+    
     if (salida._Equal("Deposito")) {
         salida = "";
         salida = '+';
@@ -231,10 +231,12 @@ void Transacciones::stringConsola(string mensaje)
         salida = "";
         salida = '-';
     }
+
     salida += valorT;
     cout << fecha;
-    cout << "\t\t" << salida;
-    cout << "\t\t" << saldo;
+    cout << "\t" << salida;
+    cout << "\t";
+    cout << "\t" << saldo;
     cout << endl;
 }
 
@@ -323,5 +325,4 @@ void Transacciones::generarPdf() {
     }
     system("txt2pdf.exe pdfDocumento.txt documentoPDF.pdf");
     remove("pdfDocumento.txt");
-    system("pause");
 }

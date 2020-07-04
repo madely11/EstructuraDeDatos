@@ -28,9 +28,9 @@ class Cuenta
 {
 public:
     int getNumc(void);
-    float getMonto(void);
+    int getMonto(void);
     void setNumc(int);
-    void setMonto(float);
+    void setMonto(int);
     bool verificarCuenta(int);
 
     void hacerString();
@@ -41,7 +41,7 @@ public:
     Transacciones t;
 protected:
 private:
-    float monto;
+    int monto;
     int numeroCuenta;
     string idCliente;
     string dato;

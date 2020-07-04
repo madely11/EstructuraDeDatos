@@ -33,12 +33,12 @@ void Cliente::pedirDatos(int num) {
     nombre = ingreso.leerString("\nIngrese el nombre del titular : ", 1);
     cedula = cedula.assign(ingreso.ingresaNumericos("\nIngrese la cedula del titular:"), 10);
     while (!validar.cedula(cedula)) {
-        cedula.assign(ingreso.ingresaNumericos("\nIngrese la cedula del titular:"), 10);
+        cedula = cedula.assign(ingreso.ingresaNumericos("\nIngrese la cedula del titular:"), 10);
     }
-    cout << "\nIngrese el email del titular: "<<endl;
+    cout << "\n\nIngrese el email del titular: "<<endl;
     getline(cin,email);
     while (validar.validarEmail(email)) {
-        cout << "Reingrese el email del titular: "<<endl;
+        cout << "\nReingrese el email del titular: "<<endl;
         getline(cin, email);
     }
 

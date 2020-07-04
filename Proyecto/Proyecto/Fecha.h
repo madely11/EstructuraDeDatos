@@ -34,6 +34,8 @@ public:
     string horaUnida();
     string getFecha();
     string getHora();
+    string obtenerHora();
+    string obtenerFecha();
 
 private:
     string hora;

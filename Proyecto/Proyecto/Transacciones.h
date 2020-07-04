@@ -26,10 +26,10 @@ public:
     void datosTransaccion(int);
     void generarPdf();
     float depositar(float, int);
-    float retirar(float, int);
+    float retirar(int, int);
     void stringConsola(string);
     string stringConsola(string, int);
-    void guardarTransaccion(int, float, int);
+    void guardarTransaccion(int, int, int);
     string ingresarFecha();
     friend ostream& operator<<(ostream& o, Fecha& f);
 

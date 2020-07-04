@@ -126,7 +126,7 @@ int Cuenta::getNumc(void)
     return numeroCuenta;
 }
 
-float Cuenta::getMonto(void)
+int Cuenta::getMonto(void)
 {
     return monto;
 }
@@ -137,7 +137,7 @@ void Cuenta::setNumc(int numC)
 
 }
 
-void Cuenta::setMonto(float monto)
+void Cuenta::setMonto(int monto)
 {
     this->monto = monto;
 }
