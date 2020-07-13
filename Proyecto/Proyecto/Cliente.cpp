@@ -68,7 +68,7 @@ string Cliente::stringConsola() {
 }
 
 /**
-    @brief Funcion para obtener los datos que se guardaran en el archivo
+    @brief Funcion para poner los datos en un string
     @param void
     @returns void
 */

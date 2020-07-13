@@ -52,6 +52,8 @@ void Ordenamiento<T,T2>::ordenarNum(int i, int j, T* aux, T2** arreglo) {
 		/*@ indice j es para explorar la sublista a[i-1]..a[0] buscando la posicion correcta del elemento destino */
 		j = i;
 		aux = *(arreglo + i);
+		cout << "auxiliar " << aux << endl;
+		cout << "auxiliar puntero " << *(&aux) << endl;
 		//@se localiza el punto de inserción explorando hacia abajo
 		while (j > 0 && atoll(aux) < atoll(*(arreglo + (j - 1))))
 		{
