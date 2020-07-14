@@ -9,6 +9,6 @@ public:
 	int vacio(void);
 protected:
 private:
-	Nodo* siguiente;
+	Nodo<int, Nodo> siguiente;
 };
 

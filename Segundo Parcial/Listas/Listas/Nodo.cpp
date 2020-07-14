@@ -1,37 +1,37 @@
 #include "Nodo.h"
-template <typename tipo>
-inline Nodo<tipo>::Nodo()
+template <typename tipo, typename tipo2>
+inline Nodo<tipo, tipo2>::Nodo()
 {
 }
 
 
-template <typename tipo>
-Nodo* Nodo <tipo>::getSiguiente()
+template <typename tipo, typename tipo2>
+tipo2* Nodo <tipo, tipo2>::getSiguiente()
 {
 	return siguiente;
 }
 
-template <typename tipo>
-void Nodo <tipo> ::setSiguiente(Nodo* newSiguiente)
+template <typename tipo, typename tipo2>
+void Nodo <tipo, tipo2> ::setSiguiente(tipo2* newSiguiente)
 {
 	siguiente = newSiguiente;
 }
 
-template <typename tipo>
-inline Nodo <tipo> ::Nodo(tipo newDato, Nodo* newSiguiente)
+template <typename tipo, typename tipo2, tipo2>
+inline Nodo <tipo, tipo2> ::Nodo(tipo newDato, tipo2* newSiguiente)
 {
 	dato = newDato;
 	siguiente = newSiguiente;
 }
 
-template <typename tipo>
-tipo Nodo<tipo>::getDato(void)
+template <typename tipo, typename tipo2>
+tipo Nodo<tipo, tipo2>::getDato(void)
 {
 	return dato;
 }
 
-template <typename tipo>
-void Nodo <tipo>::setDato(tipo newDato)
+template <typename tipo, typename tipo2>
+void Nodo <tipo, tipo2>::setDato(tipo newDato)
 {
 	dato = newDato;
 }

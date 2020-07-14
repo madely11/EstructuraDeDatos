@@ -1,19 +1,19 @@
 #ifndef Nodo_H_
 #define Nodo_H_
-template <typename tipo> 
+template <typename tipo, typename tipo2> 
 class Nodo
 {
 public:
 	//Nodo();
-	Nodo(tipo newDato, Nodo* newSiguiente);
+	Nodo(tipo newDato, tipo2* newSiguiente);
 	Nodo();
-	Nodo* getSiguiente();
-	void setSiguiente(Nodo* newSiguiente);
+	tipo2* getSiguiente();
+	void setSiguiente(tipo2* newSiguiente);
 	tipo getDato();
 	void setDato(tipo newDato);
 protected:
 private:
 	tipo dato;
-	Nodo* siguiente;
+	tipo2* siguiente;
 };
 #endif
