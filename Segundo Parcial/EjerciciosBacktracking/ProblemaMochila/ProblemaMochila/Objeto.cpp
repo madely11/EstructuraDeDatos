@@ -3,6 +3,7 @@
 #define longitud 10
 
 Objeto::Objeto(int pMochila) {
+	srand(time(NULL));
 	Random rand(pMochila); //Se define el valor límite para hacer el random de peso y valor 
 	pesoT = pMochila;
 	cObjetos = rand.cantidadObjetos();
@@ -80,7 +81,7 @@ void Objeto::valorOptimo(int posicion, float s) {
 		for (int i = 1; s < pesoT; i++)
 		{
 			s += (*(peso + posicion));
-			cout << "Suma: " << s << endl;
+			//cout << "Suma: " << s << endl;
 			if (s <= pesoT) {
 				*(cantidad + posicion) = i;
 			}

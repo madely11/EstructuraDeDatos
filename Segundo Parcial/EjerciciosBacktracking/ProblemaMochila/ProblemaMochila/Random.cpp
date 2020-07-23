@@ -13,7 +13,7 @@ Random::Random(int pMochila) {
 
 	if (f.getSegundos() > pMochila) {
 		int valor;
-		srand(time(NULL));
+		//srand(time(NULL));
 		valor = f.getSegundos() - pMochila;
 		valor += 1;
 		limite = pMochila - (int)((1 + rand() % (valor - 1))/2);
@@ -26,7 +26,6 @@ Random::Random(int pMochila) {
 }
 
 int Random::cantidadObjetos() {
-	srand(time(NULL));
 	cObjetos = 5 + rand() % (11 - 5);
 	//cout << "Dimension: " << cObjetos << endl;
 	return cObjetos;
