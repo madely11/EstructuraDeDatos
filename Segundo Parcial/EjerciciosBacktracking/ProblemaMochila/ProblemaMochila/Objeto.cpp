@@ -31,8 +31,7 @@ void Objeto::llenar(Random rand) {
 		*(peso + i) = rand.obtenerNumero();
 		*(valor + i) = rand.obtenerNumero();
 	}
-	cout << "LLENO " << endl;
-	imprimir();
+	//imprimir();
 	//calcularPeso();
 }
 
@@ -77,18 +76,16 @@ int Objeto::moverDato(int j, float aux)
 
  
 void Objeto::valorOptimo(int posicion, float s) {
+	//cout << "hola" << endl;
 	if (posicion < dimension) {
 		for (int i = 1; s < pesoT; i++)
 		{
 			s += (*(peso + posicion));
-			//cout << "Suma: " << s << endl;
 			if (s <= pesoT) {
 				*(cantidad + posicion) = i;
 			}
 			else {
-				s -= *(peso + posicion);
-				posicion += 1;
-				valorOptimo(posicion, s);
+				valorOptimo(posicion+1, s-*(peso + posicion));
 			}
 		}
 	}
@@ -107,9 +104,11 @@ void Objeto::imprimir() {
 		cout << "Se necesita "<< *(cantidad + i) << " objetos de valor " << *(valor+i ) << " con peso " << *(peso + i) << endl;
 		suma += *(cantidad + i) * *(peso + i);
 	}
-	cout << "Suma " << suma << endl;
+	cout << endl;
+	cout << "Valor optimizado:" << suma << endl;
 	cout << endl;
 }
+
 
 
 	

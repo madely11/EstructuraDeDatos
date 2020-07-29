@@ -18,9 +18,6 @@
     <ClCompile Include="Aplicativo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Objeto.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Fecha.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,6 +33,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ingreso.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Validacion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

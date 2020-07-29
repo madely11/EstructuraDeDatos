@@ -141,13 +141,14 @@
   <ItemGroup>
     <ClCompile Include="Aplicativo.cpp" />
     <ClCompile Include="Fecha.cpp" />
-    <ClCompile Include="Objeto.cpp" />
     <ClCompile Include="Random.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fecha.h" />
+    <ClInclude Include="Ingreso.h" />
     <ClInclude Include="Objeto.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="Validacion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

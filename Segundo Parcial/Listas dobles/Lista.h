@@ -21,10 +21,12 @@ public:
 private:
     Nodo<T>* lista;
 };
+
 template<class T>
 Lista<T>::Lista(){
 	this->lista=NULL;
 }
+
 template<class T>
 void Lista<T>::insertarEntre(T dato, int pos){
 	Nodo<T>* nodo=new Nodo<T>(dato,NULL,NULL); 
@@ -42,13 +44,10 @@ void Lista<T>::insertarEntre(T dato, int pos){
 		nodo->setSiguiente(aux);
 		lista->setSiguiente(nodo);
 		nodo->getSiguiente()->setAnterior(nodo);
-		}
-		
-		
-	}
-	
-	
+		}	
+	}	
 }
+
 template<class T>
 void Lista<T>::insertarFinal(T dato){
 	Nodo<T>* nodo=new Nodo<T>(dato,NULL,NULL);
@@ -62,6 +61,7 @@ void Lista<T>::insertarFinal(T dato){
 		
 			}
 }
+
 template<class T>
 void Lista<T>::insertarInicio(T dato){
 	Nodo<T>* nodo= new Nodo<T>(dato,NULL,NULL);
@@ -75,6 +75,7 @@ void Lista<T>::insertarInicio(T dato){
 	}
 		 
 }
+
 template<class T>
 void Lista<T>::borrar(T dato){
 	primerNodo();
@@ -103,16 +104,19 @@ void Lista<T>::borrar(T dato){
 	else{cout<<"El elemento no existe"<<endl;
 	}
 }
+
 template<class T>
 void Lista<T>::nodoAnterior(){
 	Nodo<T>* aux=lista->getAnterior();
 	lista=aux;
 }
+
 template<class T>
 void Lista<T>::nodoSiguiente(){
 	Nodo<T>* aux=lista->getSiguiente();
 	lista=aux;
 }
+
 template<class T>
 void Lista<T>::primerNodo(){
 	Nodo<T>* aux;
@@ -121,6 +125,7 @@ void Lista<T>::primerNodo(){
 		lista=aux;
 	}
 }
+
 template<class T>
 void Lista<T>::ultimoNodo(){
 	Nodo<T>* aux;
@@ -141,6 +146,7 @@ void Lista<T>::nodoPosicion(int pos){
 		lista=aux;
 	}
 }
+
 template<class T>
 void Lista<T>::mostrar(){
 	primerNodo();
@@ -154,6 +160,7 @@ void Lista<T>::mostrar(){
 	cout<<"<-"<<lista->getValor()<<"->";
 	cout<<"NULL"<<endl;
 }
+
 template<class T>
 bool Lista<T>::listaVacia(){
 	return lista==NULL;

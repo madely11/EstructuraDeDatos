@@ -12,7 +12,7 @@ using namespace std;
 class Menu{
 	public:
 	void MenuTeclas();
-	Lista<int>* lista=new Lista<int>();
+	Lista<int>* lista = new Lista<int>();
 };
 
 
