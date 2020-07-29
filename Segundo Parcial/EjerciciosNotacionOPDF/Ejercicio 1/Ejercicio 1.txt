@@ -1,0 +1,11 @@
+
+Ejercicios 1
+1 Determine la fórmula del tiempo de ejecución del siguiente algoritmo.
+Obsérvese que las instrucciones por fuera del bucle consumen un tiempo a=2, y un tiempo t’’=7 
+gastan las instrucciones del bucle más interno. Aplicando la fórmula: 
+• T(N)=3+a + (6+b)N + ((2+t’) N(N-1)/2 
+• T(N)=5+6n + (2+7) N (N-1)/2 \
+• T(N)=5+1.5n + 4.5n2
+Para el caso anterior el orden de crecimiento anterior es O(N2 ). 
+Se desprecian los otros términos de orden inferior ya que se considera 
+que N es lo suficientemente grande y su importancia no afecta el cáculo final significativamente.
