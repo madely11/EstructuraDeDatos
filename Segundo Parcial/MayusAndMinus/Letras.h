@@ -39,7 +39,7 @@ class Letras{
 */
 void Letras::convertirMayus(){
 		char caracter;
-	cout<<"Ingrese su cadena: "<<endl;
+	cout<<"Convertir a mayusculas ingrese: "<<endl;
 	int i = 0;
 	char* valor;
 	valor = (char*)calloc(30, sizeof(char));
@@ -73,7 +73,7 @@ void Letras::convertirMayus(){
 
 void Letras::convertirMinus(){
 		char caracter;
-	cout<<endl<<"Ingrese su cadena: "<<endl;
+	cout<<endl<<"Convertir a minusculas ingrese: "<<endl;
 	int i = 0;
 	char* valor;
 	valor = (char*)calloc(30, sizeof(char));
