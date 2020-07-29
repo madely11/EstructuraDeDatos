@@ -9,7 +9,6 @@ class Random
 private:
 	int cObjetos=0;
 	int limite=0;
-	int cont=0;
 public:
 	Random(int);
 	Random();
