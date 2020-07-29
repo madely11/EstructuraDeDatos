@@ -1,9 +1,30 @@
+
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* PROGRAMA QUE RELIZAR EL PROBLEMA DE LA MOCHILA                  *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/07/20									  *
+* FECHA DE MODIFICACIÓN: 28/07/20								  *
+******************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Random.h"
 #include <iostream>
 #define longitud 10
 using namespace std;
+
+/**
+	@file Objeto.h
+	@brief Clase que crea los objetos de la mochila
+	@author Madely Betancourt y Kevin Caicedo
+	@date 7/2020
+*/
+
 
 template <typename tipo, typename tipo2> class Objeto
 {
@@ -27,6 +48,11 @@ public:
 	void imprimir();
 };
 
+/**
+	@brief Constructor Clase Objeto
+	@param Peso mochila de tipo int
+	@returns void
+*/
 template <typename tipo, typename tipo2>
 inline Objeto<tipo, tipo2>::Objeto(int pMochila) {
 	srand(time(NULL));
@@ -42,6 +68,11 @@ inline Objeto<tipo, tipo2>::Objeto(int pMochila) {
 	llenar(rand);
 }
 
+/**
+	@brief funcion encerar 
+	@param void
+	@returns void
+*/
 template <typename tipo, typename tipo2>
 void Objeto<tipo, tipo2>::encerar()
 {
@@ -50,7 +81,11 @@ void Objeto<tipo, tipo2>::encerar()
 		*(cantidad + i) = 0;
 	}
 }
-
+/**
+	@brief Funcion para llenar la matriz de numeros randomicos
+	@param TDA Random 
+	@returns void
+*/
 template <typename tipo, typename tipo2>
 void Objeto<tipo, tipo2>::llenar(Random rand) {
 
@@ -61,6 +96,11 @@ void Objeto<tipo, tipo2>::llenar(Random rand) {
 	}
 }
 
+/**
+	@brief funcion de calcular peso
+	@param void
+	@returns void
+*/
 template <typename tipo, typename tipo2>
 void Objeto<tipo, tipo2>::calcularPeso() {
 	for (int i = 0; i < dimension; i++)
@@ -70,7 +110,11 @@ void Objeto<tipo, tipo2>::calcularPeso() {
 	int i = 1;
 	ordenarPeso(i);
 }
-
+/**
+	@brief Funcion para ordenar por peso 
+	@param Template 
+	@returns void
+*/
 template <typename tipo, typename tipo2>
 void Objeto<tipo, tipo2>::ordenarPeso(tipo i) {
 	int j = 0, auxP = 0, auxV = 0;
@@ -89,7 +133,11 @@ void Objeto<tipo, tipo2>::ordenarPeso(tipo i) {
 		ordenarPeso(i);
 	}
 }
-
+/**
+	@brief Constructor Clase Objeto
+	@param Template t1, t2
+	@returns int 
+*/
 template <typename tipo, typename tipo2>
 int Objeto<tipo, tipo2>::moverDato(tipo j, tipo2 aux)
 {
@@ -103,6 +151,11 @@ int Objeto<tipo, tipo2>::moverDato(tipo j, tipo2 aux)
 	return j;
 }
 
+/**
+	@brief funcion para determinar el valor optimo
+	@param Template t1,t2
+	@returns void
+*/
 template <typename tipo, typename tipo2>
 void Objeto<tipo, tipo2>::valorOptimo(tipo posicion, tipo2 s) {
 	//cout << "hola" << endl;

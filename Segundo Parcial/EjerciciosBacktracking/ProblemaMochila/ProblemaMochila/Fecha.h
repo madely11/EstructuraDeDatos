@@ -16,9 +16,8 @@
     @author Madely Betancourt y Kevin Caicedo
     @date 6/2020
 */
-
-
 #pragma once
+
 #include <iostream>
 #include <string.h>
 #include <string>
