@@ -46,6 +46,7 @@ public:
 	void valorOptimo(tipo, tipo2);
 	void encerar();
 	void imprimir();
+	void imprimir(tipo*);
 };
 
 /**
@@ -94,6 +95,13 @@ void Objeto<tipo, tipo2>::llenar(Random rand) {
 		*(peso + i) = rand.obtenerNumero();
 		*(valor + i) = rand.obtenerNumero();
 	}
+	cout << endl;
+	cout << "Peso de los objetos:" << endl;
+	imprimir(peso);
+	cout << endl;
+	cout << "Valor de los objetos:" << endl;
+	imprimir(valor);
+	cout << endl;
 }
 
 /**
@@ -187,6 +195,15 @@ void Objeto<tipo, tipo2>::imprimir() {
 	cout << endl;
 	cout << "Valor optimizado: " << suma << endl;
 	cout << endl;
+}
+
+template<typename tipo, typename tipo2>
+inline void Objeto<tipo, tipo2>::imprimir(tipo *arr)
+{
+	for (int i = 0; i < dimension; i++)
+	{
+		cout << "Objeto " << i + 1 << ": " << *(arr + i) << endl;
+	}
 }
 
 
