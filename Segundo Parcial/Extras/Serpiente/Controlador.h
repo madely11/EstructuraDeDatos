@@ -23,6 +23,13 @@
 #define ABAJO 80
 #define ESC 27
 
+/**
+	@file Controlador.h
+	@brief Clases para funciones del snake
+	@author Madely Betancourt y Kevin Caicedo
+	@date 8/2020
+*/
+
 char tecla;
 class Controlador{
 	public:
@@ -38,6 +45,11 @@ class Controlador{
 };
 
  
+/**
+	@brief Funcion ubicarnos en un punto de la consola
+	@param int x, int y cordenadas
+	@returns void
+*/
 void Controlador::gotoxy(int x, int y) { 
  HANDLE hCon; 
  COORD dwPos; 
@@ -47,11 +59,20 @@ void Controlador::gotoxy(int x, int y) {
  hCon = GetStdHandle(STD_OUTPUT_HANDLE); 
  SetConsoleCursorPosition(hCon,dwPos); 
 }
-
+/**
+	@brief Funcion para ocultar el cursor
+	@param void
+	@returns void
+*/
 void Controlador::ocultar() {
  CONSOLE_CURSOR_INFO cci = {100, FALSE};
  SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cci);
 }
+/**
+	@brief Funcion para dibujar limites
+	@param void
+	@returns void
+*/
 
 void Controlador::cuadrado(){ 
  for(int i=2; i < 78; i++){
@@ -67,7 +88,11 @@ void Controlador::cuadrado(){
  gotoxy (77,3); printf ("%c", 187);
  gotoxy(77,23); printf ("%c", 188); 
  }
-
+/**
+	@brief Funcion guardar posicion del snake
+	@param enteros de npos, tam,x,y,punteros cuerpo
+	@returns void
+*/
 void Controlador::guardarPosicion(int *n, int *tam, int *x, int *y, int **cuerpo ){
  *(*(cuerpo+*n)+0) = *x;
  *(*(cuerpo+*n)+1) = *y;
@@ -75,19 +100,31 @@ void Controlador::guardarPosicion(int *n, int *tam, int *x, int *y, int **cuerpo
  if(*n == *tam) 
  	*n = 1;
 }
-
+/**
+	@brief Funcion dibujar el cuerpo de la serpiente
+	@param int tam, int y cordenadas
+	@returns void
+*/
 void Controlador::dibujar(int *tam, int **cuerpo, char* line){	
  for(int i = 1; i < *tam-1; i++){
  	gotoxy(*(*(cuerpo+i)+0) , *(*(cuerpo+i)+1));
 	printf("%c",line[i-1]);
  }
 }
-
+/**
+	@brief Funcion borrar el cuerpo de la serpiente
+	@param int tam, int y cordenadas
+	@returns void
+*/
 void Controlador::borrar(int **cuerpo, int *n){
  	gotoxy(*(*(cuerpo+*n)+0) , *(*(cuerpo+*n)+1)); 
  	printf(" ");
 }
-
+/**
+	@brief Funcion direccionar el snake
+	@param int tam, int y cordenadas
+	@returns void
+*/
 void Controlador::teclas(int *dir){
  if(kbhit()){
  	tecla = getch();
@@ -99,7 +136,11 @@ void Controlador::teclas(int *dir){
  	}
  }
 }
-
+/**
+	@brief Funcion dibujar la comida
+	@param int tam, int y cordenadas, posicion comida
+	@returns void
+*/
 void Controlador::comida(int *x, int *y, int *xc, int *yc, int *tam, Lista *listE, char *com){
  if(*x == *xc && *y == *yc){	
  	srand (time(NULL));
@@ -112,7 +153,11 @@ void Controlador::comida(int *x, int *y, int *xc, int *yc, int *tam, Lista *list
 	printf("%c", *com);
  }
 }
-
+/**
+	@brief Funcion determinar si ha terminado el juego
+	@param int tam, int x,y cordenadas
+	@returns bool
+*/
 bool Controlador::finJuego(int *tam, int *x, int *y, int** cuerpo){
  if(*y == 3 || *y == 23 || *x == 2 || *x == 77) 
  	return false;

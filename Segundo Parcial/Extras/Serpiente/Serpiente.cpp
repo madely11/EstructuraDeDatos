@@ -16,7 +16,12 @@
 #include <time.h>
 #include "Lista.h"
 #include "Controlador.h"
- 
+ /**
+	@file Seriente.cpp
+	@brief Programa Snake
+	@author Madely Betancourt y Kevin Caicedo
+	@date 8/2020
+*/
 
 int main()
 {
