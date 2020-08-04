@@ -143,6 +143,7 @@
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="IngresoPersona.cpp" />
     <ClCompile Include="Lista.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="Persona.cpp" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="Fecha.h" />
     <ClInclude Include="IngresoPersona.h" />
     <ClInclude Include="Lista.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Persona.h" />
   </ItemGroup>
