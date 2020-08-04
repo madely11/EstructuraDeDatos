@@ -6,9 +6,8 @@ using namespace std;
 
 class IngresoPersona
 {
-
-	
 public:
+	//void crearEmail();
 	void imprimirDatos();
 	void ingresoDatos();
 	Persona persona;

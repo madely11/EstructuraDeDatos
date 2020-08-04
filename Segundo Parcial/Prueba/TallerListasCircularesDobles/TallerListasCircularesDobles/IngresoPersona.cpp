@@ -1,5 +1,7 @@
 #include "IngresoPersona.h"
 
+
+
 void IngresoPersona::imprimirDatos()
 {
 	cout << "El nombre es: " << persona.getNombre()<<endl;
@@ -31,4 +33,5 @@ void IngresoPersona::ingresoDatos()
 	cin >> anio;
 	Fecha f(dia, mes, anio);
 	persona.setFecha(f);
+
 }
