@@ -8,7 +8,6 @@ void IngresoPersona::imprimirDatos()
 	Fecha f;
 	f = persona.getFecha();
 	cout << f.toString();
-
 }
 
 void IngresoPersona::ingresoDatos()

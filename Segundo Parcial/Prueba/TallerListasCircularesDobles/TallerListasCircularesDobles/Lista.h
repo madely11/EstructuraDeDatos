@@ -1,11 +1,11 @@
 #include"Nodo.h"
 #include"Persona.h"
+#include <iostream>
 using namespace std;
 
 class Lista {
 public:
     Lista();
-
     void insertarInicio(Persona dato);
     void insertarEntre(Persona dato, int pos);
     void insertarFinal(Persona dato);
@@ -13,7 +13,6 @@ public:
     bool listaVacia();
     void mostrar();
     
-
 private:
     Nodo* lista;
     Nodo* listaFinal;
