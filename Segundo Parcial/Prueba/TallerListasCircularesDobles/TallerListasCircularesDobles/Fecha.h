@@ -3,6 +3,8 @@
 #include <string>
 using namespace std;
 
+#ifndef Fecha_H
+#define Fecha_H
 class Fecha
 {
 private:
@@ -20,4 +22,4 @@ public:
 	int getAnio();
 	string toString();
 };
-
+#endif 

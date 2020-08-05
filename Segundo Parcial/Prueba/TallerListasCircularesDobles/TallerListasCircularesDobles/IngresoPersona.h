@@ -6,6 +6,8 @@
 #include "Validacion.h"
 using namespace std;
 
+#ifndef IngresoPersona_H
+#define IngresoPersona_H
 class IngresoPersona
 {
 public:
@@ -15,4 +17,5 @@ public:
 	Ingreso ingreso;
 	Validacion validar;
 };
+#endif 
 

@@ -4,6 +4,8 @@
 #include <iostream>
 using namespace std;
 
+#ifndef Lista_H
+#define Lista_H
 class Lista {
 public:
     Lista();
@@ -15,9 +17,9 @@ public:
     void borrar(string cedula);
     bool listaVacia();
     void mostrar();
-    int contarNodos();
     
 private:
     Nodo* lista;
     Nodo* listaFinal;
 };
+#endif 
