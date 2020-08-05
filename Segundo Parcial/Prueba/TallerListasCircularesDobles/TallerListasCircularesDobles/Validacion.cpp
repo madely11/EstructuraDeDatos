@@ -1,6 +1,28 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* LIBRERIA PARA LA VALIDACION DE INGRESO DE DATOS                 *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/06/20									  *
+* FECHA DE MODIFICACIÓN: 02/07/20								  *
+******************************************************************/
+
+/**
+	@file Validacion.cpp
+	@brief Clase que contiene metodos para realizar las validaciones de los ingresos de datos
+	@author Madely Betancourt y Kevin Caicedo
+	@date 6/2020
+*/
+
 #include "Validacion.h"
-
-
+/**
+	@brief Funcion para validar cedula
+	@param numero de cedula tipo string
+	@returns verdadero o falso
+*/
 bool Validacion::cedula(string cedula) {
 	char* aux;
 	int aux_int;
@@ -52,10 +74,18 @@ bool Validacion::cedula(string cedula) {
 
 	return true;
 }
-
+/**
+	@brief Funcion para validar entrada de numeros
+	@param entrada de datos tipo string y entero tipo int
+	@returns verdadero o falso
+*/
 bool Validacion::validar(string entrada, int tipo) {
 	int contador = 0;
 	try {
+		if (entrada.length() == 0) {
+			throw 1;
+		}
+
 		for (int i = 0; i < entrada.length(); i++) {
 			if (isalpha(entrada[i])) {
 				throw 1;
@@ -76,10 +106,17 @@ bool Validacion::validar(string entrada, int tipo) {
 	}
 	return false;
 }
-
+/**
+	@brief Funcion para validar entrada de Letras
+	@param entrada de datos tipo string y entero tipo int
+	@returns verdadero o falso
+*/
 bool Validacion::validarString(string entrada, int tipo) {
 	int contador = 0;
 	try {
+		if (entrada.length() == 0) {
+			throw 1;
+		}
 		for (int i = 0; i < entrada.length(); i++) {
 			if (isdigit(entrada[i])) {
 				throw 1;
@@ -100,7 +137,11 @@ bool Validacion::validarString(string entrada, int tipo) {
 	}
 	return false;
 }
-
+/**
+	@brief Funcion para validar el ingreso de una fecha
+	@param fecha tipo string
+	@returns verdadero o falso
+*/
 bool Validacion::validarFecha(string fecha) {
 
 	string dia;
@@ -120,18 +161,23 @@ bool Validacion::validarFecha(string fecha) {
 	int d = atoi(dia.c_str());
 	int m = atoi(mes.c_str());
 	int a = atoi(anio.c_str());
+	try {
 
-	if ((d < 0 || d > 31)) {
+		if ((d < 0 || d > 31)) {
+			throw 1;
+		}
+
+		if ((m < 0 || m > 12)) {
+			throw 1;
+		}
+
+		if ((a < 1920 || a > 2020)) {
+			throw 1;
+		}
+	}
+	catch (int e) {
 		return false;
 	}
-
-	if ((m < 0 || m > 12)) {
-		return false;
-	}
-
-	if ((a < 1920 || a > 2020)) {
-		return false;
-	}
-
 	return true;
 }
+

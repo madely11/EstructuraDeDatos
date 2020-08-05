@@ -12,6 +12,8 @@ private:
 	int dia;
 	int anio;
 public:
+
+	bool validarFecha();
 	Fecha();
 	Fecha(int, int, int);
 	void setDia(int dia);

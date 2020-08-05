@@ -143,6 +143,9 @@ void Lista::borrar(string cedula)
 				aux->getAnterior()->setSiguiente(aux->getSiguiente());
 				aux->getSiguiente()->setAnterior(aux->getAnterior());
 				lista = aux->getSiguiente();
+				if (aux == aux->getSiguiente()) {
+					lista = NULL;
+				}
 				aux = NULL;
 			}
 			else if (aux == listaFinal) {
@@ -165,25 +168,31 @@ void Lista::borrar(string cedula)
 
 void Lista::mostrar()
 {
-	Nodo* aux = lista;
-	while (aux != listaFinal) {
-		cout << aux->getValor().getNombre() << " ";
+	if (listaVacia()) {
+		cout << "La lista esta vacia" << endl;
+	}
+	else {
+
+		Nodo* aux = lista;
+		while (aux != listaFinal) {
+			cout << aux->getValor().getNombre() << " ";
+			cout << aux->getValor().getApellido() << endl;
+			cout << aux->getValor().getCedula() << endl;
+			cout << aux->getValor().getEdad() << endl;
+			cout << aux->getValor().getFecha().toString() << endl;
+			cout << aux->getValor().getCorreo() << endl;
+			aux = aux->getSiguiente();
+			cout << endl;
+			cout << endl;
+		}
+		cout << endl;
+		cout << endl;
+		cout << aux->getValor().getNombre() << endl;
 		cout << aux->getValor().getApellido() << endl;
 		cout << aux->getValor().getCedula() << endl;
 		cout << aux->getValor().getEdad() << endl;
 		cout << aux->getValor().getFecha().toString() << endl;
 		cout << aux->getValor().getCorreo() << endl;
-		aux = aux->getSiguiente();
-		cout << endl;
-		cout << endl;
 	}
-	cout << endl;
-	cout << endl;
-	cout << aux->getValor().getNombre() << endl;
-	cout << aux->getValor().getApellido() << endl;
-	cout << aux->getValor().getCedula() << endl;
-	cout << aux->getValor().getEdad() << endl;
-	cout << aux->getValor().getFecha().toString() << endl;
-	cout << aux->getValor().getCorreo() << endl;
 }
 
