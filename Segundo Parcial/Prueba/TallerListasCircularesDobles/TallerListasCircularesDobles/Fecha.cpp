@@ -63,24 +63,15 @@ int Fecha::getAnio()
 	return anio;
 }
 
-void Fecha::diferencia()
+int Fecha::obtenerAnio()
 {
-	time_t now;
-	struct tm newyear;
-	double seconds;
-
-	time(&now);  /* get current time; same as: now = time(NULL)  */
-
+	struct tm pt1;
 	__time64_t tSac = time(NULL);
+	errno_t err;
 	_time64(&tSac);
-	newyear = *_localtime64_s(&now, &tSac);
-
-	newyear.tm_hour = 9; newyear.tm_min = 26; newyear.tm_sec = 0;
-	newyear.tm_mon = getMes();  newyear.tm_mday = getDia();
-
-	seconds = difftime(now, mktime(&newyear));
-
-	cout << "seconds since new year in the current timezone: "<<  seconds;
+	err = _localtime64_s(&pt1, &tSac);
+	anio = pt1.tm_year + 1900;
+	return anio;
 }
 
 string Fecha::toString()

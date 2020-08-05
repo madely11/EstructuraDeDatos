@@ -12,6 +12,7 @@ private:
 	int mes;
 	int dia;
 	int anio;
+	int anioObtenido;
 public:
 
 	bool validarFecha();
@@ -23,7 +24,7 @@ public:
 	int getDia();
 	int getMes();
 	int getAnio();
-	void diferencia();
+	int obtenerAnio();
 	string toString();
 };
 #endif 

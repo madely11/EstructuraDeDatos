@@ -31,10 +31,7 @@ void IngresoPersona::ingresoDatos()
 	cin.clear();
 	cout << endl;
 	cin.clear();
-	dato = ingreso.leer("Ingrese su edad: ", 1);
-	cin.clear();
-	persona.setEdad(atoi(dato.c_str()));
-	cout << endl;
+
 	Fecha f;
 	do{
 		cin.clear();
@@ -57,6 +54,10 @@ void IngresoPersona::ingresoDatos()
 		f.setMes(mes);
 		f.setAnio(anio);
 	} while (!f.validarFecha());
-	f.diferencia();
+
+	cin.clear();
+	int anioAux = f.obtenerAnio();
+	persona.setEdad(anioAux-anio);
+	cout << endl;
 	persona.setFecha(f);
 }
