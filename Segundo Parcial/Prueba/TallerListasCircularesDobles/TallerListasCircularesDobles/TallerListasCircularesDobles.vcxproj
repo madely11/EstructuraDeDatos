@@ -141,11 +141,13 @@
   <ItemGroup>
     <ClCompile Include="Aplicativo.cpp" />
     <ClCompile Include="Fecha.cpp" />
+    <ClCompile Include="Ingreso.cpp" />
     <ClCompile Include="IngresoPersona.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Nodo.cpp" />
     <ClCompile Include="Persona.cpp" />
+    <ClCompile Include="Validacion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fecha.h" />

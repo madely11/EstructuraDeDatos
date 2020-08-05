@@ -131,7 +131,7 @@ void Lista::insertarEntre(Persona dato, int pos)
 void Lista::borrar(string cedula)
 {
 	if (listaVacia()) {
-		cout << "La lista esta vacia";
+		cout << "La lista esta vacia" << endl;
 	}
 	else {
 		Nodo* aux = lista;
