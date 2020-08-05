@@ -6,6 +6,8 @@ bool Lista::listaVacia()
 }
 Lista::Lista()
 {
+	lista = NULL;
+	listaFinal = NULL;
 }
 
 string Lista::buscarEmail(string iniciales)

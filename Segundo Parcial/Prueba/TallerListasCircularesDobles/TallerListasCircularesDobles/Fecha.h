@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-#include <string>
+#include <string>   
+#include <time.h> 
 using namespace std;
 
 #ifndef Fecha_H
@@ -22,6 +23,7 @@ public:
 	int getDia();
 	int getMes();
 	int getAnio();
+	void diferencia();
 	string toString();
 };
 #endif 

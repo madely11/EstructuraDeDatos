@@ -57,5 +57,6 @@ void IngresoPersona::ingresoDatos()
 		f.setMes(mes);
 		f.setAnio(anio);
 	} while (!f.validarFecha());
+	f.diferencia();
 	persona.setFecha(f);
 }
