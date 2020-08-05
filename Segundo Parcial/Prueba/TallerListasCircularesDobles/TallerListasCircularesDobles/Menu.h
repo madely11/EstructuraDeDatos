@@ -7,8 +7,9 @@
 #include <windows.h>
 #include <fstream>
 #include <math.h>
+#include "Ingreso.h"
+#include "Validacion.h"
 #include"Lista.h"
-//#include"Persona.h"
 #include"IngresoPersona.h"
 using namespace std;
 

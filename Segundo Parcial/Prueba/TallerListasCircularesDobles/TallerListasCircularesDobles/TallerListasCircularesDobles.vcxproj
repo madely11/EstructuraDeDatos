@@ -149,11 +149,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fecha.h" />
+    <ClInclude Include="Ingreso.h" />
     <ClInclude Include="IngresoPersona.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="Validacion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

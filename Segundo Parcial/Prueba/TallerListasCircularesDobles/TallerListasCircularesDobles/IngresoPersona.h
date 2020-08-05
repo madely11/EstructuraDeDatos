@@ -2,14 +2,17 @@
 
 #include <iostream>
 #include "Persona.h"
+#include "Ingreso.h"
+#include "Validacion.h"
 using namespace std;
 
 class IngresoPersona
 {
 public:
-	//void crearEmail();
 	void imprimirDatos();
 	void ingresoDatos();
 	Persona persona;
+	Ingreso ingreso;
+	Validacion validar;
 };
 

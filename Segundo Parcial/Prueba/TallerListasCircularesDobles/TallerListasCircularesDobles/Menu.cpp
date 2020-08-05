@@ -62,44 +62,78 @@ void Menu::MenuTeclas()
 				switch (cursor)
 				{
 				case 0:
-
-					cout << "Ingrese el dato que desea ingresar:  ";
-					nuevaPersona.ingresoDatos();
-					lista->insertarInicio(nuevaPersona.persona);
-					system("pause");
-					system("cls");
-					MenuTeclas();
+					if (true) {
+						nuevaPersona.ingresoDatos();
+						if (lista->verificarCedula(nuevaPersona.persona.getCedula())) {
+							cout << "Esta cedula ya existe" << endl;
+							system("pause");
+							system("cls");
+							MenuTeclas();
+						}
+						string ini = nuevaPersona.persona.getNombre().at(0) + nuevaPersona.persona.getApellido();
+						nuevaPersona.persona.setCorreo(lista->buscarEmail(ini));
+						lista->insertarInicio(nuevaPersona.persona);
+						system("pause");
+						system("cls");
+						MenuTeclas();
+					}
 					break;
 				case 1:
-					//	int dato=0;
-					cout << "Ingrese el dato que desea ingresar:  ";
-					nuevaPersona.ingresoDatos();
-					lista->insertarFinal(nuevaPersona.persona);
-					system("pause");
-					system("cls");
-					MenuTeclas();
+					if (true) {
+						nuevaPersona.ingresoDatos();
+						if (lista->verificarCedula(nuevaPersona.persona.getCedula())) {
+							cout << "Esta cedula ya existe" << endl;
+							system("pause");
+							system("cls");
+							MenuTeclas();
+						}
+						string ini = nuevaPersona.persona.getNombre().at(0) + nuevaPersona.persona.getApellido();
+						nuevaPersona.persona.setCorreo(lista->buscarEmail(ini));
+						lista->insertarFinal(nuevaPersona.persona);
+						system("pause");
+						system("cls");
+						MenuTeclas();
+					}
 					break;
 				case 2:
-
-					cout << "Ingrese el dato que desea ingresar:  ";
-					nuevaPersona.ingresoDatos();
-					cout << endl << "En que posicion desea ingresar el dato: ";
-					cin >> pos;
-					lista->insertarEntre(nuevaPersona.persona, pos);
-					system("pause");
-					system("cls");
-					MenuTeclas();
+					if (true) {
+						Ingreso ingreso;
+						Validacion validar;
+						string dato;
+						int pos;
+						dato = ingreso.leer("En que posicion desea ingresar el dato: ", 1);
+						pos=atoi(dato.c_str());
+						nuevaPersona.ingresoDatos();
+						if (lista->verificarCedula(nuevaPersona.persona.getCedula())) {
+							cout << "Esta cedula ya existe" << endl;
+							system("pause");
+							system("cls");
+							MenuTeclas();
+						}
+						string ini = nuevaPersona.persona.getNombre().at(0) + nuevaPersona.persona.getApellido();
+						nuevaPersona.persona.setCorreo(lista->buscarEmail(ini));
+						lista->insertarEntre(nuevaPersona.persona, pos);
+						system("pause");
+						system("cls");
+						MenuTeclas();
+					}
 					break;
 				case 3:
-					//int dato=0;
-
-					cout << "Ingrese el dato que desea eliminar:  ";
-					cin >> dato;
-					lista->borrar(dato);
-					system("pause");
-					system("cls");
-					MenuTeclas();
+					if (true) {
+						Ingreso ingreso;
+						Validacion validar;
+						string dato;
+						dato = dato.assign(ingreso.ingresaNumericos("Ingrese la cedula: "), 10);
+						while (!validar.cedula(dato)) {
+							dato = dato.assign(ingreso.ingresaNumericos("\nIngrese la cedula: "), 10);
+						}
+						lista->borrar(dato);
+						system("pause");
+						system("cls");
+						MenuTeclas();
+					}
 					break;
+					
 				case 4:
 					lista->mostrar();
 					system("pause");
@@ -108,6 +142,7 @@ void Menu::MenuTeclas()
 					break;
 
 				case 5:
+					free(lista);
 					system("cls");
 					cout << endl << "<<<<<<<<<Gracias por usar nuestro programa>>>>>>>>>" << endl;
 					exit(1);
