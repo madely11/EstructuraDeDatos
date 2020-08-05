@@ -2,7 +2,8 @@
 #include<iostream>
 #include"Persona.h"
 using namespace std;
-
+#ifndef Nodo_H
+#define Nodo_H
 class Nodo {
 public:
 	Nodo();
@@ -17,4 +18,4 @@ private:
 	Nodo* anterior;
 	Nodo* siguiente;
 };
-
+#endif 

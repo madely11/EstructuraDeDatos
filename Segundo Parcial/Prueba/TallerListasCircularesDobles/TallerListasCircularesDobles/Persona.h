@@ -2,7 +2,12 @@
 #include <iostream>
 #include <string>
 #include "Fecha.h"
+
+
 using namespace std;
+
+#ifndef Persona_H
+#define Persona_H
 class Persona
 {
 private:
@@ -30,4 +35,5 @@ public:
 	string getCorreo();
 	string toString();
 };
+#endif 
 

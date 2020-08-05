@@ -12,11 +12,12 @@
 #include"Lista.h"
 #include"IngresoPersona.h"
 using namespace std;
-
+#ifndef Menu_H
+#define Menu_H
 class Menu {
 public:
 	void MenuTeclas();
 	Lista* lista = new Lista();
 };
-
+#endif 
 
