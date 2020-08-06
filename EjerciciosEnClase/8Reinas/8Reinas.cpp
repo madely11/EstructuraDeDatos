@@ -12,6 +12,7 @@ int main() {
 	obj->solucionReinas();
 	cout << "Procesos para llegar a la solucion: "<< obj->contador << endl;
 	cout<<"Se creo el archivo solucion.txt"<<endl;	
+	system("pause");
 	return 0;
 }
 

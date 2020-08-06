@@ -24,6 +24,6 @@ int main(){
 	Letras letra;
 	letra.convertirMayus();
 	letra.convertirMinus();
-	
+	system("pause");
 	return 0;
 }

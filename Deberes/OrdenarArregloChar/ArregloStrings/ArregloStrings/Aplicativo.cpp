@@ -228,7 +228,7 @@ int main() {
 			cout << *(arreglo + i) << endl;
 	}
 
-
+	system("pause");
 	free (arreglo);
 	return 0;
 }

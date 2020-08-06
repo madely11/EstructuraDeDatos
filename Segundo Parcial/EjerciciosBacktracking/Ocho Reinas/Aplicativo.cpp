@@ -31,4 +31,5 @@ int main(){
 	if(!r->colocarReina(0,n)){
 		cout <<"No existe solucion"<<endl;
 	}	
+	system("pause");
 }

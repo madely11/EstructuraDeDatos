@@ -9,7 +9,7 @@ int c[10000][10000];
 int a[10000][10000];
 void fun_Ex(int N){
 int cuenta=0;
-int i=3
+int i=3;
 while (i<N)
 { cuenta=cuenta+10;
  int j=2;
@@ -60,7 +60,7 @@ int recursiva(int N){
 }		
 int main(){
 	clock_t tmI=0, tmF=0;
-	int n=40;
+	int n=20;
 	double tiempo;
 	tmI = clock();
 	recursiva(n);
@@ -69,5 +69,6 @@ int main(){
 	tiempo = (double)((double)(tmF - tmI) / CLOCKS_PER_SEC);
 	cout << tiempo << " segundos" << endl;
 	cout << endl;
+	system("pause");
 	return 0;
 }

@@ -19,6 +19,7 @@ int main(int argc, char** argv) {
 	cout << "Suma: " << div << endl;
 	cout << time << " segundos" << endl;
 	cout << endl;
+	system("pause");
 	return 0;
 }
 

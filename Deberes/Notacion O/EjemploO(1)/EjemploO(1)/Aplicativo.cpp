@@ -9,4 +9,5 @@ int main() {
 	op.ejecutar(1000);
 	op.ejecutar(100000);
 	op.ejecutar(10000000);
+	system("pause");
 }

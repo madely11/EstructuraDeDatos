@@ -58,5 +58,6 @@ int main() {
 	mcm = op.calcularMCM(arr1.getArreglo(), arr1.getLongitud());
 	cout << "El MCD es: " << mcd << endl;
 	cout << "EL MCM es: " << mcm << endl;
+	system("pause");
 	return 0;
 }

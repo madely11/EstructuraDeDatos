@@ -64,5 +64,6 @@ int main(){
 	resultado = resultado.Suma(frac1, frac2);
 
 	cout << "El resultado es: " << resultado.getNumerador() << "/" << resultado.getDenominador() << endl;
+	system("pause");
 	return 0;
 }

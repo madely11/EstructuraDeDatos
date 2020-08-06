@@ -14,6 +14,7 @@ using namespace std;
 class Menu {
 public:
 	void MenuTeclas();
+	void gotoxy(int, int);
 	void ocultarCursor();
 	void subParcialUno();
 	void subParcialDos();

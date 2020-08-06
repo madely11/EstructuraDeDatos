@@ -34,13 +34,10 @@ int main()
 	printf("\nIngrese los numeros de la matriz:");
 	mat1.ingresar(mat1);
 	mat1.imprimir(mat1);
-	
 		printf("\n");
 		printf("\n");
 		mat1.elevar(mat1, matr, exponente);
 		matr.imprimir(matr);
-	
-	
 	system("pause");
 	return 0;
 }

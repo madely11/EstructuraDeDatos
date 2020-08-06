@@ -19,7 +19,9 @@ int main(int argc, char** argv) {
 	cout << "Multiplicacion: " << multi << endl;
 	cout << time << " segundos" << endl;
 	cout << endl;
+	system("pause");
 	return 0;
+	
 }
 
 int multiplicar(int num1, int num2){

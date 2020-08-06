@@ -27,6 +27,7 @@ int main(int argc, char** argv) {
 	else{
 		cout << "No se han encontrado resultados!";
 	}
+	system("pause");
 	return 0;
 }
 

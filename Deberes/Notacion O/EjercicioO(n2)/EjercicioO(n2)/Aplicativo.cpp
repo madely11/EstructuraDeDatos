@@ -10,4 +10,5 @@ int main() {
 	op.ejecutar(4);
 	op.ejecutar(8);
 	op.ejecutar(16);
+	system("pause");
 }

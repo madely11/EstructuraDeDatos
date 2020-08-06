@@ -30,6 +30,7 @@ int main(int argc, char** argv) {
 	if(!verificar){
 		cout << "No existe un numero igual en el arreglo";
 	}
+	system("pause");
 	
 	return 0;
 }

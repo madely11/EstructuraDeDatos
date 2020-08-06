@@ -14,4 +14,7 @@ int main(int argc, char** argv) {
 		cont+=1;
 	}
 	cout << "Los segundos que haran falta para que se desborde son: " << cont << endl;
+	system("pause");
+	return 0;
+	
 }

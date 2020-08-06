@@ -23,5 +23,6 @@ int main(int argc, char *argv[])
 	//system("pause");
 	//delete(v);
 	//free(v);
+	system("pause");
 	return 0;
 }

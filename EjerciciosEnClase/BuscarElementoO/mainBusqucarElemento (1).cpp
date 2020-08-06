@@ -8,5 +8,6 @@ int main(int argc, char** argv) {
 	Elemento<int> e;
 	e.leer();
 	std::cout<<"Tiempo en encontrar el elemento: "<<e.buscarElemento(5)<<std::endl;
+	system("pause");
 	return 0;
 }

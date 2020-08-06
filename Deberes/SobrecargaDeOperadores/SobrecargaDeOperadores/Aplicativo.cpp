@@ -85,5 +85,6 @@ int main(int argc, char** argv) {
     cout << "C = " << C << endl;
     cout << "........................." << endl;
     cout << "........................." << endl;
+    system("pause");
     return 0;
 }

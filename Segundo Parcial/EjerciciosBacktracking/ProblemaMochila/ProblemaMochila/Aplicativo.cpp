@@ -36,7 +36,7 @@ void main() {
 	obj.calcularPeso();
 	obj.valorOptimo(posicion, s);
 	obj.imprimir();
-	
+	system("pause");
 
 	free(obj.peso);
 	free(obj.valor);
