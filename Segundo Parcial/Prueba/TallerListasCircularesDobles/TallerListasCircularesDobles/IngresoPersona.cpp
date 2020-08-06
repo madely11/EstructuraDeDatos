@@ -33,7 +33,7 @@ void IngresoPersona::ingresoDatos()
 	cin.clear();
 
 	Fecha f;
-	do{
+	do {
 		cin.clear();
 		dato = ingreso.leer("Ingrese el dia: ", 1);
 		dia = atoi(dato.c_str());
@@ -57,7 +57,7 @@ void IngresoPersona::ingresoDatos()
 
 	cin.clear();
 	int anioAux = f.obtenerAnio();
-	persona.setEdad(anioAux-anio);
+	persona.setEdad(anioAux - anio);
 	cout << endl;
 	persona.setFecha(f);
 }
