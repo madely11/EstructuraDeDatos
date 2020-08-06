@@ -1,15 +1,43 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE PARA DEFINIR LAS FUNCIONES DE LISTA                       *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/06/20									  *
+* FECHA DE MODIFICACIÓN: 02/07/20								  *
+******************************************************************/
+
 #include "Lista.h"
+
+/**
+	@brief Funcion comprobar si lista esta vacia 
+	@param void
+	@returns bool
+*/
 
 bool Lista::listaVacia()
 {
 	return lista == NULL;
 }
+/**
+	@brief Constructor Lista
+	@param void
+	@returns void
+*/
 Lista::Lista()
 {
 	lista = NULL;
 	listaFinal = NULL;
 }
-
+/**
+	@brief Funcion para verificar cedula
+	@param string
+	@returns bool
+*/
 bool Lista::verificarCedula(string cedula)
 {
 	Nodo* aux = lista;
@@ -26,7 +54,11 @@ bool Lista::verificarCedula(string cedula)
 	}
 	return false;
 }
-
+/**
+	@brief Funcion para inserta cliente
+	@param Cliente
+	@returns void
+*/
 void Lista::insertarInicio(Cliente dato)
 {
 	Nodo* nuevo = new Nodo(dato, NULL, NULL);
@@ -43,7 +75,11 @@ void Lista::insertarInicio(Cliente dato)
 	nuevo->setAnterior(listaFinal);
 	lista = nuevo;
 }
-
+/**
+	@brief Funcion para inserta cliente al final
+	@param Cliente
+	@returns void
+*/
 void Lista::insertarFinal(Cliente dato) {
 	Nodo* nodo = new Nodo(dato, NULL, NULL);
 	if (listaVacia()) {
@@ -63,7 +99,11 @@ void Lista::insertarFinal(Cliente dato) {
 		lista->setAnterior(listaFinal);
 	}
 }
-
+/**
+	@brief Funcion para inserta Cuenta al final
+	@param Cuenta
+	@returns void
+*/
 void Lista::insertarFinal(Cuenta dato)
 {
 	Nodo* nodo = new Nodo(dato, NULL, NULL);
@@ -83,7 +123,11 @@ void Lista::insertarFinal(Cuenta dato)
 		lista->setAnterior(listaFinal);
 	}
 }
-
+/**
+	@brief Funcion para inserta Transaccion al final
+	@param Transacciones
+	@returns void
+*/
 void Lista::insertarFinal(Transacciones dato)
 {
 	Nodo* nodo = new Nodo(dato, NULL, NULL);
@@ -103,7 +147,11 @@ void Lista::insertarFinal(Transacciones dato)
 		lista->setAnterior(listaFinal);
 	}
 }
-
+/**
+	@brief Funcion para Verificar  Cuenta 
+	@param int
+	@returns bool
+*/
 bool Lista::verificarCuenta(int numC)
 {
 	Nodo* aux = lista;
@@ -120,7 +168,11 @@ bool Lista::verificarCuenta(int numC)
 	}
 	return false;
 }
-
+/**
+	@brief Funcion para Verificar Transacciones
+	@param string
+	@returns bool
+*/
 bool Lista::verificarTransaccion(string numC)
 {
 	Nodo* aux = lista;
@@ -137,7 +189,11 @@ bool Lista::verificarTransaccion(string numC)
 	}
 	return false;
 }
-
+/**
+	@brief Funcion insertarEntre
+	@param it , cliente
+	@returns void
+*/
 void Lista::insertarEntre(Cliente dato, int pos)
 {
 	int cont = 1;
@@ -172,7 +228,11 @@ void Lista::insertarEntre(Cliente dato, int pos)
 
 }
 
-
+/**
+	@brief Funcion para borrar  por cedula
+	@param string
+	@returns void
+*/
 void Lista::borrar(string cedula)
 {
 	if (listaVacia()) {
@@ -211,7 +271,11 @@ void Lista::borrar(string cedula)
 	}
 }
 
-
+/**
+	@brief Funcion para Llenar  Lista cliente
+	@param string
+	@returns void
+*/
 void Lista::llenarLista(string archivo)
 {
 	ManejoArchivo archivoG(archivo);
@@ -244,7 +308,11 @@ void Lista::llenarLista(string archivo)
 		free(lineaAux);
 	}	
 }
-
+/**
+	@brief Funcion para Llenar  cuenta
+	@param string
+	@returns void
+*/
 void Lista::llenarCuenta(string archivo) {
 	ManejoArchivo archivoG(archivo);
 	archivoG.cerrarLectura();
@@ -272,7 +340,11 @@ void Lista::llenarCuenta(string archivo) {
 		free(lineaAux);
 	}
 }
-
+/**
+	@brief Funcion para Llenar  Lista transaccion
+	@param string
+	@returns void
+*/
 void Lista::llenarTrans(string archivo)
 {
 	ManejoArchivo archivoG(archivo);
@@ -298,7 +370,11 @@ void Lista::llenarTrans(string archivo)
 		free(lineaAux);
 	}
 }
-
+/**
+	@brief Funcion para Llenar  mostrar Transacciones
+	@param void
+	@returns void
+*/
 void Lista::mostrarTrans()
 {
 	if (listaVacia()) {
@@ -317,7 +393,11 @@ void Lista::mostrarTrans()
 		cout << aux->getValorTrans().getTipoTrans() << endl;
 	}
 }
-
+/**
+	@brief Funcion para Llenar  mostrar Cuenta
+	@param void
+	@returns void
+*/
 void Lista::mostrarCuenta()
 {
 	if (listaVacia()) {
@@ -340,7 +420,11 @@ void Lista::mostrarCuenta()
 		cout << aux->getValorCuenta().tipo->getId() << endl;
 	}
 }
-
+/**
+	@brief Funcion para Llenar  mostrar Cliente
+	@param void
+	@returns void
+*/
 void Lista::mostrar()
 {
 	if (listaVacia()) {
@@ -358,7 +442,6 @@ void Lista::mostrar()
 			cout << endl;
 			cout << endl;
 		}
-
 		cout << aux->getValor().getNombre() << " ";
 		cout << aux->getValor().getId() << endl;
 		cout << aux->getValor().getDireccion() << endl;

@@ -1,11 +1,32 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE PARA DEFINIR LA LISTA                                     *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 20/06/20									  *
+* FECHA DE MODIFICACIÓN: 02/07/20								  *
+******************************************************************/
+
 #pragma once
+
 #include"Nodo.h"
 #include "ManejoArchivo.h"
 #include <iostream>
 using namespace std;
 
+
 #ifndef Lista_H
 #define Lista_H
+/**
+    @file Lista.h
+    @brief Prototipo para la lista
+    @author Madely Betancourt y Kevin Caicedo
+    @date 7/2020
+*/
 class Lista {
 public:
     Lista();
