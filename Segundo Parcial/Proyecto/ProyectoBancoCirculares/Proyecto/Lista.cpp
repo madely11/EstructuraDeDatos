@@ -235,6 +235,8 @@ void Lista::llenarLista(string archivo)
 			auxCliente.setDireccion(*(lineaAux + 3));
 			if (!verificarCedula(auxCliente.getId())) {
 				insertarFinal(auxCliente);
+				cout << endl << "\n\t\t\t\t\Cuenta creada exitosamente!" << endl;
+				cout << endl;
 			}
 				
 			contLineas += 1;

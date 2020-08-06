@@ -276,12 +276,10 @@ void Menu::submenu1()
 						Cliente cliente;
 						cliente.pedirDatos(1);	
 						system("cls");
-						cout << endl << "\n\t\t\t\t\Cuenta creada exitosamente!" << endl;
-						cout << endl;
 						cout << cliente.stringConsola();
 						cout << endl;
 						listaCliente->llenarLista("cliente.txt");
-						listaCliente->mostrar();
+						
 						Sleep(3000);
 						system("pause");
 						menuTeclas();
@@ -383,14 +381,11 @@ void Menu::submenu2()
 				case 0:
 					if (true) {
 						system("cls");
-						//listaCuentas->mostrarCuenta();
-						//Cuenta cuenta;
 						string cuenta;
 						int id;
 						cuenta = ingreso.leer("Ingrese el numero de cuenta: ", 1);
 						id = atoi(cuenta.c_str()); // numero de cuenta
 						if (!listaCuentas->verificarCuenta(id)) {
-							//listaCuentas->mostrarCuenta();
 							cout << "No se encontro la cuenta" << endl;
 							system("pause");
 							menuTeclas();
@@ -402,7 +397,6 @@ void Menu::submenu2()
 							listaCuentas = new Lista();
 							cout << "CUENTA ACTUAIZADA" << endl;
 							listaCuentas->llenarCuenta("cuenta.txt");
-							//listaCuentas->mostrarCuenta();
 							system("pause");
 						}
 						Sleep(3000);
@@ -415,7 +409,7 @@ void Menu::submenu2()
 						string cuenta;
 						int id;
 						cuenta = ingreso.leer("Ingrese el numero de cuenta: ", 1);
-						id = atoi(cuenta.c_str()); // numero de cuenta
+						id = atoi(cuenta.c_str());
 						if (!listaCuentas->verificarCuenta(id)) {
 							cout << "No se encontro la cuenta" << endl;
 							system("pause");
@@ -428,7 +422,6 @@ void Menu::submenu2()
 							listaCuentas = new Lista();
 							cout << "CUENTA ACTUAIZADA" << endl;
 							listaCuentas->llenarCuenta("cuenta.txt");
-							//listaCuentas->mostrarCuenta();
 							system("pause");
 						}
 						Sleep(3000);
