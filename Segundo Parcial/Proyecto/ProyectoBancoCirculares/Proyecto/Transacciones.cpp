@@ -71,6 +71,7 @@ float Transacciones::retirar(int monto, int numCuenta) {
         guardarTransaccion(numCuenta, monto, retiro);
         stringConsola(dato);
         cout << endl;
+        cout << "Transacción realizada con éxito!" << endl;
         system("pause");
     }
     else {
@@ -272,7 +273,7 @@ void Transacciones::stringConsola(string mensaje)
 
     salida += valorT;
     cout << fecha;
-    cout << "\t" << salida;
+    cout << "\t\t" << salida;
     cout << "\t";
     cout << "\t" << saldo;
     cout << endl;
@@ -328,7 +329,7 @@ string Transacciones::stringConsola(string mensaje, int num) {
         salida = '-';
     }
     salida += valorT;
-    dato = "\n" + fecha.getFecha() + "\t\t" + fecha.getHora() + "\t\t" + salida + "\t\t" + saldo;
+    dato = "\n" + fecha.getFecha() + "\t\t" + fecha.getHora() + "\t\t\t" + salida + "\t\t\t" + saldo;
     return dato;
 }
 void Transacciones::generarPdf() {

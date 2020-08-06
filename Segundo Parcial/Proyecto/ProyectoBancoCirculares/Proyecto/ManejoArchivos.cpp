@@ -279,11 +279,11 @@ void ManejoArchivo::actualizarRespaldo(string linea) {
 	remove("cliente.txt");
 	rename(rCliente.c_str(), "cliente.txt");
 
-	remove("cuenta.txt");
-	rename(rCuenta.c_str(), "cuenta.txt");
+	remove("cuentas.txt");
+	rename(rCuenta.c_str(), "cuentas.txt");
 
-	remove("Transacciones.txt");
-	rename(rTransacciones.c_str(), "Transacciones.txt");
+	remove("transacciones.txt");
+	rename(rTransacciones.c_str(), "transacciones.txt");
 	
 }
 /**
@@ -408,7 +408,6 @@ string ManejoArchivo::buscarRegistroCartola(int numCuenta, int coincidencia)
 	{
 		getline(archivoLectura, texto);
 		texto = compararRegistroCartola(numCuenta, texto);  // retorna salir si no es la linea con ese numC
-		cout << texto << endl;
 		if (!texto._Equal("salir")) {
 			i++; //cuenta el numero de lineas que tienen ese numero de cuenta
 		}

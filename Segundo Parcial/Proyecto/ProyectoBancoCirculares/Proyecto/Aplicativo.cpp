@@ -26,7 +26,9 @@ void RunDialogOne()
         cadena = mr.realizarMarquezina(cadena);
     }
 
-    system("Pause");
+    cout << endl;
+    gotoxy(30, 60);
+    //Sleep(2500);
     return;
 }
 
@@ -37,11 +39,13 @@ void RunDialogTwo()
     menu.listaCliente->llenarLista("cliente.txt");
     menu.listaCuentas->llenarCuenta("cuenta.txt");
     menu.listaTrans->llenarTrans("transacciones.txt");
+    fflush(stdin);
     menu.menuTeclas();
 }
 
 int main()
 {  
+    setlocale(LC_CTYPE, "Spanish");
     DWORD ThreadID;
 
     tPrimary = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)RunDialogOne, NULL, CREATE_SUSPENDED, &ThreadID);

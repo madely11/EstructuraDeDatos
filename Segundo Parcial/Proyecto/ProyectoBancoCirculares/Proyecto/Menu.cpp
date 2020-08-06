@@ -103,46 +103,53 @@ void Menu::menuTeclas()
 				case 0:
 					if (true) {
 						//crar cuenta
+					
 						submenu1();
 					}
 					break;
 				case 1:
 					if (true) {
 						//realizar transaccion
+					
 						submenu2();
 					}
 					break;
 				case 2:
 					if (true) {
 						//registro de transacciones
+						
 						submenu3();
 					}
 					break;
 				case 3:
+					//actualizar cartola 
 					if(true){
+						system("cls");
 						string cuenta;
 						int id;
 						cuenta = ingreso.leer("Ingrese el numero de cuenta: ", 1);
 						id = atoi(cuenta.c_str()); // numero de cuenta
+						listaCuentas->llenarCuenta("cuentas.txt");
 						if (!listaCuentas->verificarCuenta(id)) {
 							cout << "No se encontro la cuenta" << endl;
 							system("pause");
+							system("cls");
 							menuTeclas();
 						}
 						else {
+							system("cls");
 							Transacciones t;
 							t.imprimirCartola(id);
-							//t.datosTransaccion(id, 1);
-							system("pause");
 							system("pause");
 						}
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					}
 					break;
 				case 4:
 					//crear respaldo
 					if (true) {
+						
 						system("cls");
 						cout << "\n\t\t\t\t Creando respaldo..." << endl;
 						Sleep(2000);
@@ -153,7 +160,7 @@ void Menu::menuTeclas()
 						archivo.nombreArchivo = "cliente.txt";
 						linea += archivo.crearRespaldo();
 						linea += ",";
-						archivo.nombreArchivo = "cuenta.txt";
+						archivo.nombreArchivo = "cuentas.txt";
 						linea += archivo.crearRespaldo();
 						linea += ",";
 						archivo.nombreArchivo = "transacciones.txt";
@@ -161,13 +168,14 @@ void Menu::menuTeclas()
 						archivo.guardarRespaldo(linea);
 						system("cls");
 						cout << "\n\t\t\t\tRespaldo creado exitosamente!" << endl;
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					} 
 					break;
 				case 5:
 					//restaurar respaldo
 					if (true) {
+						
 						system("cls");
 						cout << "\t\n" << "Respaldos: " << endl << endl;
 						Respaldo respaldo("respaldos.txt");
@@ -175,30 +183,32 @@ void Menu::menuTeclas()
 						respaldo.ingresarRespaldo();
 						system("cls");
 						cout << "\n\t\t\t\t Documentos restaurados exitosamente!" << endl;
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					}
 					break;
 				case 6:
 					//generar pdf
 					if (true) {
+						
 						remove("documentoPDF.pdf");
 						system("cls");
 						Transacciones t;
 						t.generarPdf();
 						cout << endl << "\t\t\t Documento PDF creado exitosamente!" << endl;
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					}
 						break;
 				case 7:
 					if (true) {
+						
 						delete(listaCliente);
 						delete(listaCuentas);
 						delete(listaTrans);
 						system("cls");
 						cout << endl << "\n\t\t\t\t\t\t\t\t Gracias!" << endl;
-						Sleep(3000);
+						Sleep(2500);
 						exit(1);
 						break;
 					}
@@ -279,8 +289,7 @@ void Menu::submenu1()
 						cout << cliente.stringConsola();
 						cout << endl;
 						listaCliente->llenarLista("cliente.txt");
-						
-						Sleep(3000);
+						Sleep(2500);
 						system("pause");
 						menuTeclas();
 					}
@@ -296,7 +305,7 @@ void Menu::submenu1()
 						cout << endl;
 						listaCliente->llenarLista("cliente.txt");
 						listaCliente->mostrar();
-						Sleep(3000);
+						Sleep(2500);
 						system("pause");
 						menuTeclas();
 					}
@@ -305,7 +314,7 @@ void Menu::submenu1()
 					if (true) {
 						system("cls");
 						cout << endl << "\n\t\t\t\t\Proceso Cancelado!" << endl;
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					} 
 					break;
@@ -385,9 +394,10 @@ void Menu::submenu2()
 						int id;
 						cuenta = ingreso.leer("Ingrese el numero de cuenta: ", 1);
 						id = atoi(cuenta.c_str()); // numero de cuenta
+						listaCuentas->llenarCuenta("cuenta.txt");
 						if (!listaCuentas->verificarCuenta(id)) {
 							cout << "No se encontro la cuenta" << endl;
-							system("pause");
+							Sleep(2500);
 							menuTeclas();
 						}
 						else {
@@ -395,11 +405,10 @@ void Menu::submenu2()
 							cuenta.realizarTransaccion(1, id);
 							delete(listaCuentas);
 							listaCuentas = new Lista();
-							cout << "CUENTA ACTUAIZADA" << endl;
+							cout << "Transacción realizada con éxito!" << endl;
 							listaCuentas->llenarCuenta("cuenta.txt");
-							system("pause");
 						}
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					}
 					break;
@@ -410,6 +419,7 @@ void Menu::submenu2()
 						int id;
 						cuenta = ingreso.leer("Ingrese el numero de cuenta: ", 1);
 						id = atoi(cuenta.c_str());
+						listaCuentas->llenarCuenta("cuenta.txt");
 						if (!listaCuentas->verificarCuenta(id)) {
 							cout << "No se encontro la cuenta" << endl;
 							system("pause");
@@ -420,11 +430,9 @@ void Menu::submenu2()
 							cuenta.realizarTransaccion(2, id);
 							delete(listaCuentas);
 							listaCuentas = new Lista();
-							cout << "CUENTA ACTUAIZADA" << endl;
 							listaCuentas->llenarCuenta("cuenta.txt");
-							system("pause");
 						}
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					}
 					break;
@@ -432,7 +440,7 @@ void Menu::submenu2()
 					if (true) {
 						system("cls");
 						cout << endl << "\n\t\t\t\t\Proceso Cancelado!" << endl;
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					} 
 					break;
@@ -510,12 +518,13 @@ void Menu::submenu3()
 				case 0:
 					if (true) {
 						system("cls");
+						listaCuentas->llenarCuenta("cuenta.txt");
 						if (!listaCuentas->verificarCuenta(id)) {
 							cout << "No se encontro la cuenta" << endl;
 							system("pause");
 							menuTeclas();
 						}
-
+						listaTrans->llenarTrans("transacciones.txt");
 						if (!listaTrans->verificarTransaccion(cuenta)) {
 							cout << "La cuenta no ha realizado ninguna transaccion" << endl;
 							system("pause");
@@ -526,7 +535,7 @@ void Menu::submenu3()
 							t.datosTransaccion(id, 1);
 							system("pause");
 						}
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					}
 					break;
@@ -535,7 +544,7 @@ void Menu::submenu3()
 						system("cls");
 						Transacciones t;
 						t.datosTransaccion(id, 2);
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					}
 					break;
@@ -543,7 +552,7 @@ void Menu::submenu3()
 					if (true) {
 						system("cls");
 						cout << endl << "\n\t\t\t\t\Proceso Cancelado!"  << endl;
-						Sleep(3000);
+						Sleep(2500);
 						menuTeclas();
 					} 
 					break;

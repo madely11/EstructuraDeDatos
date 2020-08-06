@@ -218,7 +218,6 @@ void Lista::llenarLista(string archivo)
 	archivoG.cerrarLectura();
 	int contLineas = 0;
 	int numLineas = archivoG.contarLineas();
-	cout << "numero lineas archivo " << numLineas << endl;
 	if (numLineas != 0) {
 		string linea;
 		char** lineaAux=NULL;
@@ -251,7 +250,6 @@ void Lista::llenarCuenta(string archivo) {
 	archivoG.cerrarLectura();
 	int contLineas = 0;
 	int numLineas = archivoG.contarLineas();
-	cout << "numero lineas archivo " << numLineas << endl;
 	if (numLineas != 0) {
 		string linea;
 		char** lineaAux = NULL;
@@ -281,7 +279,6 @@ void Lista::llenarTrans(string archivo)
 	archivoG.cerrarLectura();
 	int contLineas = 0;
 	int numLineas = archivoG.contarLineas();
-	cout << "numero lineas archivo " << numLineas << endl;
 	if (numLineas != 0) {
 		string linea;
 		char** lineaAux = NULL;
