@@ -13,7 +13,7 @@ namespace PruebasUnidadPotencia
 		TEST_METHOD(TestMethod1)
 		{
 			// Arrange
-			Funciones funciones;
+			Funciones <int> funciones;
 			float resulEsperado = 8;
 			float resultado;
 

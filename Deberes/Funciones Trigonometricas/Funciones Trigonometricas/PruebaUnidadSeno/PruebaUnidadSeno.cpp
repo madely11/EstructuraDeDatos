@@ -13,7 +13,7 @@ namespace PruebaUnidadSeno
 		TEST_METHOD(TestMethod1)
 		{
 			// Arrange
-			Funciones funciones;
+			Funciones<int> funciones;
 			float resulEsperado = 1.0000000;
 			float resultado;
 

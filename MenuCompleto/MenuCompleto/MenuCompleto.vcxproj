@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f564fd0b-ee8f-421b-b203-22b89bb38484}</ProjectGuid>
-    <RootNamespace>TallerListasCircularesDobles</RootNamespace>
+    <ProjectGuid>{0b7d063e-6f02-41d0-9fb4-56f02070a3bf}</ProjectGuid>
+    <RootNamespace>MenuCompleto</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -140,26 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Aplicativo.cpp" />
-    <ClCompile Include="Fecha.cpp" />
-    <ClCompile Include="Ingreso.cpp" />
-    <ClCompile Include="IngresoPersona.cpp" />
-    <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="Nodo.cpp" />
-    <ClCompile Include="Persona.cpp" />
-    <ClCompile Include="Pila.cpp" />
-    <ClCompile Include="Validacion.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Fecha.h" />
-    <ClInclude Include="Ingreso.h" />
-    <ClInclude Include="IngresoPersona.h" />
-    <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
-    <ClInclude Include="Nodo.h" />
-    <ClInclude Include="Persona.h" />
-    <ClInclude Include="Pila.h" />
-    <ClInclude Include="Validacion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

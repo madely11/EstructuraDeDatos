@@ -95,15 +95,16 @@ void Lista::insertarFinal(Persona dato) {
 	}
 }
 
-void Lista::insertarEntre(Persona dato, int pos)
+bool Lista::insertarEntre(Persona dato, int pos)
 {
 	int cont=1;
 	if (listaVacia()) {
 		cout << "La lista esta vacia" << endl;
-		exit(1);
+		return false;
 	}
 	if (pos == 1) {
 		insertarInicio(dato);
+		return true;
 	}
 	else {
 		Nodo* nuevo = new Nodo(dato, NULL, NULL);
@@ -121,9 +122,11 @@ void Lista::insertarEntre(Persona dato, int pos)
 			aux2->setSiguiente(nuevo);
 			nuevo->setSiguiente(aux);
 			aux->setAnterior(nuevo);
+			return true;
 		}
 		else {
 			cout << "No existe esa posicion" << endl;
+			return false;
 		}
 	}
 	
@@ -185,9 +188,7 @@ void Lista::mostrar()
 			cout << aux->getValor().getCorreo() << endl;
 			aux = aux->getSiguiente();
 			cout << endl;
-			cout << endl;
 		}
-		cout << endl;
 		cout << endl;
 		cout << aux->getValor().getNombre() << endl;
 		cout << aux->getValor().getApellido() << endl;

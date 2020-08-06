@@ -1,0 +1,214 @@
+#include"Menu.h"
+
+void Menu::ocultarCursor()
+{
+	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_CURSOR_INFO info;
+	info.dwSize = 100;
+	info.bVisible = FALSE;
+	SetConsoleCursorInfo(consoleHandle, &info);
+}
+
+
+void Menu::MenuTeclas()
+{
+	int cursor = 0;
+	char tecla;
+	int opcion;
+	int cont = 1;
+	system("cls");
+	ocultarCursor();
+	string menu[] = { "Primer Parcial        ", "Segundo Parcial       ", "Tercer Parcial        ", "Salir                 "};
+	for (;;) {
+		system("cls");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
+		cout << "                SELECCIONE UNA OPCION         " << endl;
+		for (int i = 0; i < 4; i++)
+		{
+			if (cursor == i)
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
+				cout << menu[i] << "\t\t";
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+			}
+			else
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				cout << menu[i] << "\t\t";
+			}
+		}
+		for (;;)
+		{
+			tecla = _getch();
+			if (tecla == 77)
+			{
+				cursor++;
+				if (cursor == 4)
+				{
+					cursor = 0;
+				}
+				break;
+			}
+			if (tecla == 75)
+			{
+				cursor--;
+				if (cursor == -1)
+				{
+					cursor = 3;
+				}
+				break;
+			}
+			if (tecla == 13)
+			{
+				string dato;
+				int pos = 0;
+				//system("cls");
+				switch (cursor)
+				{
+				case 0:
+					if (true) {
+						subParcialUno();
+					}
+					break;
+				case 1:
+					if (true) {
+						subParcialDos();
+					}
+					break;
+				case 2:
+					if (true) {
+						subParcialTres();
+					}
+					break;
+
+				case 3:
+					if (true) {
+						exit(0);
+					}
+					break;
+				}
+			}
+		}
+	}
+}
+
+void Menu::subParcialUno()
+{
+	int cursor = 0;
+	char tecla;
+	int opcion;
+	int cont = 1;
+	//system("cls");
+	ocultarCursor();
+	string menu[] = { " \t Suma de fracciones           ",
+					  " \t MCM y MCM                    ",
+					  " \t Elevar Matriz                ",
+					  " \t Funciones Trigonómetricas    ",
+					  " \t Ordenamiento String          ",
+					  " \t Sobrecarga de Operadores     ",
+					  " \t Ejercicios de Notacion O     ",
+					  " \t Voler a Parcial Uno          "
+	};
+	for (;;) {
+		//system("cls");
+		for (int i = 0; i < 8; i++)
+		{
+			if (cursor == i)
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
+				cout << menu[i] << endl;
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+			}
+			else
+			{
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+				cout << menu[i] << endl;
+			}
+		}
+		for (;;)
+		{
+			tecla = _getch();
+			if (tecla == 80)
+			{
+				cursor++;
+				if (cursor == 8)
+				{
+					cursor = 0;
+				}
+				break;
+			}
+			if (tecla == 72)
+			{
+				cursor--;
+				if (cursor == -1)
+				{
+					cursor = 7;
+				}
+				break;
+			}
+			if (tecla == 13)
+			{
+				string dato;
+				int pos = 0;
+				//system("cls");
+				switch (cursor)
+				{
+				case 0:
+					if (true) {
+						system("cls");
+						system("C:\\Programas\\SumaDeFracciones.exe");
+						system("pause");
+						system("cls");
+					}
+					break;
+				case 1:
+					if (true) {
+						system("cls");
+						system("C:\\Programas\\DeberArreglosDinamico.exe");
+						system("pause");
+						system("cls");
+					}
+					break;
+				case 2:
+					if (true) {
+
+					}
+					break;
+				case 3:
+					if (true) {
+
+					}
+					break;
+				case 4:
+					if (true) {
+
+					}
+					break;
+				case 5:
+					if (true) {
+
+					}
+					break;
+				case 6:
+					if (true) {
+
+					}
+					break;
+				case 7:
+					if (true) {
+						exit(0);
+					}
+					break;
+				}
+			}
+		}
+	}
+}
+
+void Menu::subParcialDos()
+{
+}
+
+void Menu::subParcialTres()
+{
+}

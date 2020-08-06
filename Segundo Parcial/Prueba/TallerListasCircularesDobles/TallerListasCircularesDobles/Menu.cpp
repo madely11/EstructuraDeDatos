@@ -13,13 +13,15 @@ void Menu::MenuTeclas()
 					  "Ingresar entre              ",
 					  "Eliminar Dato               ",
 					  "Mostrar Lista               ",
+					  "Mostrar Pila                ",
+					  "Mostrar Datos               ",
 					  "Salir                       "
 	};
 	for (;;) {
 		system("cls");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
 		cout << "                SELECCIONE UNA OPCION         " << endl;
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 8; i++)
 		{
 			if (cursor == i)
 			{
@@ -39,7 +41,7 @@ void Menu::MenuTeclas()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 6)
+				if (cursor == 8)
 				{
 					cursor = 0;
 				}
@@ -50,7 +52,7 @@ void Menu::MenuTeclas()
 				cursor--;
 				if (cursor == -1)
 				{
-					cursor = 5;
+					cursor = 7;
 				}
 				break;
 			}
@@ -73,6 +75,7 @@ void Menu::MenuTeclas()
 						string ini = nuevaPersona.persona.getNombre().at(0) + nuevaPersona.persona.getApellido();
 						nuevaPersona.persona.setCorreo(lista->buscarEmail(ini));
 						lista->insertarInicio(nuevaPersona.persona);
+						p.insertar(nuevaPersona.persona.getCorreo());
 						system("pause");
 						system("cls");
 						MenuTeclas();
@@ -90,6 +93,7 @@ void Menu::MenuTeclas()
 						string ini = nuevaPersona.persona.getNombre().at(0) + nuevaPersona.persona.getApellido();
 						nuevaPersona.persona.setCorreo(lista->buscarEmail(ini));
 						lista->insertarFinal(nuevaPersona.persona);
+						p.insertar(nuevaPersona.persona.getCorreo());
 						system("pause");
 						system("cls");
 						MenuTeclas();
@@ -112,10 +116,18 @@ void Menu::MenuTeclas()
 						}
 						string ini = nuevaPersona.persona.getNombre().at(0) + nuevaPersona.persona.getApellido();
 						nuevaPersona.persona.setCorreo(lista->buscarEmail(ini));
-						lista->insertarEntre(nuevaPersona.persona, pos);
-						system("pause");
-						system("cls");
-						MenuTeclas();
+						if (lista->insertarEntre(nuevaPersona.persona, pos)) {
+							p.insertar(nuevaPersona.persona.getCorreo());
+							system("pause");
+							system("cls");
+							MenuTeclas();
+						}
+						else {
+							system("pause");
+							system("cls");
+							MenuTeclas();
+						}
+						
 					}
 					break;
 				case 3:
@@ -142,6 +154,26 @@ void Menu::MenuTeclas()
 					break;
 
 				case 5:
+					cout << "La pila es: " << endl;
+					p.imprimir();
+					system("pause");
+					system("cls");
+					MenuTeclas();
+					break;
+
+				case 6:
+					cout << "La lista es: " << endl;
+					lista->mostrar();
+					cout << endl;
+					cout << endl;
+					cout << "La pila es: " << endl;
+					p.imprimir();
+					system("pause");
+					system("cls");
+					MenuTeclas();
+					break;
+
+				case 7:
 					free(lista);
 					system("cls");
 					cout << endl << "<<<<<<<<<Gracias por usar nuestro programa>>>>>>>>>" << endl;
