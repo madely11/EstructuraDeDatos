@@ -344,13 +344,12 @@ void Menu::subParcialTres()
 	ocultarCursor();
 	string menu[] = { "                                                          \t Generar QR                   ",
 					  "                                                          \t Mostrar Imagen               ",
-					  "                                                          \t Problema de la mochila       ",
-					  "                                                          \t Voler a Parcial Uno          "
+					  "                                                          \t Voler                        "
 	};
 	for (;;) {
 		//system("cls");
 		gotoxy(0, 3);
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			if (cursor == i)
 			{
@@ -370,7 +369,7 @@ void Menu::subParcialTres()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 4)
+				if (cursor == 33)
 				{
 					cursor = 0;
 				}
@@ -381,7 +380,7 @@ void Menu::subParcialTres()
 				cursor--;
 				if (cursor == -1)
 				{
-					cursor = 3;
+					cursor = 2;
 				}
 				break;
 			}
@@ -412,15 +411,8 @@ void Menu::subParcialTres()
 					break;
 				case 2:
 					if (true) {
-						system("cls");
-						system("C:\\Programas\\SegundoParcial\\ProblemaMochila.exe");
 						system("pause");
 						system("cls");
-						MenuTeclas();
-					}
-					break;
-				case 3:
-					if (true) {
 						MenuTeclas();
 					}
 					break;
