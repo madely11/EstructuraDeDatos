@@ -58,7 +58,7 @@ void Menu::menuTeclas()
 		system("cls");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
 		cout << "                SELECCIONE UNA OPCION         " << endl;
-		for (int i = 0; i < 7; i++)
+		for (int i = 0; i < 8; i++)
 		{
 			if (cursor == i)
 			{
@@ -81,7 +81,7 @@ void Menu::menuTeclas()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 7)
+				if (cursor == 8)
 				{
 					cursor = 0;
 				}
@@ -92,7 +92,7 @@ void Menu::menuTeclas()
 				cursor--;
 				if (cursor == -1)
 				{
-					cursor = 6;
+					cursor = 7;
 				}
 				break;
 			}

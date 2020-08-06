@@ -160,6 +160,7 @@
     <ClInclude Include="Ingreso.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ManejoArchivo.h" />
+    <ClInclude Include="Marquesina.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Respaldo.h" />
