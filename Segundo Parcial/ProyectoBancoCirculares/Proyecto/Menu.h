@@ -25,6 +25,7 @@
 #include <iostream>
 #include "Ingreso.h"
 #include "ManejoArchivo.h"
+#include "Impresion.h"
 #include <clocale>
 #include "Cuenta.h"
 #include "Cliente.h"

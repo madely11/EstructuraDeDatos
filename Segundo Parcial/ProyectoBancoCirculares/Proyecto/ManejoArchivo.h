@@ -35,10 +35,9 @@ public:
 	string compararRegistroCartola(int, string);
 	string compararRegistro(string, string);
 	string buscarRegistro(int, int);
-	string buscarRegistroCartola(int, int);
+	string buscarRegistroCartola(int);
 	string buscarRegistro(string, int, int);
 	void actualizarTransacciones(string);
 	string cambiarDato(string);
-	
 };
 

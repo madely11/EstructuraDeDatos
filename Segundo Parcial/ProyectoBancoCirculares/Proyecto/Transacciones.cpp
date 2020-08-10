@@ -141,16 +141,17 @@ string Transacciones::getDato()
 void Transacciones::imprimirCartola(int numC)
 {
     int i = 1;
-    ManejoArchivo amC("cuenta.txt");
+   
     ManejoArchivo maT("transacciones.txt");
-
-    while (!maT.buscarRegistroCartola(numC, i)._Equal("salir")) {
-        stringConsola(maT.buscarRegistroCartola(numC, i));
-        maT.actualizarTransacciones(maT.buscarRegistroCartola(numC, i));
-        i++;
-        cout << endl;
-    }
-
+    maT.buscarRegistroCartola(numC);
+    //cartola.agregarLinea("      Fecha         Hora           Monto          Saldo");
+    // while (!maT.buscarRegistroCartola(numC)._Equal("salir")) {
+        //stringConsola(maT.buscarRegistroCartola(numC));
+        //cartola.agregarLinea(stringConsola(maT.buscarRegistroCartola(numC), 1));
+        //maT.actualizarTransacciones(maT.buscarRegistroCartola(numC));
+        //i++;
+       // cout << endl;
+    //}
 }
 
 
@@ -329,7 +330,7 @@ string Transacciones::stringConsola(string mensaje, int num) {
         salida = '-';
     }
     salida += valorT;
-    dato = "\n" + fecha.getFecha() + "\t\t" + fecha.getHora() + "\t\t\t" + salida + "\t\t\t" + saldo;
+    dato = "\n" + fecha.getFecha() + "\t\t" + fecha.getHora() + "\t" + salida + "\t" + saldo;
     return dato;
 }
 void Transacciones::generarPdf() {

@@ -126,6 +126,11 @@ int ManejoArchivo::contarLineas()
 	return cuentaLinea-1;
 }
 
+/**
+	@brief Funcion para obtener datos de archivo
+	@param string linea de archivo e int bandera para identificar casos
+	@returns char puntero doble
+*/
 char** ManejoArchivo::leerArchivo(string linea, int bandera)
 {
 	int cont = 0, cont1=0;
@@ -176,6 +181,7 @@ char** ManejoArchivo::leerArchivo(string linea, int bandera)
 	
 	return datos;
 }
+
 /**
 	@brief Funcion para leer archivo
 	@param void
@@ -201,6 +207,7 @@ string ManejoArchivo::leerArchivo() {
 	cerrarLectura();
 	return texto;
 }
+
 /**
 	@brief Funcion para buscar respaldo de datos
 	@param string
@@ -247,6 +254,7 @@ string ManejoArchivo::buscarRespaldo(string ingresado) {
 	cerrarLectura();
 	return texto;
 }
+
 /**
 	@brief Funcion para actualizar datos al archivo de respaldo
 	@param string
@@ -286,6 +294,7 @@ void ManejoArchivo::actualizarRespaldo(string linea) {
 	rename(rTransacciones.c_str(), "transacciones.txt");
 	
 }
+
 /**
 	@brief Funcion para buscar una cuenta por numero de cuenta
 	@param int
@@ -307,6 +316,7 @@ string ManejoArchivo::buscarCuenta(int numCuenta)
 	}
 	cerrarLectura();
 }
+
 /**
 	@brief Funcion para actualizar datos de un archivo
 	@param int , string
@@ -341,6 +351,7 @@ void ManejoArchivo::actualizar(int numCuenta, string datoNuevo)
 	remove("cuenta.txt");
 	rename("cuentaAux.txt", "cuenta.txt");
 }
+
 /**
 	@brief Funcion comparar datos de un archivo
 	@param int , string
@@ -367,6 +378,7 @@ string ManejoArchivo::comparar(int numCuenta, string dato)
 	}
 	return texto2;
 }
+
 /**
 	@brief Funcion para buscar registro
 	@param int, int
@@ -397,9 +409,15 @@ string ManejoArchivo::buscarRegistro(int numCuenta, int coincidencia)
 	return texto2;
 }
 
-string ManejoArchivo::buscarRegistroCartola(int numCuenta, int coincidencia)
+/**
+	@brief Funcion para buscar el registro de la cartola
+	@param int numero de cuenta, int coincidencia
+	@returns string dato
+*/
+string ManejoArchivo::buscarRegistroCartola(int numCuenta)
 {
 	crearLectura();
+	ManejoArchivo cartola("cartola.txt");
 	string texto;
 	string texto2 = "salir";
 	string idString;
@@ -407,26 +425,33 @@ string ManejoArchivo::buscarRegistroCartola(int numCuenta, int coincidencia)
 	while (!archivoLectura.eof())
 	{
 		getline(archivoLectura, texto);
-		texto = compararRegistroCartola(numCuenta, texto);  // retorna salir si no es la linea con ese numC
+		texto = compararRegistroCartola(numCuenta, texto); 
+		// retorna salir si no es la linea con ese numC
+		//retorna un salto si es una linea con t al final 
 		if (!texto._Equal("salir")) {
-			i++; //cuenta el numero de lineas que tienen ese numero de cuenta
+			cartola.agregarLinea(texto);
+			//cout << texto << endl;
 		}
-
-		if (!texto._Equal("salir")) {
+		if (!texto._Equal("salir") && !texto._Equal("\n")) {
+			//cout << texto << endl;
+			actualizarTransacciones(texto);
+		}
+		
+		/*if (!texto._Equal("salir")) {
 			cerrarLectura();
 			return texto;
-		}
+		}*/
 	}
 	cerrarLectura();
 	return texto2;
 }
+
+
 /**
 	@brief Funcion para buscar registro
 	@param string, int, int
 	@returns string
 */
-
-
 string ManejoArchivo::buscarRegistro(string f, int numCuenta, int coincidencia)
 {
 	crearLectura();
@@ -452,6 +477,11 @@ string ManejoArchivo::buscarRegistro(string f, int numCuenta, int coincidencia)
 	return texto2;
 }
 
+/**
+	@brief Funcion para actualizar el archivo de transacciones
+	@param string linea
+	@returns void
+*/
 void ManejoArchivo::actualizarTransacciones(string linea)
 {
 	cerrarLectura();
@@ -483,6 +513,11 @@ void ManejoArchivo::actualizarTransacciones(string linea)
 	rename("transaccionesAux.txt", "transacciones.txt");
 }
 
+/**
+	@brief Funcion para cambiar ultimo digito de una linea
+	@param string linea
+	@returns string linea cambiada
+*/
 string ManejoArchivo::cambiarDato(string linea)
 {
 	int longitud = linea.length();
@@ -551,6 +586,11 @@ string ManejoArchivo::compararRegistro(int numCuenta, string dato)
 }
 
 
+/**
+	@brief Funcion para comparar un registro de la cartola 
+	@param int numero de cuenta y string dato del archivo
+	@returns string linea de texto 
+*/
 string ManejoArchivo::compararRegistroCartola(int numCuenta, string dato)
 {
 	int i = 0;
@@ -567,6 +607,10 @@ string ManejoArchivo::compararRegistroCartola(int numCuenta, string dato)
 	}
 	id = atoi(idString.c_str());
 	if (id == numCuenta && dato.at(longitud - 1) == 'f') {
+		return dato;
+	}
+	if (id == numCuenta && dato.at(longitud - 1) == 't') {
+		dato = "\n";
 		return dato;
 	}
 	return texto2;

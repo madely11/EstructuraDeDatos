@@ -138,8 +138,13 @@ void Menu::menuTeclas()
 						}
 						else {
 							system("cls");
+							Impresion f;
 							Transacciones t;
 							t.imprimirCartola(id);
+							tifstream in(TEXT("cartola.txt"));
+							f.PrintFile(in);
+							in.close();
+							remove("cartola.txt");
 							system("pause");
 						}
 						Sleep(2500);
