@@ -25,16 +25,16 @@ void Menu::MenuTeclas()
 	int cont = 1;
 	system("cls");
 	ocultarCursor();
-	string menu[] = { "Primer Parcial        ", "Segundo Parcial       ", "Extras I                ", "Salir                 "};
+	string menu[] = { "Primer Parcial      ", "Segundo Parcial      ", "Extras I      ", "Salir      "};
 	for (;;) {
 		system("cls");
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
-		cout << "                SELECCIONE UNA OPCION         " << endl;
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 70);
+		cout << "\t\t\t\t\t\t   SELECCIONE UNA OPCION   " << endl;
 		for (int i = 0; i < 4; i++)
 		{
 			if (cursor == i)
 			{
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 240);
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 70);
 				cout << menu[i] << "\t\t";
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 			}
@@ -107,14 +107,14 @@ void Menu::subParcialUno()
 	int cont = 1;
 	//system("cls");
 	ocultarCursor();
-	string menu[] = { " \t Suma de fracciones           ",
-					  " \t MCM y MCM                    ",
-					  " \t Elevar Matriz                ",
-					  " \t Funciones Trigonómetricas    ",
-					  " \t Ordenamiento String          ",
-					  " \t Sobrecarga de Operadores     ",
-					  " \t Ejercicios de Notacion O     ",
-					  " \t Voler a Parcial Uno          "
+	string menu[] = { " Suma de fracciones        ",
+					  " MCM y MCM                 ",
+					  " Elevar Matriz             ",
+					  " Funciones Trigonómetricas ",
+					  " Ordenamiento String       ",
+					  " Sobrecarga de Operadores  ",
+					  " Ejercicios de Notacion O  ",
+					  " Volver                    "
 	};
 	for (;;) {
 		//system("cls");
@@ -244,15 +244,18 @@ void Menu::subParcialDos()
 	
 	//system("cls");
 	ocultarCursor();
-	string menu[] = { "                        \t Mayusculas y minusculas      ",
-					  "                        \t NReinas                      ",
-					  "                        \t Problema de la mochila       ",
-					  "                        \t Voler a Parcial Uno          "
+	string menu[] = { "\t\t\t\t Mayusculas y minusculas   ",
+					  "\t\t\t\t NReinas                   ",
+					  "\t\t\t\t Problema de la mochila    ",
+					  "\t\t\t\t Lista Simples             ",
+					  "\t\t\t\t Listas Dobles             ",
+					  "\t\t\t\t Listas Circulares Dobles  ",
+					  "\t\t\t\t Volver                    "
 	};
 	for (;;) {
 		//system("cls");
 		gotoxy(0, 3);
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 7; i++)
 		{
 			if (cursor == i)
 			{
@@ -272,7 +275,7 @@ void Menu::subParcialDos()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 8)
+				if (cursor == 7)
 				{
 					cursor = 0;
 				}
@@ -283,7 +286,7 @@ void Menu::subParcialDos()
 				cursor--;
 				if (cursor == -1)
 				{
-					cursor = 7;
+					cursor = 6;
 				}
 				break;
 			}
@@ -324,7 +327,37 @@ void Menu::subParcialDos()
 					break;
 				case 3:
 					if (true) {
-						exit(0);
+						system("cls");
+						system("C:\\Programas\\SegundoParcial\\ListaSimple.exe");
+						system("pause");
+						system("cls");
+						MenuTeclas();
+					}
+
+					break;
+				case 4:
+					if (true) {
+						system("cls");
+						system("C:\\Programas\\SegundoParcial\\ListaDobles.exe");
+						system("pause");
+						system("cls");
+						MenuTeclas();
+					}
+
+					break;
+				case 5:
+					if (true) {
+						system("cls");
+						system("C:\\Programas\\SegundoParcial\\ListasCircularesDobles.exe");
+						system("pause");
+						system("cls");
+						MenuTeclas();
+					}
+
+					break;
+				case 6:
+					if (true) {
+						MenuTeclas();
 					}
 					break;
 				}
@@ -342,9 +375,9 @@ void Menu::subParcialTres()
 
 	//system("cls");
 	ocultarCursor();
-	string menu[] = { "                                                          \t Generar QR                   ",
-					  "                                                          \t Mostrar Imagen               ",
-					  "                                                          \t Voler                        "
+	string menu[] = { "\t\t\t\t\t\t\t\t Generar QR              ",
+					  "\t\t\t\t\t\t\t\t Mostrar Imagen          ",
+					  "\t\t\t\t\t\t\t\t Volver                  "
 	};
 	for (;;) {
 		//system("cls");
@@ -369,7 +402,7 @@ void Menu::subParcialTres()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 33)
+				if (cursor == 3)
 				{
 					cursor = 0;
 				}
@@ -411,8 +444,8 @@ void Menu::subParcialTres()
 					break;
 				case 2:
 					if (true) {
-						system("pause");
-						system("cls");
+						//system("pause");
+						//system("cls");
 						MenuTeclas();
 					}
 					break;

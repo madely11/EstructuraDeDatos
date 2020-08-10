@@ -2,7 +2,7 @@
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
-CC       = gcc.exe 
+CC       = gcc.exe
 WINDRES  = windres.exe
 OBJ      = main.o
 LINKOBJ  = main.o
