@@ -1,4 +1,0 @@
-var dir_adff61cebde60f8b6233b8b996395b4d =
-[
-    [ "EstructuraDeDatos", "dir_908955172103742aad162973217b5791.html", "dir_908955172103742aad162973217b5791" ]
-];

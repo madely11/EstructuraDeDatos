@@ -1,7 +1,0 @@
-<<<<<<< Updated upstream
-Madely Betancour,1722927272,madely@gmail.com,iquique
-Kevin Caicedo ,1818181818,made@gmail.com,iquique
-=======
-Gina Garcia,1803206893,Kevin@gmail.com,12
-Kevin,1850131556,kevincaicedo143@gmail.com,Ambato
->>>>>>> Stashed changes
