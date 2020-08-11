@@ -98,7 +98,7 @@ void Cuenta::guardarDatos(string mensaje) {
         auxString += mensaje.at(i);
         i++;
     }
-    monto = atof(auxString.c_str());//monto
+    monto = stof(auxString);//monto
     i++;
     auxString = "";
     while (i < mensaje.length() && mensaje.at(i) != ',') {
@@ -114,7 +114,10 @@ void Cuenta::guardarDatos(string mensaje) {
     @returns datos tipo string
     */
 void Cuenta::hacerString() {
-    dato = idCliente + "," + to_string(numeroCuenta) + "," + to_string(monto) + "," + to_string(tipo->getId());
+    string auxMonto;
+    stringstream montoString;
+    montoString << fixed << setprecision(2) << monto;
+    dato = idCliente + "," + to_string(numeroCuenta) + "," + montoString.str() + "," + to_string(tipo->getId());
 }
 
 int Cuenta::getNumc(void)
@@ -126,8 +129,7 @@ TipoCuenta Cuenta::getTipo(void)
 {
     return *tipo;
 }
-
-int Cuenta::getMonto(void)
+float Cuenta::getMonto(void)
 {
     return monto;
 }
@@ -163,7 +165,7 @@ void Cuenta::setDato(string dato)
     this->dato = dato;
 }
 
-void Cuenta::setMonto(int monto)
+void Cuenta::setMonto(float monto)
 {
     this->monto = monto;
 }

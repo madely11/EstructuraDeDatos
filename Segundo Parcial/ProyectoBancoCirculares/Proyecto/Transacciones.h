@@ -18,6 +18,8 @@
 */
 #pragma once
 #include "Fecha.h"
+#include <sstream>
+#include <iomanip> 
 
 
 class Transacciones

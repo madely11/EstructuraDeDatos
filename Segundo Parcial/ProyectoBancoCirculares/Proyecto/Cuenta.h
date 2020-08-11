@@ -22,6 +22,8 @@
 #include "Transacciones.h"
 #include <stdlib.h>
 #include <time.h>
+#include <sstream>
+#include <iomanip> 
 #include <iostream>
 
 using namespace std;
@@ -31,14 +33,14 @@ class Cuenta
 public:
     int getNumc(void);
     TipoCuenta getTipo(void);
-    int getMonto(void);
+    float getMonto(void);
     string getId(void);
     string getDato(void);
     void setTipo(int);
     void setNumc(int);
     void setId(string);
     void setDato(string);
-    void setMonto(int);
+    void setMonto(float);
     int generarCuenta(string, int);
     void realizarTransaccion(int, int);
     void hacerString();
@@ -49,7 +51,7 @@ public:
     Transacciones t;
 protected:
 private:
-    int monto;
+    float monto;
     int numeroCuenta;
     string idCliente;
     string dato;

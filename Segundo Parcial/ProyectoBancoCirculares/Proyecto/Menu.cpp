@@ -294,8 +294,8 @@ void Menu::submenu1()
 						cout << cliente.stringConsola();
 						cout << endl;
 						listaCliente->llenarLista("cliente.txt");
-						Sleep(2500);
-						system("pause");
+						Sleep(3000);
+						//system("pause");
 						menuTeclas();
 					}
 					break;
@@ -305,13 +305,11 @@ void Menu::submenu1()
 						Cliente cliente;
 						cliente.pedirDatos(2);
 						system("cls");
-						cout << endl << "\n\t\t\t\t\Cuenta creada exitosamente!" << endl;
 						cout << cliente.stringConsola();
 						cout << endl;
 						listaCliente->llenarLista("cliente.txt");
-						listaCliente->mostrar();
-						Sleep(2500);
-						system("pause");
+						Sleep(3000);
+						//system("pause");
 						menuTeclas();
 					}
 					break;
@@ -427,7 +425,7 @@ void Menu::submenu2()
 						listaCuentas->llenarCuenta("cuenta.txt");
 						if (!listaCuentas->verificarCuenta(id)) {
 							cout << "No se encontro la cuenta" << endl;
-							system("pause");
+							Sleep(2500);
 							menuTeclas();
 						}
 						else {
@@ -436,6 +434,7 @@ void Menu::submenu2()
 							delete(listaCuentas);
 							listaCuentas = new Lista();
 							listaCuentas->llenarCuenta("cuenta.txt");
+							cout << "Transacción realizada con éxito!" << endl;
 						}
 						Sleep(2500);
 						menuTeclas();
@@ -526,19 +525,18 @@ void Menu::submenu3()
 						listaCuentas->llenarCuenta("cuenta.txt");
 						if (!listaCuentas->verificarCuenta(id)) {
 							cout << "No se encontro la cuenta" << endl;
-							system("pause");
+							Sleep(2500);
 							menuTeclas();
 						}
 						listaTrans->llenarTrans("transacciones.txt");
 						if (!listaTrans->verificarTransaccion(cuenta)) {
 							cout << "La cuenta no ha realizado ninguna transaccion" << endl;
-							system("pause");
+							Sleep(2500);
 							menuTeclas();
 						}
 						else {
 							Transacciones t;
 							t.datosTransaccion(id, 1);
-							system("pause");
 						}
 						Sleep(2500);
 						menuTeclas();

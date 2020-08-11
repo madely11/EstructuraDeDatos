@@ -60,10 +60,10 @@ string Fecha::getFecha()
     if (d < 10 && m < 10)
         fecha = '0' + to_string(pt1.tm_mday) + "/" + '0' + to_string(pt1.tm_mon + 1) + "/" + to_string(pt1.tm_year + 1900);
     
-    else if (d > 10 && m < 10)
+    else if (d >= 10 && m < 10)
         fecha = to_string(pt1.tm_mday) + "/" + '0' + to_string(pt1.tm_mon + 1) + "/" + to_string(pt1.tm_year + 1900);
     
-    else if (d < 10 && m > 10)
+    else if (d < 10 && m >= 10)
         fecha = '0' + to_string(pt1.tm_mday) + "/" + to_string(pt1.tm_mon + 1) + "/" + to_string(pt1.tm_year + 1900);
     
     else if(d>=10 && m>=10)
