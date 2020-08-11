@@ -35,10 +35,17 @@ float Transacciones::depositar(float monto, int numCuenta) {
     string valorDeposito;
     Ingreso ingreso;
     valorDeposito = ingreso.leer("Ingrese la cantidad de dinero a depositar: ", 2);
+
     deposito = atof(valorDeposito.c_str());
     while (deposito < 0) {
         valorDeposito = ingreso.leer("Ingrese la cantidad de dinero a depositar: ", 2);
         deposito = atof(valorDeposito.c_str());
+
+    deposito = atoi(valorDeposito.c_str());
+    while (deposito < 0) {
+        valorDeposito = ingreso.leer("Ingrese la cantidad de dinero a depositar: ", 2);
+        deposito = atoi(valorDeposito.c_str());
+
     }
     monto += deposito;
     tipoTransaccion = "Deposito";
@@ -55,15 +62,22 @@ float Transacciones::depositar(float monto, int numCuenta) {
     @returns float monto de la cuenta
 */
 
-float Transacciones::retirar(int monto, int numCuenta) {
+float Transacciones::retirar(float monto, int numCuenta){
     float retiro;
     string valorRetiro;
     Ingreso ingreso;
     valorRetiro= ingreso.leer("Ingrese la cantidad de dinero a retirar: ", 2);
+
     retiro = atof(valorRetiro.c_str());
     while (retiro < 0) {//aqui hacer validacion
         valorRetiro = ingreso.leer("Monto invalido. Ingrese de nuevo: ", 2);
         retiro = atof(valorRetiro.c_str());
+
+    retiro = atoi(valorRetiro.c_str());
+    while (retiro < 0) {//aqui hacer validacion
+        valorRetiro = ingreso.leer("Monto invalido. Ingrese de nuevo: ", 2);
+        retiro = atoi(valorRetiro.c_str());
+
     }
     if (monto > retiro) {
         monto -= retiro;
@@ -84,7 +98,7 @@ float Transacciones::retirar(int monto, int numCuenta) {
     @returns void
 */
 
-void Transacciones::guardarTransaccion(int numeroCuenta, int monto, int ingreso)
+void Transacciones::guardarTransaccion(int numeroCuenta, float monto, int ingreso)
 {
     ManejoArchivo am("transacciones.txt");
     stringstream montoString;
@@ -277,7 +291,7 @@ void Transacciones::stringConsola(string mensaje)
 }
 
 string Transacciones::stringConsola(string mensaje, int num) {
-    Fecha fecha;
+    Fecha _fecha;
     int i = 0;
     string salida = "";
     string saldo = "";
@@ -309,13 +323,13 @@ string Transacciones::stringConsola(string mensaje, int num) {
         fechaT += mensaje.at(i);
         i++;
     }
-    fecha.setFecha(fechaT);
+    _fecha.setFecha(fechaT);
     i++;
     while (i < mensaje.length() && mensaje.at(i) != ',') {
         horaT += mensaje.at(i);
         i++;
     }
-    fecha.setHora(horaT);
+    _fecha.setHora(horaT);
 
     if (salida._Equal("Deposito")) {
         salida = "";
@@ -326,7 +340,7 @@ string Transacciones::stringConsola(string mensaje, int num) {
         salida = '-';
     }
     salida += valorT;
-    dato = "\n" + fecha.getFecha() + "\t\t" + fecha.getHora() + "\t" + salida + "\t" + saldo;
+    dato = "\n" + _fecha.getFecha() + "\t\t" + _fecha.getHora() + "\t" + salida + "\t" + saldo;
     return dato;
 }
 void Transacciones::generarPdf() {
