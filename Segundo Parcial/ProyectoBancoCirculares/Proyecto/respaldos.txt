@@ -1,0 +1,4 @@
+respaldo_2072020_11051.txt,cliente_2072020_11051.txt,cuenta_2072020_11051.txt,transacciones_2072020_11051.txt
+respaldo_3072020_222510.txt,cliente_3072020_222510.txt,cuenta_3072020_222510.txt,transacciones_3072020_222510.txt
+respaldo_3072020_222524.txt,cliente_3072020_222524.txt,cuenta_3072020_222524.txt,transacciones_3072020_222524.txt
+respaldo_6082020_9433.txt,cliente_6082020_9433.txt,cuenta_6082020_9433.txt,transacciones_6082020_9433.txt
