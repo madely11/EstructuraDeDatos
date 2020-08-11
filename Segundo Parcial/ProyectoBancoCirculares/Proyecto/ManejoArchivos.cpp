@@ -429,17 +429,28 @@ string ManejoArchivo::buscarRegistroCartola(int numCuenta)
 		cout << "retorno de comparar: " <<texto << endl;
 		// retorna salir si no es la linea con ese numC
 		//retorna un salto si es una linea con t al final 
-		if (!texto._Equal("salir") && !texto._Equal("\n")) {
+		
+		if (!texto._Equal("salir")) {
+			cout << texto << endl;
+			cartola.agregarLinea(texto);
+		}		
+	}
+	/*while (!archivoLectura.eof())
+	{
+		getline(archivoLectura, texto);
+		texto = compararRegistroCartola(numCuenta, texto);
+		cout << "retorno de comparar: " << texto << endl;
+		// retorna salir si no es la linea con ese numC
+		//retorna un salto si es una linea con t al final 
+
+		if (!texto._Equal("salir") && !texto._Equal("\n") ) {
 			cout << texto << endl;
 			actualizarTransacciones(texto);
 		}
 
-		if (!texto._Equal("salir")) {
-			cout << texto << endl;
-			cartola.agregarLinea(texto);
-		}
-		
-	}
+	}*/
+
+	
 	cerrarLectura();
 	return texto2;
 }
