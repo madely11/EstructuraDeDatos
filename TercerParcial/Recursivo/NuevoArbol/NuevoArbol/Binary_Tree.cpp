@@ -186,6 +186,28 @@ void Binary_Tree<T>::_delete_leaf(Tree_Node<T>* _aux, Tree_Node<T>* _parent)
 }
 
 template<class T>
+int Binary_Tree<T>::cont_prime(Tree_Node<T>* node)
+{   
+	int cont1 = 0;
+	if (node != NULL)
+	{
+		//cont1++;
+		if (node->get_left_node())
+
+			cont1+=cont_prime(node->get_left_node());
+
+		if (node->get_right_node())
+			cont1+=cont_prime(node->get_right_node());
+
+		if (is_prime(node->get_data())) {
+		 return cont1+1;
+		}else return cont1+0;
+	}
+	else return 0 ;
+	
+}
+
+template<class T>
 void Binary_Tree<T>::_delete_leaf_left(Tree_Node<T>* _aux, Tree_Node<T>* _parent)
 {
 	if (_aux == this->get_root()) {
@@ -269,10 +291,93 @@ void Binary_Tree<T>::_delete_branch(Tree_Node<T>* _aux, Tree_Node<T>* _parent)
 	}
 }
 
+template<class T>
+int Binary_Tree<T>::get_lvl(T _data, Tree_Node<T>* node)
+{
+	if (this->_is_empty()|| _data!=_look(_data,this->get_root())) {
+		cout << "El arbo esta vacio" << endl;
+		return 0;
+	}
+	else {
+		if (node != NULL && _data != node->get_data()) {
+			if (_data < node->get_data()) {
+				node = node->get_left_node();
+				return 1+get_lvl(_data, node);
+			}
+			else {
+				node = node->get_right_node();
+				return 1+get_lvl(_data, node);
+			}
+		}
+		else {
+				return 1;
+		}
+	}
+}
+
+template<class T>
+int Binary_Tree<T>::get_height_tree(Tree_Node<T>* _node) {
+	int cont1 = 0;
+	int cont2 = 0;
+	if (this->_is_empty()) {
+		cout << "El arbo esta vacio" << endl;
+		return 0;
+
+	}
+	else {
+		if(_node->get_left_node() != NULL|| _node->get_right_node() != NULL) {
+			//cout << _node->get_data();
+			cont1++;
+			cont2++;
+			if(_node->get_left_node() != NULL) {
+				//cout << _node->get_data();
+			cont1+= get_height_tree(_node->get_left_node());
+			}
+			if (_node->get_right_node() != NULL) {
+			cont2+= get_height_tree(_node->get_right_node());
+			}
+		}
+		else {
+			return 1;
+		}
+		if (cont1 > cont2) {
+			cout << cont1<<endl;
+			return cont1;
+		}
+		else {
+			cout << cont2 <<endl;
+			return cont2;
+		}
+
+	}
+}
 
 template<typename T>
 string Binary_Tree<T>::to_string() {
 	return " ";
+}
+
+template<class T>
+bool Binary_Tree<T>::is_prime(T num)
+{
+		int  raiz, contc, cont, res;
+		raiz = sqrt(num);
+		cont = 1;
+		contc = 0;
+		do {
+			res = num % cont;
+			if (res == 0)
+				contc++;
+			cont++;
+		} while (cont <= raiz);
+
+		if ((contc > 1) || (num == 1)) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	
 }
 
 template<typename T>

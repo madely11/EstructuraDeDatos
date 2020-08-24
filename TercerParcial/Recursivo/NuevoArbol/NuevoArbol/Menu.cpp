@@ -38,15 +38,16 @@ void Menu::menuTeclas()
 					  "Eliminar Dato             ",
 					  "Buscar Dato              ",
 					  "Imprimir Arbol           ",
-					  "Mostrar profundidad         ",
-					  "Mostrar altura               ",
-	                  "Mostrar altura               ",
+					  "Mostrar profundidad        ",
+					  "Mostrar altura             ",
+	                  "Buscar Nivel               ",
+					  "Contar numeros primos      ",
 					  "Salir                     " };
 	for (;;) {
 		system("cls");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
 		cout << "                SELECCIONE UNA OPCION         " << endl;
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 9; i++)
 		{
 			if (cursor == i)
 			{
@@ -69,7 +70,7 @@ void Menu::menuTeclas()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 5)
+				if (cursor == 9)
 				{
 					cursor = 0;
 				}
@@ -80,7 +81,7 @@ void Menu::menuTeclas()
 				cursor--;
 				if (cursor == -1)
 				{
-					cursor = 4;
+					cursor = 8;
 				}
 				break;
 			}
@@ -141,6 +142,58 @@ void Menu::menuTeclas()
 					menuTeclas();
 					break;
 				case 4:
+
+					if (true) {
+						system("cls");
+						int dato;
+						cout << "Ingrese el dato que desea saber el nivel: " << endl;
+						cin >> dato;
+						dato = _tree.get_lvl(dato, _tree.get_root());
+						if ( dato!= 0) {
+							cout << "El nivel del elemento es: " <<dato<< endl;
+						}
+						system("pause");
+						//Sleep(3000);
+					}
+					menuTeclas();
+					break;
+				case 5:
+
+					if (true) {
+						system("cls");
+						int altura = _tree.get_height_tree(this->_tree.get_root())-1;
+						cout << "Altura :" << altura<<endl;
+						system("pause");
+						//Sleep(3000);
+					}
+					menuTeclas();
+					break;
+				case 6:
+
+					if (true) {
+						system("cls");
+						int dato;
+						cout << "Ingrese el dato que desea saber el nivel: " << endl;
+						cin >> dato;
+						dato = _tree.get_lvl(dato, _tree.get_root());
+						if (dato != 0) {
+							cout << "El nivel del elemento es: " << dato << endl;
+						}
+						system("pause");
+						//Sleep(3000);
+					}
+					menuTeclas();
+					break;
+				case 7:
+					if (true) {
+						system("cls");
+						int dato = _tree.cont_prime(_tree.get_root());
+						cout << "La cantidad de numeros primos es: " <<dato<< endl;
+						system("pause");
+					}
+					menuTeclas();
+					break;
+				case 8:
 					if (true) {
 						system("cls");
 						cout << endl << "\n\t\t\t\t\t\t\t\t Gracias!" << endl;

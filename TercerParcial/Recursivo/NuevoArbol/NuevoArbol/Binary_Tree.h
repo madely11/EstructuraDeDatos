@@ -3,7 +3,7 @@
 #define BINARY_TREE_H
 
 #include <iostream>
-
+#include<math.h>
 #include "Tree.cpp"
 
 using namespace std;
@@ -22,10 +22,14 @@ public:
     void imprimirPosorden();
     void showTree(Tree_Node<T>*, int );
     void _delete_leaf(Tree_Node<T>*, Tree_Node<T>*);
+    int cont_prime(Tree_Node<T>*);
     void _delete_leaf_left(Tree_Node<T>*, Tree_Node<T>*);
     void _delete_leaf_right(Tree_Node<T>*, Tree_Node<T>*);
     void _delete_branch(Tree_Node<T>*, Tree_Node<T>*);
+    int get_lvl(T _data, Tree_Node<T>*);
+    int get_height_tree(Tree_Node<T>*);
     string to_string();
+    bool is_prime(T);
     virtual ~Binary_Tree();
 protected:
 private:
