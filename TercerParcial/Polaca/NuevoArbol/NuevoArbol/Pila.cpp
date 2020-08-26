@@ -3,8 +3,8 @@
 @param  void
 @returns void
 */
-template <class T>
-Pila<T>::Pila()
+
+Pila::Pila()
 {
     this->next = NULL;
 }
@@ -12,13 +12,13 @@ Pila<T>::Pila()
 @param  T d
 @returns void
 */
-template<class T>
-void Pila<T>::push(T d) {
+
+void Pila::push(char d) {
     if (this->isEmpty()) {
-        this->next = new Node<T>(d, NULL);
+        this->next = new Node(d, NULL);
     }
     else {
-        Node<T>* aux = new Node<T>(d, this->next);
+        Node* aux = new Node(d, this->next);
         this->next = aux;
     }
 }
@@ -27,17 +27,15 @@ void Pila<T>::push(T d) {
 @param  void
 @returns void
 */
-template<class T>
-bool Pila<T>::isEmpty() {
+bool Pila::isEmpty() {
     return (this->next == NULL) ? true : false;
 }
 /**@brief  imprimir lista
 @param  void
 @returns void
 */
-template<class T>
-void Pila<T>::print() {
-    Node<T>* aux = new Node<T>();
+void Pila::print() {
+    Node* aux = new Node();
     aux = this->next;
     while (aux != NULL) {
         cout << aux->getData() << "  ";
@@ -48,9 +46,8 @@ void Pila<T>::print() {
 @param  void
 @returns void
 */
-template<class T>
-T Pila<T>::toEmpty() {
-    Node<T>* aux = new Node<T>();
+char Pila::toEmpty() {
+    Node* aux = new Node();
     while (!this->isEmpty()) {
         aux = this->next;
         this->next = this->next->getNext();
@@ -62,11 +59,10 @@ T Pila<T>::toEmpty() {
 @param  void
 @returns void
 */
-template<class T>
-T Pila<T>::pop() {
+char Pila::pop() {
     if (!isEmpty()) {
-        Node<T>* aux = this->next->getNext();
-        T d = this->next->getData();
+        Node* aux = this->next->getNext();
+        char d = this->next->getData();
         delete this->next;
         this->next = aux;
         return  d;
@@ -80,10 +76,9 @@ T Pila<T>::pop() {
 @param  void
 @returns void
 */
-template<class T>
-T Pila<T>::getFirst() {
+char Pila::getFirst() {
     if (!isEmpty()) {
-        T d = this->next->getData();
+        char d = this->next->getData();
         return  d;
     }
     else {
@@ -95,10 +90,9 @@ T Pila<T>::getFirst() {
 @param  void
 @returns void
 */
-template<class T>
-int Pila<T>::size() {
+int Pila::size() {
     int contador = 0;
-    Node<T>* aux = new Node<T>();
+    Node* aux = new Node();
     aux = this->next;
     while (aux != NULL) {
         contador++;

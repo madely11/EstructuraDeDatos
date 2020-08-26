@@ -14,15 +14,15 @@ bool Polish::jerarquia(char op1,char op2)
 				cont1 = i;
 			}
 		}	
-		return op2 <= op1;
+		return cont <= cont1;
 	}else	return false;
 }
 
 string Polish::stringPost(string inf[],int cont )
 {
 	
-	//string output;
-	/*for (int i = 0; i < cont ; i++)
+	string output;
+	for (int i = 0; i < cont ; i++)
 	{
 		char opc = inf[i].at(0);
 		if (isdigit(opc)) {
@@ -35,10 +35,9 @@ string Polish::stringPost(string inf[],int cont )
 			while (!pil1.isEmpty()&& (char)pil1.getFirst()!='(') {
 				output+=pil1.pop();	
 			}
-			if (pil1.getFirst() != '(') {
+			if (pil1.getFirst() == '(') {
 				pil1.pop();
 			}
-
 		}
 		else if (!isdigit(opc)) {
 			while (!pil1.isEmpty() && jerarquia(opc,(char)pil1.getFirst())){
@@ -50,7 +49,7 @@ string Polish::stringPost(string inf[],int cont )
 	while (!pil1.isEmpty()) {
 		output += (char)pil1.pop();
 	}
-*/
 
-	return "";
+
+	return output;
 }

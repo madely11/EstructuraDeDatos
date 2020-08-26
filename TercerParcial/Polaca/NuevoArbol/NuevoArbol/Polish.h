@@ -6,6 +6,6 @@ class Polish
 public:
 	bool jerarquia(char,char);
 	string stringPost(string[], int  );
-	Pila<char> pil1;
+	Pila pil1;
 };
 

@@ -19,26 +19,34 @@ bool Validar::validarParentesis(string exp)
     {
         if (exp.at(i) == '(') {
             if (i != 0) {
-                if (isdigit(exp.at(i-1)) != 0 || exp.at(i-1) == ')' || isdigit(exp.at(i+1)) == 0) {
+                if (isdigit(exp.at(i - 1)) != 0 || exp.at(i - 1) == ')' || ((isdigit(exp.at(i + 1)) == 0 && exp.at(i + 1) != '('))) {
+                    cout << i << endl;
                     cout << "hay un numero y paretnesis unidos " << endl;
                     return false;
                 }
-
             }
-            else if (isdigit(exp.at(i+1)) == 0) {
-                return false;
+            else { //(6-(5*4))
+                if (isdigit(exp.at(i + 1) == 0 && exp.at(i + 1) != '(')) {
+                    return false;
+                }
             }
             cont1 += 1;
         }
+        //(6-(5*4))
         else if (exp.at(i) == ')') {
             if (i != exp.length() - 1) {
-                if (isdigit(exp.at(i+1)) != 0 || exp.at(i+1) == '(' || isdigit(exp.at(i-1)) == 0) {
+                if (isdigit(exp.at(i + 1)) != 0 || exp.at(i + 1) == '(' || (isdigit(exp.at(i - 1)) == 0) && exp.at(i - 1) != ')') {
                     cout << "hay un numero o operadore" << endl;
                     return false;
                 }
             }
-            else if (isdigit(exp.at(i-1)) == 0) {
-                return false;
+            else { //(6-(5*4))
+                if (isdigit(exp.at(i - 1)) == 0 && exp.at(i - 1) != ')') {
+                    cout << i << endl;
+                    cout << "no sabemos" << endl;
+                    return false;
+                }
+
             }
             cont2 += 1;
         }
@@ -50,7 +58,7 @@ bool Validar::validarParentesis(string exp)
 bool Validar::validarCaracteres(string exp)
 {
     bool verificar = false;
-    int l = (int)exp.length() - 1, pos = 100;
+    int l = exp.length() - 1, pos = 100;
     for (int i = 0; i < exp.length(); i++)
     {
         if (isdigit(exp.at(i)) == 0 && (exp.at(i) != '(' && exp.at(i) != ')')) {
@@ -76,7 +84,6 @@ bool Validar::validarCaracteres(string exp)
         cout << "dmpieza caracter " << endl;
         return false;
     }
-
     return verificar;
 }
 
@@ -104,17 +111,9 @@ void Validar::separarExpresion(string exp)
             arr[cont] = exp.at(i);
             cont += 1;
         }
-
     }
-    //Polish p1;
-    //cout<< p1.stringPost(arr, cont)<<endl;
-    /*Tree_Node* _node = NULL;
-    for (int i = 0; i < cont; i++)
-    {
-       _tree._add(arr[i], _tree.get_root(), _node);
-    }
-    cont= 1;
-    _tree.showTree(_tree.get_root(), cont);*/
+    Polish p1;
+    cout<< p1.stringPost(arr, cont)<<endl;
 }
 
 

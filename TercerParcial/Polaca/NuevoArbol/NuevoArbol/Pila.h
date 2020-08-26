@@ -1,23 +1,23 @@
 #if !defined(__Pila_h)
 #define __Pila_h
 #include "Node.h"
-template <class T>
+
 class Pila {
 public:
     Pila();
     //Metodos para agregar
-    void push(T);
+    void push(char);
     //Metodos para eleiminar
-    T pop();
-    T getFirst();
+    char pop();
+    char getFirst();
     //Longitud de lista
     int size();
     //Lista vacia
     bool isEmpty();
-    T toEmpty();
+    char toEmpty();
     //Metodo de impresion
     void print();
 private:
-    Node<T>* next;
+    Node* next;
 };
 #endif

@@ -3,15 +3,14 @@
 @param void
 @returns void
 */
-template<class T>
-Node<T>::Node() { this->next = NULL; }
+Node::Node() { this->next = NULL; }
 /**@brief  Constructor
 @param  T d
 @param  Node* n
 @returns void
 */
-template<class T>
-Node<T>::Node(T d, Node<T>* n) {
+
+Node::Node(char d, Node* n) {
 	this->data = d;
 	this->next = n;
 }
@@ -20,8 +19,7 @@ Node<T>::Node(T d, Node<T>* n) {
 @param  Node* n
 @returns void
 */
-template<class T>
-Node<T>::Node(T d, Node<T>* n, Node<T>* p) {
+Node::Node(char d, Node* n, Node* p) {
 	this->data = d;
 	this->next = n;
 	this->previous = p;
