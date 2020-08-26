@@ -1,7 +1,4 @@
-#include <iostream>
 #include "Validar.h"
-using namespace std;
-
 void main() {
 	Validar v;
 	string exp;

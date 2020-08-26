@@ -2,12 +2,8 @@
 #ifndef TREE_H
 #define TREE_H
 
-#include <iostream>
 
 #include "Tree_Node.h"
-
-using namespace std;
-
 
 class Tree
 {

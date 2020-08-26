@@ -3,7 +3,6 @@
 
 #include "Binary_Tree.h"
 
-#include "Tree_Node.cpp"
 
 #pragma once
 

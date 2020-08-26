@@ -3,8 +3,7 @@
 #define BINARY_TREE_H
 
 #include <iostream>
-
-#include "Tree.cpp"
+#include "Tree.h"
 
 using namespace std;
 

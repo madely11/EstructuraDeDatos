@@ -3,6 +3,7 @@
 #include<iostream>
 #include <stdlib.h>
 #include "Binary_Tree.h"
+#include "Polish.h"
 #define longitud2 3
 using namespace std;
 
