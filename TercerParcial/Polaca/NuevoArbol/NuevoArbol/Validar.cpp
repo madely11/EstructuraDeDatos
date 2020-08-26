@@ -106,11 +106,21 @@ void Validar::separarExpresion(string exp)
                     cont += 1;
                 }
             }
+            else {
+                dato += exp.at(i);
+                arr[cont] = dato;
+                dato = "";
+                cont += 1;
+            }
         }
         else {
             arr[cont] = exp.at(i);
             cont += 1;
         }
+    }
+    for (int i = 0; i < cont; i++)
+    {
+        cout << arr[i] << endl;
     }
     Polish p1;
     cout<< p1.stringPost(arr, cont)<<endl;

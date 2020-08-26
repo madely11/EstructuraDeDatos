@@ -39,6 +39,12 @@
     <ClCompile Include="Polish.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Node_Tree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pila_Tree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Binary_Tree.h">
@@ -60,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Polish.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Node_Tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pila_Tree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

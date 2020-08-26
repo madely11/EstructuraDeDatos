@@ -20,20 +20,21 @@ bool Polish::jerarquia(char op1,char op2)
 
 string Polish::stringPost(string inf[],int cont )
 {
-	
 	string output;
 	for (int i = 0; i < cont ; i++)
 	{
 		char opc = inf[i].at(0);
 		if (isdigit(opc)) {
-			output += inf[i];
+			output +=inf[i];
+			output += " ";
 		}
 		else if (opc == '(') {
 			pil1.push(opc);
 		}
 		else if (opc == ')') {
 			while (!pil1.isEmpty()&& (char)pil1.getFirst()!='(') {
-				output+=pil1.pop();	
+				output+=pil1.pop();
+				output += " ";
 			}
 			if (pil1.getFirst() == '(') {
 				pil1.pop();
@@ -42,14 +43,16 @@ string Polish::stringPost(string inf[],int cont )
 		else if (!isdigit(opc)) {
 			while (!pil1.isEmpty() && jerarquia(opc,(char)pil1.getFirst())){
 				output += (char)pil1.pop();
+				output += " ";
 			}
 			pil1.push(opc);
 		}
 	}
 	while (!pil1.isEmpty()) {
 		output += (char)pil1.pop();
+		output += " ";
 	}
-
-
+	_tree._add(output);
+	_tree.showTree(_tree.get_root(),1);
 	return output;
 }

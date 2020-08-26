@@ -1,7 +1,6 @@
 #if !defined(__Pila_h)
 #define __Pila_h
 #include "Node.h"
-
 class Pila {
 public:
     Pila();
