@@ -123,6 +123,10 @@ void Validar::separarExpresion(string exp)
         cout << arr[i] << endl;
     }
     Polish p1;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
     cout<< p1.stringPost(arr, cont)<<endl;
 }
 

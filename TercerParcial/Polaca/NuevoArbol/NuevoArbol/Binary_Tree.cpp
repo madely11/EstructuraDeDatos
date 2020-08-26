@@ -19,7 +19,7 @@ void Binary_Tree::_add(string _data) {
 			input += _data.at(i);
 		}
 		else{
-			if (isdigit(input.at(i))) {
+			if (isdigit(input.at(0))) {
 				t = new Tree_Node(input,NULL,NULL);
 				pila_tree.push(t);
 				input ="";
@@ -31,7 +31,7 @@ void Binary_Tree::_add(string _data) {
 				t->set_right_node(t1);
 				t->set_left_node(t2);
 				pila_tree.push(t);
-
+				input = "";
 			}
 		}
 	}

@@ -15,6 +15,6 @@ public:
     //Lista vacia
     bool isEmpty();
     Tree_Node* toEmpty();
-    Node_Tree* next=new Node_Tree();
+    Node_Tree* next;
 };
 

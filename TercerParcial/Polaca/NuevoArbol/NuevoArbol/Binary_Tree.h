@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "Tree.h"
+#include"Pila_Tree.h"
 
 using namespace std;
 

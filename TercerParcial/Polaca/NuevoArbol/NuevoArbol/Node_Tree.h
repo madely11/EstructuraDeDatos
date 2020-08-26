@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include"Binary_Tree.h"
+#include"Tree_Node.h"
 using namespace std;
 class Node_Tree
 {
