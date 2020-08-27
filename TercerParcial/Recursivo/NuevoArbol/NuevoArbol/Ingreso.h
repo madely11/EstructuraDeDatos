@@ -1,8 +1,6 @@
-#pragma once
-
 /******************************************************************
 *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
-* CLASE PARA DEFINIR EL MENU DEL PROGRAMA                         *
+* CLASE INGRESO                                                   *
 * AUTORES: Madely Betancourt, Kevin Caicedo                       *
 * CARRERA: Ingenieria de Software                                 *
 * SEMESTRE: Tercer semestre                                       *
@@ -13,25 +11,22 @@
 ******************************************************************/
 
 /**
-	@file Menu.h
-	@brief Clase que contiene metodos para presentar el menu en la consola
+	@file Ingreso.h
+	@brief Clase que contiene metodos para ingresar los datos
 	@author Madely Betancourt y Kevin Caicedo
 	@date 6/2020
 */
-
+#pragma once
 #include <iostream>
-#include "Ingreso.h"
-#include "Binary_Tree.cpp"
+#include "Validacion.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 using namespace std;
 
-class Menu
-{
+class Ingreso {
+
 public:
-	void menuTeclas();
-	void ocultarCursor();
-public:
-	Binary_Tree<int> _tree;
-	Ingreso ingreso;
-	string datoS;
+	string leer(string, int);
 };

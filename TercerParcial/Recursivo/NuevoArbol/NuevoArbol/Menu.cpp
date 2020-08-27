@@ -95,11 +95,13 @@ void Menu::menuTeclas()
 						char opt = 's';
 						int dato;
 						while (opt == 's' || opt == 'S') {
-							cout << "Ingrese un dato:";
-							cin >> dato;
+							datoS = ingreso.leer("Ingrese un dato: ", 1);
+							dato = atoi(datoS.c_str());
 							_tree._add(dato, _tree.get_root(), NULL);
 							cout << "Desea ingresar otro dato (S/N): ";
 							cin >> opt;
+							cout << endl;
+							cin.ignore();
 						}
 						menuTeclas();
 					}
@@ -108,8 +110,8 @@ void Menu::menuTeclas()
 					if (true) {
 						system("cls");
 						int dato;
-						cout << "Ingrese el dato que desea eliminar: " << endl;
-						cin >> dato;
+						datoS = ingreso.leer("Ingrese el dato que desea eliminar: ", 1);
+						dato = atoi(datoS.c_str());
 						_tree._delete(dato, _tree.get_root(), NULL);
 						system("pause"); 
 
@@ -120,8 +122,8 @@ void Menu::menuTeclas()
 					if (true) {
 						system("cls");
 						int dato;
-						cout << "Ingrese el dato que desea buscar: " << endl;
-						cin >> dato;
+						datoS = ingreso.leer("Ingrese el dato que desea buscar: ", 1);
+						dato = atoi(datoS.c_str());
 						if (_tree._look(dato, _tree.get_root()) != NULL) {
 							cout << "Elmento encontrado: "<< dato  << endl;
 						}
@@ -146,11 +148,11 @@ void Menu::menuTeclas()
 					if (true) {
 						system("cls");
 						int dato;
-						cout << "Ingrese el dato que desea saber el nivel: " << endl;
-						cin >> dato;
+						datoS = ingreso.leer("Ingrese el dato del desea saber la profundidad: ", 1);
+						dato = atoi(datoS.c_str());
 						dato = _tree.get_lvl(dato, _tree.get_root());
 						if ( dato!= 0) {
-							cout << "El nivel del elemento es: " <<dato<< endl;
+							cout << "La profundidad del elemento es: " <<dato<< endl;
 						}
 						system("pause");
 						//Sleep(3000);
@@ -162,7 +164,7 @@ void Menu::menuTeclas()
 					if (true) {
 						system("cls");
 						int altura = _tree.get_height_tree(this->_tree.get_root())-1;
-						cout << "Altura :" << altura<<endl;
+						cout << "La altura del arbol es: " << altura<<endl;
 						system("pause");
 						//Sleep(3000);
 					}
@@ -173,8 +175,8 @@ void Menu::menuTeclas()
 					if (true) {
 						system("cls");
 						int dato;
-						cout << "Ingrese el dato que desea saber el nivel: " << endl;
-						cin >> dato;
+						datoS = ingreso.leer("Ingrese el dato del desea saber el nivel: ", 1);
+						dato = atoi(datoS.c_str());
 						dato = _tree.get_lvl(dato, _tree.get_root());
 						if (dato != 0) {
 							cout << "El nivel del elemento es: " << dato << endl;

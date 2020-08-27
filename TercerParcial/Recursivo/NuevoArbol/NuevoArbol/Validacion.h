@@ -1,8 +1,6 @@
-#pragma once
-
 /******************************************************************
 *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
-* CLASE PARA DEFINIR EL MENU DEL PROGRAMA                         *
+* LIBRERIA PARA LA VALIDACION DE INGRESO DE DATOS                 *
 * AUTORES: Madely Betancourt, Kevin Caicedo                       *
 * CARRERA: Ingenieria de Software                                 *
 * SEMESTRE: Tercer semestre                                       *
@@ -13,25 +11,19 @@
 ******************************************************************/
 
 /**
-	@file Menu.h
-	@brief Clase que contiene metodos para presentar el menu en la consola
+	@file Validacion.h
+	@brief Clase que contiene metodos para realizar las validaciones de los ingresos de datos
 	@author Madely Betancourt y Kevin Caicedo
 	@date 6/2020
 */
-
+#pragma once
+#include<string>
 #include <iostream>
-#include "Ingreso.h"
-#include "Binary_Tree.cpp"
-
 using namespace std;
 
-class Menu
+class Validacion
 {
 public:
-	void menuTeclas();
-	void ocultarCursor();
-public:
-	Binary_Tree<int> _tree;
-	Ingreso ingreso;
-	string datoS;
+	bool validar(string, int);
 };
+

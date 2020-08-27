@@ -140,16 +140,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Binary_Tree.cpp" />
+    <ClCompile Include="Ingreso.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Tree_Node.cpp" />
+    <ClCompile Include="Validacion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Binary_Tree.h" />
+    <ClInclude Include="Ingreso.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="Tree_Node.h" />
+    <ClInclude Include="Validacion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

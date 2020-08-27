@@ -341,11 +341,11 @@ int Binary_Tree<T>::get_height_tree(Tree_Node<T>* _node) {
 			return 1;
 		}
 		if (cont1 > cont2) {
-			cout << cont1<<endl;
+			//cout << cont1<<endl;
 			return cont1;
 		}
 		else {
-			cout << cont2 <<endl;
+			//cout << cont2 <<endl;
 			return cont2;
 		}
 
