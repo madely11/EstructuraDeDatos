@@ -152,22 +152,26 @@ void File_Manager::load_file(Binary_Tree<Translate>* _tree)
 	while (!archivoLectura.eof())
 	{
 		getline(archivoLectura, _line);
-		cout << _line << endl;
-		while (i < _line.length()) {
-			if (_line.at(i) == ',') {
-				_obj.set_spanish(_text);
-				_text = "";
-				i++;
+		//cout << _line << endl;
+		if (_line != "") {
+			while (i < _line.length()) {
+				if (_line.at(i) == ',') {
+					_obj.set_spanish(_text);
+					_text = "";
+					i++;
+				}
+				else {
+					_text += _line.at(i);
+					i++;
+				}
 			}
-			else {
-				_text += _line.at(i);
-				i++;
-			}
+			_obj.set_english(_text);
+			i = 0;
+			_text ="";
+			_tree->_add(_obj, _tree->get_root(), NULL);
 		}
-		 _obj.set_english(_text);
-		i = 0;
-		_text = "";
-		_tree->_add(_obj, _tree->get_root(), NULL);
+		
+		
 	}
 	cerrarLectura();
 }

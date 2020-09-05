@@ -1,8 +1,6 @@
 #include <iostream>
 #include <sstream>
-
 #include "Binary_Tree.h"
-
 #include "Tree_Node.cpp"
 
 #pragma once
@@ -11,7 +9,7 @@ using namespace std;
 
 template<typename T>
 void Binary_Tree<T>::_add(T _data, Tree_Node<T>* node, Tree_Node<T>* parent) {
-	cout << "Ingreso add " << endl;
+	//cout << "Ingreso add " << endl;
 	Tree_Node<T>* _aux = new Tree_Node<T>(_data, NULL, NULL);
 	if (this->_is_empty()) {
 		this->_root = _aux;
@@ -64,7 +62,7 @@ T Binary_Tree<T>::_look(T _data, Tree_Node<T>* node) {
 		}
 		else {
 			if (node == NULL) {
-				cout << "No existe" << endl;
+				//cout << "No existe" << endl;
 				return _data;
 			}
 			else {

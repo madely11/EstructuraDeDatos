@@ -4,3 +4,6 @@ mesa,table
 dormir,sleep
 
 leche,milk
+zapato,shoes
+computador,computer
+uno,one

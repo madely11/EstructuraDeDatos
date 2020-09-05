@@ -91,12 +91,12 @@ void Menu::menuTeclas()
 						_data.set_spanish(ingreso.leerString("Ingrese la palabra en español que desea traducir: ", 1));
 						_data.set_english("");
 						_data = _tree._look(_data, _tree.get_root());
-						cout << _data.get_spanish() << ", " << _data.get_english() << endl;
+						//cout << _data.get_spanish() << ", " << _data.get_english() << endl;
 						if (_data.get_english()._Equal("")) {
 							cout << "Esta palabra no se cuentra en nuestro diccionario" << endl;
 						}
 						else {
-							cout << "Traducción: " << _data.get_english();
+							cout << "Traducción: " << _data.get_english()<<endl;
 							_data.hablar(1);
 						}
 						system("pause");
@@ -114,7 +114,7 @@ void Menu::menuTeclas()
 							cout << "Esta palaabra no se cuentra en nuestro diccionario" << endl;
 						}
 						else {
-							cout << "Traducción: " << _data.get_spanish();
+							cout << "Traducción: " << _data.get_spanish()<<endl;
 							_data.hablar(2);
 						}
 						system("pause");
