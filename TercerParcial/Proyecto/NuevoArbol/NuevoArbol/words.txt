@@ -1,0 +1,3 @@
+hola,hello
+perro,dog
+mesa,table
