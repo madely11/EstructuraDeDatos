@@ -16,7 +16,7 @@ public:
     void _add(T, Tree_Node<T>*, Tree_Node<T>*);
     void _delete(T _data, Tree_Node<T>*, Tree_Node<T>*);
     T _look(T _data, Tree_Node<T>*);
-    T _look_english(T _data, Tree_Node<T>*);
+    void _look_english(T* _data, Tree_Node<T>*);
     void imprimir(Tree_Node<T>*);
     void imprimirPosorden();
     void showTree(Tree_Node<T>*, int );

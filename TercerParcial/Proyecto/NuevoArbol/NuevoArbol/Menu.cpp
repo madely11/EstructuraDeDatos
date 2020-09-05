@@ -88,8 +88,6 @@ void Menu::menuTeclas()
 				case 0:
 					if (true) {
 						system("cls");
-						File_Manager file("words.txt");
-						file.load_file(&_tree);
 						_data.set_spanish(ingreso.leerString("Ingrese la palabra en español que desea traducir: ", 1));
 						_data.set_english("");
 						_data = _tree._look(_data, _tree.get_root());
@@ -108,12 +106,10 @@ void Menu::menuTeclas()
 				case 1:
 					if (true) {
 						system("cls");
-						File_Manager file("words.txt");
-						file.load_file(&_tree);
 						_data.set_english(ingreso.leerString("Ingrese la palabra en ingles que desea traducir: ", 1));
 						_data.set_spanish("");
-						_data = _tree._look(_data, _tree.get_root());
-						cout << _data.get_spanish() << ", " << _data.get_english() << endl;
+						 _tree._look_english(&_data, _tree.get_root());
+						//cout << _data.get_spanish() << ", " << _data.get_english() << endl;
 						if (_data.get_spanish()._Equal("")) {
 							cout << "Esta palaabra no se cuentra en nuestro diccionario" << endl;
 						}
@@ -129,10 +125,16 @@ void Menu::menuTeclas()
 				case 2:
 					if (true) {
 						system("cls");
+						File_Manager file("words.txt");
 						_data.set_spanish(ingreso.leerString("Ingrese la palabra en español: ", 1));
-						_data.set_english(ingreso.leerString("Ingrese la palabra en ingles: ", 1));
-						_tree._add(_data, _tree.get_root(), NULL);
-						cout << "Palabra ingresada exitosamente!" << endl;
+						if (_data == _tree._look(_data, _tree.get_root())) {
+
+							_data.set_english(ingreso.leerString("Ingrese la palabra en ingles: ", 1));
+							_tree._add(_data, _tree.get_root(), NULL);
+							file.agregarLinea(_data._to_string_T());
+							cout << "Palabra ingresada exitosamente!" << endl;
+						}
+						else cout << "La palabra ya existe!" << endl;
 						system("pause");
 					}
 					menuTeclas();

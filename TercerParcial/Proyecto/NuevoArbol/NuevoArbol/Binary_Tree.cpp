@@ -75,9 +75,15 @@ T Binary_Tree<T>::_look(T _data, Tree_Node<T>* node) {
 }
 
 template<class T>
-T Binary_Tree<T>::_look_english(T _data, Tree_Node<T>* _node)
+void Binary_Tree<T>::_look_english(T* _data, Tree_Node<T>* _node)
 {
-	
+	if (_node!=NULL&& *_data != _node->get_data()) {
+		_look_english(_data, _node->get_left_node());
+		_look_english(_data, _node->get_right_node());
+	}
+	else if (_node == NULL) {
+		return;
+	}else *_data=_node->get_data();
 }
 
 template<typename T>

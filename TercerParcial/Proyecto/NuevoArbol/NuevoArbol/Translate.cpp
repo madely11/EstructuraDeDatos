@@ -12,9 +12,7 @@ Translate::Translate()
 	_english = "";
 }
 
-void Translate::set_flag(int _f) {
-	_flag = _f;
-}
+
 
 void Translate::set_spanish(string _word)
 {
@@ -24,6 +22,11 @@ void Translate::set_spanish(string _word)
 void Translate::set_english(string _word)
 {
 	_english = _word;
+}
+
+string Translate::_to_string_T()
+{
+	return this->_spanish + "," + this->_english;
 }
 
 string Translate::get_spanish()
@@ -36,9 +39,7 @@ string Translate::get_english()
 	return _english;
 }
 
-int Translate::get_flag() {
-	return _flag;
-}
+
 
 void Translate::hablar(int _flag)
 {
@@ -97,7 +98,7 @@ bool Translate::operator != (const Translate& p) const
 
 bool Translate::operator==(const Translate& p) const
 {
-	return strcmp(this->_spanish.c_str(), p._spanish.c_str()) == 0 || strcmp(this->_english.c_str(), p._english.c_str()) == 0;
+	return strcmp(this->_spanish.c_str(), p._spanish.c_str()) == 0 && strcmp(this->_english.c_str(), p._english.c_str()) == 0;
 }
 
 ostream& operator<<(ostream& o, const Translate& p)

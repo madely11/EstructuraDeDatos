@@ -1,3 +1,6 @@
 hola,hello
 perro,dog
 mesa,table
+dormir,sleep
+
+leche,milk
