@@ -1,6 +1,6 @@
 /******************************************************************
 *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
-* CLASE PARA FUNCIONES DE ARBOL                                   *
+* iNGRESO, BORRADO, GRAFICO ARBOL BISELADO                *
 * AUTORES: Madely Betancourt, Kevin Caicedo                       *
 * CARRERA: Ingenieria de Software                                 *
 * SEMESTRE: Tercer semestre                                       *
@@ -9,23 +9,21 @@
 * FECHA DE CREACIÓN: 04/07/20									  *
 * FECHA DE MODIFICACIÓN: 09/07/20								  *
 ******************************************************************/
+
+/**
+	@file Validacion.h
+	@brief Clase que contiene metodos para realizar las validaciones de los ingresos de datos
+	@author Madely Betancourt y Kevin Caicedo
+	@date 6/2020
+*/
 #pragma once
-#include"Nodo.h"
-#include "Dibujar.h"
-class Biselado
+#include<string>
+#include <iostream>
+using namespace std;
+
+class Validacion
 {
 public:
-	Nodo* raiz=NULL;
-	void rotacionDerecha(Nodo* P);
-	void rotacionIzquierda(Nodo* P);
-	void mostrar(Nodo* node, int cont);
-	void biselado(Nodo* T);
-	void insertar(int valor);
-	Nodo* buscar(int valor);
-	void Inorder(Nodo* R);
-	bool borrar(int valor);
-	void showTreeGraph(Nodo* tree, int x, int y, int cont);
-public:
-	Dibujar dibujar;
+	bool validar(string, int);
 };
 

@@ -1,3 +1,14 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* iNGRESO, BORRADO, GRAFICO ARBOL AVL                *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 04/07/20									  *
+* FECHA DE MODIFICACIÓN: 09/07/20								  *
+******************************************************************/
 #include "Dibujar.h"
 
 Dibujar::Dibujar()

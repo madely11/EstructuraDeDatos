@@ -1,13 +1,13 @@
 /******************************************************************
 *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
-* LIBRERIA PARA LA VALIDACION DE INGRESO DE DATOS                 *
+* iNGRESO, BORRADO, GRAFICO ARBOL AVL                *
 * AUTORES: Madely Betancourt, Kevin Caicedo                       *
 * CARRERA: Ingenieria de Software                                 *
 * SEMESTRE: Tercer semestre                                       *
 * MATERIA: Estructura de Datos                                    *
 * NRC: 6396														  *
-* FECHA DE CREACIÓN: 20/06/20									  *
-* FECHA DE MODIFICACIÓN: 02/07/20								  *
+* FECHA DE CREACIÓN: 04/07/20									  *
+* FECHA DE MODIFICACIÓN: 09/07/20								  *
 ******************************************************************/
 
 /**

@@ -1,6 +1,6 @@
 /******************************************************************
 *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
-* iNGRESO, BORRADO, GRAFICO ARBOL AVL                *
+* INGRESO DE DATOS               *
 * AUTORES: Madely Betancourt, Kevin Caicedo                       *
 * CARRERA: Ingenieria de Software                                 *
 * SEMESTRE: Tercer semestre                                       *
