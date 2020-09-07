@@ -187,22 +187,23 @@ void Binary_Tree<T>::_delete_leaf(Tree_Node<T>* _aux, Tree_Node<T>* _parent)
 
 template<class T>
 int Binary_Tree<T>::cont_prime(Tree_Node<T>* node, int cont1)
-{   
+{
 	if (node != NULL)
 	{
 		//cont1++;
 		if (node->get_left_node())
-			cont1+=cont_prime(node->get_left_node(),0);
+			cont1 += cont_prime(node->get_left_node(), 0);
 
 		if (node->get_right_node())
-			cont1+=cont_prime(node->get_right_node(),0);
+			cont1 += cont_prime(node->get_right_node(), 0);
 
 		if (is_prime(node->get_data())) {
-		 return cont1+1;
-		}else return cont1+0;
+			return cont1 + 1;
+		}
+		else return cont1 + 0;
 	}
-	else return 0 ;
-	
+	else return 0;
+
 }
 
 template<class T>
@@ -315,23 +316,23 @@ int Binary_Tree<T>::get_lvl(T _data, Tree_Node<T>* node)
 
 template<class T>
 int Binary_Tree<T>::get_height_tree(Tree_Node<T>* _node, int cont1, int cont2) {
-	
+
 	if (this->_is_empty()) {
 		cout << "El arbo esta vacio" << endl;
 		return 0;
 
 	}
 	else {
-		if(_node->get_left_node() != NULL|| _node->get_right_node() != NULL) {
+		if (_node->get_left_node() != NULL || _node->get_right_node() != NULL) {
 			//cout << _node->get_data();
 			cont1++;
 			cont2++;
-			if(_node->get_left_node() != NULL) {
+			if (_node->get_left_node() != NULL) {
 				//cout << _node->get_data();
-			cont1+= get_height_tree(_node->get_left_node(),0,0);
+				cont1 += get_height_tree(_node->get_left_node(), 0, 0);
 			}
 			if (_node->get_right_node() != NULL) {
-			cont2+= get_height_tree(_node->get_right_node(),0,0);
+				cont2 += get_height_tree(_node->get_right_node(), 0, 0);
 			}
 		}
 		else {
@@ -349,10 +350,7 @@ int Binary_Tree<T>::get_height_tree(Tree_Node<T>* _node, int cont1, int cont2) {
 	}
 }
 
-template<typename T>
-string Binary_Tree<T>::to_string() {
-	return " ";
-}
+
 
 template<class T>
 bool Binary_Tree<T>::is_prime(T num)
@@ -375,6 +373,61 @@ bool Binary_Tree<T>::is_prime(T num)
 			return true;
 		}
 	
+}
+
+
+template <class T>
+void Binary_Tree<T>::showTreeGraph(Tree_Node<T>* tree, int x, int y, int cont) {
+	if (tree) {
+		dibujar.dibujarNodo(x, y, to_string(tree->get_data()));
+		if (tree->get_left_node()) {
+			if (cont == 1) {
+				showTreeGraph(tree->get_left_node(), x / 2, y + 75, cont + 1); //450
+			}
+			else {
+				if (x > 900) {
+					showTreeGraph(tree->get_left_node(), x - x / 10, y + 75, cont); ///jh
+				}
+				else {
+					showTreeGraph(tree->get_left_node(), x - x / 8, y + 75, cont);
+				}
+			}
+
+		}
+		if (tree->get_right_node()) {
+			if (cont == 1) {
+				showTreeGraph(tree->get_right_node(), x + x / 2, y + 75, cont + 1); //
+			}
+			else {
+				if (x > 900) {
+					showTreeGraph(tree->get_right_node(), x + x / 10, y + 75, cont);
+				}
+				else {
+					showTreeGraph(tree->get_right_node(), x + x / 8, y + 75, cont); //mnhjk
+				}
+
+			}
+
+		}
+	}
+}
+
+template <class T>
+void Binary_Tree<T>::graphConsole(Tree_Node<T>* tree, int x, int y, int cont)
+{
+
+	while (dibujar.ventana->isOpen()) {
+		Event event;
+		while (dibujar.ventana->pollEvent(event)) {
+			if (event.type == Event::Closed) {
+				dibujar.ventana->close();
+			}
+		}
+		dibujar.ventana->clear();
+		showTreeGraph(tree, x, y, cont);
+		dibujar.ventana->setVisible(true);
+		dibujar.ventana->display();
+	}
 }
 
 template<typename T>

@@ -34,4 +34,6 @@ public:
 	Binary_Tree<int> _tree;
 	Ingreso ingreso;
 	string datoS;
+	char opt = 's';
+	int dato;
 };

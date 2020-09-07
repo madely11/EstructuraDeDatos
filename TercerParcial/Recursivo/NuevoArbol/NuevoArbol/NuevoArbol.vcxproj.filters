@@ -36,6 +36,9 @@
     <ClCompile Include="Validacion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dibujar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Binary_Tree.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Validacion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dibujar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
