@@ -1,6 +1,6 @@
 #pragma once
 #include"Nodo.h" 
-
+#include"Dibujar.h"
 template<class T>
 class AVL {
 private:
@@ -36,7 +36,8 @@ public:
     T& ValorActual() { return actual->dato; }
     // Moverse al nodo raiz:
     void Raiz() { actual = raiz; }
-    // Aplicar una función a cada elemento del árbol:
+    void showTreeGraph(Nodo<T>* tree, int x, int y, int cont);
+    // Aplicar una función a cada elemento del árbol
     void InOrden(void (*func)(T&, int), Nodo<T>* nodo = NULL, bool r = true);
     void PreOrden(void (*func)(T&, int), Nodo<T>* nodo = NULL, bool r = true);
     void PostOrden(void (*func)(T&, int), Nodo<T>* nodo = NULL, bool r = true);
@@ -51,5 +52,6 @@ public:
     void eliminarArbol(Nodo<T>*);
     void auxContador(Nodo<T>*);
     void auxAltura(Nodo<T>*, int);
+    Dibujar dibujar;
 };
 

@@ -110,36 +110,36 @@ void AVL<T>::rotacionDobleDerecha(Nodo<T>* nodo)
 {
     cout << "rotacionDobleDerecha" << endl;
     Nodo<T>* Padre = nodo->padre;
-    Nodo<T>* P = nodo;
-    Nodo<T>* Q = P->izquierdo;
-    Nodo<T>* R = Q->derecho;
-    Nodo<T>* B = R->izquierdo;
-    Nodo<T>* C = R->derecho;
+    Nodo<T>* nodoActual = nodo;
+    Nodo<T>* izquierdoA = nodoActual->izquierdo;
+    Nodo<T>* derechoI = izquierdoA->derecho;
+    Nodo<T>* izquierdoDIz = derechoI->izquierdo;
+    Nodo<T>* derechoDIz = derechoI->derecho;
 
     if (Padre)
-        if (Padre->derecho == nodo) Padre->derecho = R;
-        else Padre->izquierdo = R;
-    else raiz = R;
+        if (Padre->derecho == nodo) Padre->derecho = derechoI;
+        else Padre->izquierdo = derechoI;
+    else raiz = derechoI;
 
     // Reconstruir árbol:
-    Q->derecho = B;
-    P->izquierdo = C;
-    R->izquierdo = Q;
-    R->derecho = P;
+    izquierdoA->derecho = izquierdoDIz;
+    nodoActual->izquierdo = derechoDIz;
+    derechoI->izquierdo = izquierdoA;
+    derechoI->derecho = nodoActual;
 
     // Reasignar padres:
-    R->padre = Padre;
-    P->padre = Q->padre = R;
-    if (B) B->padre = Q;
-    if (C) C->padre = P;
+    derechoI->padre = Padre;
+    nodoActual->padre = izquierdoA->padre = derechoI;
+    if (izquierdoDIz) izquierdoDIz->padre = izquierdoA;
+    if (derechoDIz) derechoDIz->padre = nodoActual;
 
     // Ajustar valores de factorE:
-    switch (R->factorE) {
-    case -1: Q->factorE = 0; P->factorE = 1; break;
-    case 0:  Q->factorE = 0; P->factorE = 0; break;
-    case 1:  Q->factorE = -1; P->factorE = 0; break;
+    switch (derechoI->factorE) {
+    case -1: izquierdoA->factorE = 0; nodoActual->factorE = 1; break;
+    case 0:  izquierdoA->factorE = 0; nodoActual->factorE = 0; break;
+    case 1:  izquierdoA->factorE = -1; nodoActual->factorE = 0; break;
     }
-    R->factorE = 0;
+    derechoI->factorE = 0;
 }
 
 // Rotación doble a izquierdas
@@ -148,36 +148,36 @@ void AVL<T>::rotacionDobleIzquierda(Nodo<T>* nodo)
 {
     cout << "rotacionDobleIzquierda" << endl;
     Nodo<T>* Padre = nodo->padre;
-    Nodo<T>* P = nodo;
-    Nodo<T>* Q = P->derecho;
-    Nodo<T>* R = Q->izquierdo;
-    Nodo<T>* B = R->izquierdo;
-    Nodo<T>* C = R->derecho;
+    Nodo<T>* nodoActual = nodo;
+    Nodo<T>* derechoA = nodoActual->derecho;
+    Nodo<T>* izquierdoD = derechoA->izquierdo;
+    Nodo<T>* izquierdoIz = izquierdoD->izquierdo;
+    Nodo<T>* derechoIz = izquierdoD->derecho;
 
     if (Padre)
-        if (Padre->derecho == nodo) Padre->derecho = R;
-        else Padre->izquierdo = R;
-    else raiz = R;
+        if (Padre->derecho == nodo) Padre->derecho = izquierdoD;
+        else Padre->izquierdo = izquierdoD;
+    else raiz = izquierdoD;
 
     // Reconstruir árbol:
-    P->derecho = B;
-    Q->izquierdo = C;
-    R->izquierdo = P;
-    R->derecho = Q;
+    nodoActual->derecho = izquierdoIz;
+    derechoA->izquierdo = derechoIz;
+    izquierdoD->izquierdo = nodoActual;
+    izquierdoD->derecho = derechoA;
 
     // Reasignar padres:
-    R->padre = Padre;
-    P->padre = Q->padre = R;
-    if (B) B->padre = P;
-    if (C) C->padre = Q;
+    izquierdoD->padre = Padre;
+    nodoActual->padre = derechoA->padre = izquierdoD;
+    if (izquierdoIz) izquierdoIz->padre = nodoActual;
+    if (derechoIz) derechoIz->padre = derechoA;
 
     // Ajustar valores de factorE:
-    switch (R->factorE) {
-    case -1: P->factorE = 0; Q->factorE = 1; break;
-    case 0:  P->factorE = 0; Q->factorE = 0; break;
-    case 1:  P->factorE = -1; Q->factorE = 0; break;
+    switch (izquierdoD->factorE) {
+    case -1: nodoActual->factorE = 0; derechoA->factorE = 1; break;
+    case 0:  nodoActual->factorE = 0; derechoA->factorE = 0; break;
+    case 1:  nodoActual->factorE = -1; derechoA->factorE = 0; break;
     }
-    R->factorE = 0;
+    izquierdoD->factorE = 0;
 }
 
 // Rotación simple a derechas
@@ -186,27 +186,27 @@ void AVL<T>::rotacionSimpleDerecha(Nodo<T>* nodo)
 {
     cout << "rotacionSimpleDerecha" << endl;
     Nodo<T>* Padre = nodo->padre;
-    Nodo<T>* P = nodo;
-    Nodo<T>* Q = P->izquierdo;
-    Nodo<T>* B = Q->derecho;
+    Nodo<T>* nodoActual = nodo;
+    Nodo<T>* izquierdoA = nodoActual->izquierdo;
+    Nodo<T>* derechoIz = izquierdoA->derecho;
 
     if (Padre)
-        if (Padre->derecho == P) Padre->derecho = Q;
-        else Padre->izquierdo = Q;
-    else raiz = Q;
+        if (Padre->derecho == nodoActual) Padre->derecho = izquierdoA;
+        else Padre->izquierdo = izquierdoA;
+    else raiz = izquierdoA;
 
     // Reconstruir árbol:
-    P->izquierdo = B;
-    Q->derecho = P;
+    nodoActual->izquierdo = derechoIz;
+    izquierdoA->derecho = nodoActual;
 
     // Reasignar padres:
-    P->padre = Q;
-    if (B) B->padre = P;
-    Q->padre = Padre;
+    nodoActual->padre = izquierdoA;
+    if (derechoIz) derechoIz->padre = nodoActual;
+    izquierdoA->padre = Padre;
 
     // Ajustar valores de factorE:
-    P->factorE = 0;
-    Q->factorE = 0;
+    nodoActual->factorE = 0;
+    izquierdoA->factorE = 0;
 }
 
 // Rotación simple a izquierdas
@@ -422,6 +422,42 @@ void AVL<T>::auxAltura(Nodo<T>* nodo, int a)
     if (EsHoja(nodo) && a > altura) altura = a;
 }
 
+
+template <class T>
+void AVL<T>::showTreeGraph(Nodo<T>* tree, int x, int y, int cont) {
+    if (tree) {
+        dibujar.dibujarNodo(x, y, to_string(tree->dato));
+        if (tree->izquierdo) {
+            if (cont == 1) {
+                showTreeGraph(tree->izquierdo, x / 2, y + 75, cont + 1); //450
+            }
+            else {
+                if (x > 900) {
+                    showTreeGraph(tree->izquierdo, x - x / 10, y + 75, cont); ///jh
+                }
+                else {
+                    showTreeGraph(tree->izquierdo, x - x / 8, y + 75, cont);
+                }
+            }
+
+        }
+        if (tree->derecho) {
+            if (cont == 1) {
+                showTreeGraph(tree->derecho, x + x / 2, y + 75, cont + 1); //
+            }
+            else {
+                if (x > 900) {
+                    showTreeGraph(tree->derecho, x + x / 10, y + 75, cont);
+                }
+                else {
+                    showTreeGraph(tree->derecho, x + x / 8, y + 75, cont); //mnhjk
+                }
+
+            }
+
+        }
+    }
+}
 // Función de prueba para recorridos del árbol
 template <class T>
 void Mostrar(T& d, int factorE)
