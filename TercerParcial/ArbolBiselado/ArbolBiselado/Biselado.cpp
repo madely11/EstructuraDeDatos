@@ -1,103 +1,103 @@
 #include "Biselado.h"
 
-void Biselado::rotacionDerecha(Nodo* P)
+void Biselado::rotacionDerecha(Nodo* nodo)
 {
-	Nodo* T = P->izquierdo;
-	Nodo* B = T->derecho;
-	Nodo* D = P->padre;
-	if (D)
+	Nodo* auxIzquierdo = nodo->izquierdo;
+	Nodo* auxDerecho = auxIzquierdo->derecho;
+	Nodo* auxPadre = nodo->padre;
+	if (auxPadre)
 	{
-		if (D->derecho == P) D->derecho = T;
-		else D->izquierdo = T;
+		if (auxPadre->derecho == nodo) auxPadre->derecho = auxIzquierdo;
+		else auxPadre->izquierdo = auxIzquierdo;
 	}
-	if (B)
-		B->padre = P;
-	T->padre = D;
-	T->derecho = P;
+	if (auxDerecho)
+		auxDerecho->padre = nodo;
+	auxIzquierdo->padre = auxPadre;
+	auxIzquierdo->derecho = nodo;
 
-	P->padre = T;
-	P->izquierdo = B;
+	nodo->padre = auxIzquierdo;
+	nodo->izquierdo = auxDerecho;
 }
 
-void Biselado::rotacionIzquierda(Nodo* P)
+void Biselado::rotacionIzquierda(Nodo* nodo)
 {
-	Nodo* T = P->derecho;
-	Nodo* B = T->izquierdo;
-	Nodo* D = P->padre;
-	if (D)
+	Nodo* auxDerecho = nodo->derecho;
+	Nodo* auxIzquierdo = auxDerecho->izquierdo;
+	Nodo* auxPadre = nodo->padre;
+	if (auxPadre)
 	{
-		if (D->derecho == P) D->derecho = T;
-		else D->izquierdo = T;
+		if (auxPadre->derecho == nodo) auxPadre->derecho = auxDerecho;
+		else auxPadre->izquierdo = auxDerecho;
 	}
-	if (B)
-		B->padre = P;
-	T->padre = D;
-	T->izquierdo = P;
+	if (auxIzquierdo)
+		auxIzquierdo->padre = nodo;
+	auxDerecho->padre = auxPadre;
+	auxDerecho->izquierdo = nodo;
 
-	P->padre = T;
-	P->derecho = B;
+	nodo->padre = auxDerecho;
+	nodo->derecho = auxIzquierdo;
 }
 
-void Biselado::mostrar(Nodo* node, int cont)
+void Biselado::mostrar(Nodo* nodo, int cont)
 {
-	if (node == NULL) {
+	if (nodo == NULL) {
 		return;
 	}
 	else {
-		mostrar(node->derecho, cont + 1);
+		mostrar(nodo->derecho, cont + 1);
 		for (int i = 0; i < cont; i++) {
 			std::cout << "   ";
 		}
-		std::cout << node->v << std::endl;
-		mostrar(node->izquierdo, cont + 1);
+		std::cout << nodo->v << std::endl;
+		mostrar(nodo->izquierdo, cont + 1);
 		return;
 	}
 
 }
 
-void Biselado::biselado(Nodo* T)
+void Biselado::biselado(Nodo* nodo)
 {
 	while (true)
 	{
-		Nodo* padre = T->padre;
+		Nodo* padre = nodo->padre;
 		if (!padre) break;
-		Nodo* pp = padre->padre;
-		if (!pp)//Zig
+		Nodo* abuelo = padre->padre;
+		if (!abuelo)//Zig
 		{
-			if (padre->izquierdo == T)
+			if (padre->izquierdo == nodo)
 				rotacionDerecha(padre);
 			else
 				rotacionIzquierda(padre);
 			break;
 		}
-		if (pp->izquierdo == padre)
+		if (abuelo->izquierdo == padre)
 		{
-			if (padre->izquierdo == T)
+			if (padre->izquierdo == nodo)
 			{//ZigZig
-				rotacionDerecha(pp);
+				rotacionDerecha(abuelo);
 				rotacionDerecha(padre);
 			}
 			else
 			{//ZigZag
 				rotacionIzquierda(padre);
-				rotacionDerecha(pp);
+				rotacionDerecha(abuelo);
 			}
 		}
 		else
 		{
-			if (padre->izquierdo == T)
+			if (padre->izquierdo == nodo)
 			{//ZigZag
 				rotacionDerecha(padre);
-				rotacionIzquierda(pp);
+				rotacionIzquierda(abuelo);
 			}
 			else
 			{//ZigZig
-				rotacionIzquierda(pp);
+				rotacionIzquierda(abuelo);
 				rotacionIzquierda(padre);
 			}
 		}
 	}
-	raiz = T;
+	raiz = nodo;
 }
 
 void Biselado::insertar(int valor)
@@ -111,115 +111,113 @@ void Biselado::insertar(int valor)
 		raiz->v = valor;
 		return;
 	}
-	Nodo* P = raiz;
+	Nodo* nodo = raiz;
 	while (true)
 	{
-		if (P->v == valor) break; // not multiset
-		if (valor < (P->v))
+		if (nodo->v == valor) break; // not multiset
+		if (valor < (nodo->v))
 		{
-			if (P->izquierdo) P = P->izquierdo;
+			if (nodo->izquierdo) nodo = nodo->izquierdo;
 			else
 			{
-				P->izquierdo = (Nodo*)malloc(sizeof(Nodo));
-				P->izquierdo->padre = P;
-				P->izquierdo->derecho = NULL;
-				P->izquierdo->izquierdo = NULL;
-				P->izquierdo->v = valor;
-				P = P->izquierdo;
+				nodo->izquierdo = (Nodo*)malloc(sizeof(Nodo));
+				nodo->izquierdo->padre = nodo;
+				nodo->izquierdo->derecho = NULL;
+				nodo->izquierdo->izquierdo = NULL;
+				nodo->izquierdo->v = valor;
+				nodo = nodo->izquierdo;
 				break;
 			}
 		}
 		else
 		{
-			if (P->derecho) P = P->derecho;
+			if (nodo->derecho) nodo = nodo->derecho;
 			else
 			{
-				P->derecho = (Nodo*)malloc(sizeof(Nodo));
-				P->derecho->padre = P;
-				P->derecho->derecho = NULL;
-				P->derecho->izquierdo = NULL;
-				P->derecho->v = valor;
-				P = P->derecho;
+				nodo->derecho = (Nodo*)malloc(sizeof(Nodo));
+				nodo->derecho->padre = nodo;
+				nodo->derecho->derecho = NULL;
+				nodo->derecho->izquierdo = NULL;
+				nodo->derecho->v = valor;
+				nodo = nodo->derecho;
 				break;
 			}
 		}
 	}
-	biselado(P);
+	biselado(nodo);
 }
 
-void Biselado::Inorder(Nodo* R)
+void Biselado::Inorder(Nodo* nodo)
 {
-	if (!R) return;
-	Inorder(R->izquierdo);
-	printf("valor: %d ", R->v);
-	if (R->izquierdo) printf("izquierdo: %d ", R->izquierdo->v);
-	if (R->derecho) printf("derecho: %d ", R->derecho->v);
+	if (!nodo) return;
+	Inorder(nodo->izquierdo);
+	printf("valor: %d ", nodo->v);
+	if (nodo->izquierdo) printf("izquierdo: %d ", nodo->izquierdo->v);
+	if (nodo->derecho) printf("derecho: %d ", nodo->derecho->v);
 	puts("");
-	Inorder(R->derecho);
+	Inorder(nodo->derecho);
 }
-bool Biselado::borrar(int v)
+bool Biselado::borrar(int dato)
 {
-	Nodo* N = buscar(v);
-	if (!N) return false;
-	biselado(N); //check once more;
-	Nodo* P = raiz->izquierdo;
-	if (!P) {
+	Nodo* nodo = buscar(dato);
+	if (!nodo) return false;
+	biselado(nodo); //check once more;
+	Nodo* auxNodo = raiz->izquierdo;
+	if (!auxNodo) {
 
 		raiz = raiz->derecho;
 		raiz->padre = NULL;
 	}
 	else {
-		if (P->derecho) {
-			while (P->derecho) P = P->derecho;
-			raiz->v = P->v;
-			if (P->izquierdo)
+		if (auxNodo->derecho) {
+			while (auxNodo->derecho) auxNodo = auxNodo->derecho;
+			raiz->v = auxNodo->v;
+			if (auxNodo->izquierdo)
 			{
-				P->padre->derecho = P->izquierdo;
-				P->izquierdo->padre = P->padre;
-				//free(P);
+				auxNodo->padre->derecho = auxNodo->izquierdo;
+				auxNodo->izquierdo->padre = auxNodo->padre;
+				//free(nodo);
 			}
 			else {
-				P->padre->derecho = NULL;
-				//free(P);
+				auxNodo->padre->derecho = NULL;
+				//free(nodo);
 			}
 		}
 		else {
-			P->padre = NULL;
-			P->derecho=raiz->derecho;
-			raiz->derecho->padre = P;
-			raiz = P;
-
-		}
-		
+			auxNodo->padre = NULL;
+			auxNodo->derecho=raiz->derecho;
+			raiz->derecho->padre = auxNodo;
+			raiz = auxNodo;
+		}	
 	}
-	//free(N);
+	//free(nodo);
 	return true;
 }
 
-Nodo* Biselado::buscar(int v)
+Nodo* Biselado::buscar(int dato)
 {
 	if (!raiz) return NULL;
-	Nodo* P = raiz;
-	while (P)
+	Nodo* nodo = raiz;
+	while (nodo)
 	{
-		if (P->v == v)
+		if (nodo->v == dato)
 			break;
-		if (v < (P->v))
+		if (dato < (nodo->v))
 		{
-			if (P->izquierdo)
-				P = P->izquierdo;
+			if (nodo->izquierdo)
+				nodo = nodo->izquierdo;
 			else
 				break;
 		}
 		else
 		{
-			if (P->derecho)
-				P = P->derecho;
+			if (nodo->derecho)
+				nodo = nodo->derecho;
 			else
 				break;
 		}
 	}
-	biselado(P);
-	if (P->v == v) return P;
+	biselado(nodo);
+	if (nodo->v == dato) return nodo;
 	else return NULL;
 }
