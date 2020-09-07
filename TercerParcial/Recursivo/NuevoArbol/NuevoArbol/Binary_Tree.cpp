@@ -186,18 +186,16 @@ void Binary_Tree<T>::_delete_leaf(Tree_Node<T>* _aux, Tree_Node<T>* _parent)
 }
 
 template<class T>
-int Binary_Tree<T>::cont_prime(Tree_Node<T>* node)
+int Binary_Tree<T>::cont_prime(Tree_Node<T>* node, int cont1)
 {   
-	int cont1 = 0;
 	if (node != NULL)
 	{
 		//cont1++;
 		if (node->get_left_node())
-
-			cont1+=cont_prime(node->get_left_node());
+			cont1+=cont_prime(node->get_left_node(),0);
 
 		if (node->get_right_node())
-			cont1+=cont_prime(node->get_right_node());
+			cont1+=cont_prime(node->get_right_node(),0);
 
 		if (is_prime(node->get_data())) {
 		 return cont1+1;
@@ -316,9 +314,8 @@ int Binary_Tree<T>::get_lvl(T _data, Tree_Node<T>* node)
 }
 
 template<class T>
-int Binary_Tree<T>::get_height_tree(Tree_Node<T>* _node) {
-	int cont1 = 0;
-	int cont2 = 0;
+int Binary_Tree<T>::get_height_tree(Tree_Node<T>* _node, int cont1, int cont2) {
+	
 	if (this->_is_empty()) {
 		cout << "El arbo esta vacio" << endl;
 		return 0;
@@ -331,10 +328,10 @@ int Binary_Tree<T>::get_height_tree(Tree_Node<T>* _node) {
 			cont2++;
 			if(_node->get_left_node() != NULL) {
 				//cout << _node->get_data();
-			cont1+= get_height_tree(_node->get_left_node());
+			cont1+= get_height_tree(_node->get_left_node(),0,0);
 			}
 			if (_node->get_right_node() != NULL) {
-			cont2+= get_height_tree(_node->get_right_node());
+			cont2+= get_height_tree(_node->get_right_node(),0,0);
 			}
 		}
 		else {

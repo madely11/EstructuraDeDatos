@@ -139,7 +139,7 @@ void Menu::menuTeclas()
 						int cont=1;
 						_tree.showTree(_tree.get_root(), cont);
 						system("pause");
-						//Sleep(3000);
+						
 					}
 					menuTeclas();
 					break;
@@ -155,7 +155,7 @@ void Menu::menuTeclas()
 							cout << "La profundidad del elemento es: " <<dato<< endl;
 						}
 						system("pause");
-						//Sleep(3000);
+						
 					}
 					menuTeclas();
 					break;
@@ -163,10 +163,10 @@ void Menu::menuTeclas()
 
 					if (true) {
 						system("cls");
-						int altura = _tree.get_height_tree(this->_tree.get_root())-1;
+						int altura = _tree.get_height_tree(this->_tree.get_root(),0,0);
 						cout << "La altura del arbol es: " << altura<<endl;
 						system("pause");
-						//Sleep(3000);
+					
 					}
 					menuTeclas();
 					break;
@@ -182,14 +182,14 @@ void Menu::menuTeclas()
 							cout << "El nivel del elemento es: " << dato << endl;
 						}
 						system("pause");
-						//Sleep(3000);
+							
 					}
 					menuTeclas();
 					break;
 				case 7:
 					if (true) {
 						system("cls");
-						int dato = _tree.cont_prime(_tree.get_root());
+						int dato = _tree.cont_prime(_tree.get_root(),0);
 						cout << "La cantidad de numeros primos es: " <<dato<< endl;
 						system("pause");
 					}
