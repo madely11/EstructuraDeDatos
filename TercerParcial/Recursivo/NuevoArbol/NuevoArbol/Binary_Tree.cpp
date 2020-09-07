@@ -11,9 +11,9 @@ using namespace std;
 
 template<typename T>
 void Binary_Tree<T>::_add(T _data, Tree_Node<T>* node, Tree_Node<T>* parent) {
-	Tree_Node<T>* _data_node = new Tree_Node<T>(_data, NULL, NULL);
+	
 	if (this->_is_empty()) {
-		this->_root = _data_node;
+		this->_root = new Tree_Node<T>(_data,NULL,NULL);
 		return;
 	}
 	else {
@@ -31,11 +31,11 @@ void Binary_Tree<T>::_add(T _data, Tree_Node<T>* node, Tree_Node<T>* parent) {
 		}
 		else {
 			if (_data < parent->get_data()) {
-				parent->set_left_node(_data_node);
+				parent->set_left_node(new Tree_Node<T>(_data, NULL, NULL));
 				return;
 			}
 			else {
-				parent->set_right_node(_data_node);
+				parent->set_right_node(new Tree_Node<T>(_data, NULL, NULL));
 				return;
 			}
 		}
