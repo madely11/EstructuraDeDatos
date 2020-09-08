@@ -324,11 +324,9 @@ int Binary_Tree<T>::get_height_tree(Tree_Node<T>* _node, int cont1, int cont2) {
 	}
 	else {
 		if (_node->get_left_node() != NULL || _node->get_right_node() != NULL) {
-			//cout << _node->get_data();
 			cont1++;
 			cont2++;
 			if (_node->get_left_node() != NULL) {
-				//cout << _node->get_data();
 				cont1 += get_height_tree(_node->get_left_node(), 0, 0);
 			}
 			if (_node->get_right_node() != NULL) {
@@ -339,14 +337,11 @@ int Binary_Tree<T>::get_height_tree(Tree_Node<T>* _node, int cont1, int cont2) {
 			return 1;
 		}
 		if (cont1 > cont2) {
-			//cout << cont1<<endl;
 			return cont1;
 		}
 		else {
-			//cout << cont2 <<endl;
 			return cont2;
 		}
-
 	}
 }
 
