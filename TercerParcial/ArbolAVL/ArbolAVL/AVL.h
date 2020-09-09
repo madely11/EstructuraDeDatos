@@ -16,7 +16,7 @@ template<class T>
 class AVL {
 private:
     enum { IZQUIERDO, DERECHO };
-    // Punteros de la lista, para cabeza y nodo actual:
+   
     
     Nodo<T>* actual;
     int contador;
@@ -24,14 +24,14 @@ private:
 
 public:
     Nodo<T>* raiz;
-    // Constructor y destructor básicos:
+   
     AVL() : raiz(NULL), actual(NULL) {}
     ~AVL() { eliminarArbol(this->raiz); }
-    // Insertar en árbol ordenado:
+  
     void Insertar(const T dat);
-    // Borrar un elemento del árbol:
+  
     void Borrar(const T dat);
-    // Función de búsqueda:
+
     bool Buscar(const T dat);
     Nodo<T>* getRaiz();
     // Comprobar si el árbol está vacío:

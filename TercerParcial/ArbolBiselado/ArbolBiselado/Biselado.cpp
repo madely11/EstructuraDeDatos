@@ -126,7 +126,7 @@ void Biselado::insertar(int valor)
 	Nodo* nodo = raiz;
 	while (true)
 	{
-		if (nodo->valor == valor) break; // not multiset
+		//if (nodo->valor == valor) break; // not multiset
 		if (valor < (nodo->valor))
 		{
 			if (nodo->izq) nodo = nodo->izq;

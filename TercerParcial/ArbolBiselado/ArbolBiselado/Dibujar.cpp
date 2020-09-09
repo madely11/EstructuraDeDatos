@@ -36,7 +36,7 @@ void Dibujar::dibujarNodo(int x, int y, string dato)
 
 
     RectangleShape rectangulo(Vector2f(60, 30));
-    rectangulo.setFillColor(Color::Green);
+    rectangulo.setFillColor(Color::Yellow);
     rectangulo.setPosition(x, y);
 
 

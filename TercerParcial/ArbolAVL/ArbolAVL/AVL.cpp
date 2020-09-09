@@ -1,5 +1,5 @@
 #include "AVL.h"
-//#include"SFML/Graphics.hpp"
+
 template<class T>
 void AVL<T>::mostrarArbol(Nodo<T>* p, int espacios)
 {
@@ -19,15 +19,15 @@ void AVL<T>::mostrarArbol(Nodo<T>* p, int espacios)
     }
 }
 
-// Poda: borrar todos los nodos a partir de uno, incluido
+
 template<class T>
 void AVL<T>::eliminarArbol(Nodo<T>* nodo)
 {
-    // Algoritmo recursivo, recorrido en postorden
+ 
     if (nodo) {
-        eliminarArbol(nodo->izquierdo); // eliminarArbol izquierdo
-        eliminarArbol(nodo->derecho);   // eliminarArbol derecho
-        delete nodo;            // Eliminar nodo
+        eliminarArbol(nodo->izquierdo);
+        eliminarArbol(nodo->derecho); 
+        delete nodo;           
         nodo = NULL;
     }
 }
@@ -38,7 +38,7 @@ Nodo<T>* AVL<T>::getRaiz()
     return this->raiz;
 }
 
-// Insertar un dato en el árbol AVL
+
 template<class T>
 void AVL<T>::Insertar(const T dat)
 {
@@ -46,65 +46,59 @@ void AVL<T>::Insertar(const T dat)
 
     cout << "Insertar: " << dat << endl;
     actual = raiz;
-    // Buscar el dato en el árbol, manteniendo un puntero al nodo padre
+    
     while (!Vacio(actual)) {
         padre = actual;
         if (dat >= actual->dato) actual = actual->derecho;
         else if (dat < actual->dato) actual = actual->izquierdo;
     }
 
-    // Si se ha encontrado el elemento, regresar sin insertar
-    // Si padre es NULL, entonces el árbol estaba vacío, el nuevo nodo será
-    // el nodo raiz
+
     if (Vacio(padre)) raiz = new Nodo<T>(dat);
-    // Si el dato es menor que el que contiene el nodo padre, lo insertamos
-    // en la rama izquierda
+  
     else if (dat < padre->dato) {
         padre->izquierdo = new Nodo<T>(dat, padre);
         Equilibrar(padre, IZQUIERDO, true);
     }
-    // Si el dato es mayor que el que contiene el nodo padre, lo insertamos
-    // en la rama derecha
+  
     else if (dat >= padre->dato) {
         padre->derecho = new Nodo<T>(dat, padre);
         Equilibrar(padre, DERECHO, true);
     }
 }
 
-// Equilibrar árbol AVL partiendo del nodo nuevo
+
 template<class T>
 void AVL<T>::Equilibrar(Nodo<T>* nodo, int rama, bool nuevo)
 {
     bool salir = false;
 
-    // Recorrer camino inverso actualizando valores de factorE:
+    
     while (nodo && !salir) {
         if (nuevo)
-            if (rama == IZQUIERDO) nodo->factorE--; // Depende de si añadimos ...
+            if (rama == IZQUIERDO) nodo->factorE--; 
             else                  nodo->factorE++;
         else
-            if (rama == IZQUIERDO) nodo->factorE++; // ... o borramos
+            if (rama == IZQUIERDO) nodo->factorE++; 
             else                  nodo->factorE--;
-        if (nodo->factorE == 0) salir = true; // La altura de las rama que
-                                        // empieza en nodo no ha variado,
-                                        // salir de Equilibrar
-        else if (nodo->factorE == -2) { // Rotar a derechas y salir:
-            if (nodo->izquierdo->factorE == 1) rotacionDobleDerecha(nodo); // Rotación doble
-            else rotacionSimpleDerecha(nodo);                         // Rotación simple
+        if (nodo->factorE == 0) salir = true; 
+                                        
+        else if (nodo->factorE == -2) {
+            if (nodo->izquierdo->factorE == 1) rotacionDobleDerecha(nodo); 
+            else rotacionSimpleDerecha(nodo);                       
             salir = true;
         }
-        else if (nodo->factorE == 2) {  // Rotar a izquierdas y salir:
-            if (nodo->derecho->factorE == -1) rotacionDobleIzquierda(nodo); // Rotación doble
-            else rotacionSimpleIzquierda(nodo);                        // Rotación simple
+        else if (nodo->factorE == 2) { 
+            if (nodo->derecho->factorE == -1) rotacionDobleIzquierda(nodo); 
+            else rotacionSimpleIzquierda(nodo);                       
             salir = true;
         }
         if (nodo->padre)
             if (nodo->padre->derecho == nodo) rama = DERECHO; else rama = IZQUIERDO;
-        nodo = nodo->padre; // Calcular factorE, siguiente nodo del camino.
+        nodo = nodo->padre; 
     }
 }
 
-// Rotación doble a derechas
 template<class T>
 void AVL<T>::rotacionDobleDerecha(Nodo<T>* nodo)
 {
@@ -121,7 +115,7 @@ void AVL<T>::rotacionDobleDerecha(Nodo<T>* nodo)
         else Padre->izquierdo = derechoI;
     else raiz = derechoI;
 
-    // Reconstruir árbol:
+    
     izquierdoA->derecho = izquierdoDIz;
     nodoActual->izquierdo = derechoDIz;
     derechoI->izquierdo = izquierdoA;
@@ -247,18 +241,15 @@ void AVL<T>::Borrar(const T dat)
     T aux;
 
     actual = raiz;
-    // Mientras sea posible que el valor esté en el árbol
+   
     while (!Vacio(actual)) {
-        if (dat == actual->dato) { // Si el valor está en el nodo actual
-            if (EsHoja(actual)) { // Y si además es un nodo hoja: lo borramos
-                if (padre) // Si tiene padre (no es el nodo raiz)
-                   // Anulamos el puntero que le hace referencia
+        if (dat == actual->dato) { 
+            if (EsHoja(actual)) { 
+                if (padre) 
                     if (padre->derecho == actual) padre->derecho = NULL;
                     else if (padre->izquierdo == actual) padre->izquierdo = NULL;
                 delete actual; // Borrar el nodo
                 actual = NULL;
-                // El nodo padre del actual puede ser ahora un nodo hoja, por lo tanto su
-                // factorE es cero, pero debemos seguir el camino a partir de su padre, si existe.
                 if ((padre->derecho == actual && padre->factorE == 1) ||
                     (padre->izquierdo == actual && padre->factorE == -1)) {
                     padre->factorE = 0;
@@ -270,10 +261,9 @@ void AVL<T>::Borrar(const T dat)
                     else                         Equilibrar(padre, IZQUIERDO, false);
                 return;
             }
-            else { // Si el valor está en el nodo actual, pero no es hoja
-               // Buscar nodo
+            else { 
                 padre = actual;
-                // Buscar nodo más izquierdo de rama derecha
+               
                 if (actual->izquierdo) {
                     nodo = actual->izquierdo;
                     while (nodo->derecho) {
@@ -281,7 +271,7 @@ void AVL<T>::Borrar(const T dat)
                         nodo = nodo->derecho;
                     }
                 }
-                // O buscar nodo más derecho de rama izquierda
+               
                 else {
                     nodo = actual->derecho;
                     while (nodo->izquierdo) {
@@ -289,17 +279,14 @@ void AVL<T>::Borrar(const T dat)
                         nodo = nodo->izquierdo;
                     }
                 }
-                // Intercambiar valores de no a borrar u nodo encontrado
-                // y continuar, cerrando el bucle. El nodo encontrado no tiene
-                // por qué ser un nodo hoja, cerrando el bucle nos aseguramos
-                // de que sólo se eliminan nodos hoja.
+               
                 aux = actual->dato;
                 actual->dato = nodo->dato;
                 nodo->dato = aux;
                 actual = nodo;
             }
         }
-        else { // Todavía no hemos encontrado el valor, seguir buscándolo
+        else { 
             padre = actual;
             if (dat > actual->dato) actual = actual->derecho;
             else if (dat < actual->dato) actual = actual->izquierdo;
@@ -307,9 +294,6 @@ void AVL<T>::Borrar(const T dat)
     }
 }
 
-// Recorrido de árbol en inorden, aplicamos la función func, que tiene
-// el prototipo:
-// template<class DATO> void func(DATO&);
 template<class T>
 void AVL<T>::InOrden(void (*func)(T&, int), Nodo<T>* nodo, bool r)
 {
@@ -319,9 +303,7 @@ void AVL<T>::InOrden(void (*func)(T&, int), Nodo<T>* nodo, bool r)
     if (nodo->derecho) InOrden(func, nodo->derecho, false);
 }
 
-// Recorrido de árbol en preorden, aplicamos la función func, que tiene
-// el prototipo:
-// template<class DATO> void func(DATO&);
+
 template<class T>
 void AVL<T>::PreOrden(void (*func)(T&, int), Nodo<T>* nodo, bool r)
 {
@@ -331,9 +313,6 @@ void AVL<T>::PreOrden(void (*func)(T&, int), Nodo<T>* nodo, bool r)
     if (nodo->derecho) PreOrden(func, nodo->derecho, false);
 }
 
-// Recorrido de árbol en postorden, aplicamos la función func, que tiene
-// el prototipo:
-// template<class DATO> void func(DATO&);
 template<class T>
 void AVL<T>::PostOrden(void (*func)(T&, int), Nodo<T>* nodo, bool r)
 {
@@ -343,13 +322,11 @@ void AVL<T>::PostOrden(void (*func)(T&, int), Nodo<T>* nodo, bool r)
     func(nodo->dato, nodo->factorE);
 }
 
-// Buscar un valor en el árbol
 template<class T>
 bool AVL<T>::Buscar(const T dat)
 {
     actual = raiz;
 
-    // Todavía puede aparecer, ya que quedan nodos por mirar
     while (!Vacio(actual)) {
         if (dat == actual->dato) return true; // dato encontrado
         else if (dat > actual->dato) actual = actual->derecho; // Seguir
@@ -358,14 +335,12 @@ bool AVL<T>::Buscar(const T dat)
     return false; // No está en árbol
 }
 
-// Calcular la altura del nodo que contiene el dato dat
 template<class T>
 int AVL<T>::Altura(const T dat)
 {
     int altura = 0;
     actual = raiz;
 
-    // Todavía puede aparecer, ya que quedan nodos por mirar
     while (!Vacio(actual)) {
         if (dat == actual->dato) return altura; // dato encontrado
         else {
@@ -387,8 +362,6 @@ const int AVL<T>::NumeroNodos()
     return contador;
 }
 
-// Función auxiliar para contar nodos. Función recursiva de recorrido en
-//   preorden, el proceso es aumentar el contador
 template<class T>
 void AVL<T>::auxContador(Nodo<T>* nodo)
 {
@@ -398,7 +371,6 @@ void AVL<T>::auxContador(Nodo<T>* nodo)
     if (nodo->derecho)   auxContador(nodo->derecho);
 }
 
-// Calcular la altura del árbol, que es la altura del nodo de mayor altura.
 template<class T>
 const int AVL<T>::AlturaArbol()
 {
@@ -408,17 +380,12 @@ const int AVL<T>::AlturaArbol()
     return altura;
 }
 
-// Función auxiliar para calcular altura. Función recursiva de recorrido en
-// postorden, el proceso es actualizar la altura sólo en nodos hojas de mayor
-// altura de la máxima actual
 template<class T>
 void AVL<T>::auxAltura(Nodo<T>* nodo, int a)
 {
     // Recorrido postorden
     if (nodo->izquierdo) auxAltura(nodo->izquierdo, a + 1);
     if (nodo->derecho)   auxAltura(nodo->derecho, a + 1);
-    // Proceso, si es un nodo hoja, y su altura es mayor que la actual del
-    // árbol, actualizamos la altura actual del árbol
     if (EsHoja(nodo) && a > altura) altura = a;
 }
 
