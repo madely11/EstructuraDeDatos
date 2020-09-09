@@ -122,13 +122,13 @@ void Menu::menuTeclas()
 				case 2:
 					if (true) {
 						system("cls");
-						Conection_DB conection;
+						//Conection_DB conection;
 						_data.set_spanish(ingreso.leerString("Ingrese la palabra en español: ", 1));
 						if (_data == _tree._look(_data, _tree.get_root())) {
 
 							_data.set_english(ingreso.leerString("Ingrese la palabra en ingles: ", 1));
 							_tree._add(_data, _tree.get_root(), NULL);
-							conection.insert_data_DB(_data);
+							//conection.insert_data_DB(_data);
 							cout << "Palabra ingresada exitosamente!" << endl;
 						}
 						else cout << "La palabra ya existe!" << endl;
