@@ -61,6 +61,42 @@ void Binary_Tree::showTree(Tree_Node* tree, int cont) {
 	}
 }
 
+void Binary_Tree::imprimir(Tree_Node* node)
+{
+	if (node != NULL)
+	{
+		if (node->get_left_node())
+			imprimir(node->get_left_node());
+		if (node->get_right_node())
+			imprimir(node->get_right_node());
+
+		cout  << node->get_data() << " ";
+	}
+	else return;
+}
+
+void Binary_Tree::imprimirInorden(Tree_Node* node)
+{
+	if (node != NULL) {
+		if (node->get_left_node())
+			imprimir(node->get_left_node());
+
+		cout << node->get_data()<<" ";
+
+		if (node->get_right_node())
+			imprimir(node->get_right_node());
+	}
+}
+
+void Binary_Tree::imprimirPreorden(Tree_Node* node)
+{
+	if (node != NULL) {
+		cout << node->get_data() << " ";
+		imprimirPreorden(node->get_left_node());
+		imprimirPreorden(node->get_right_node());
+	}
+}
+
 
 
 

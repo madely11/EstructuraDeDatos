@@ -150,7 +150,15 @@ string Polish::stringPost(string inf[],int cont )
 	}
 	_tree._add(output);
 	_tree.showTree(_tree.get_root(),1);
+<<<<<<< Updated upstream
 	_tree.
 	separar(output);
+=======
+	cout << "Inorden" << endl;
+	_tree.imprimirInorden(_tree.get_root());
+	cout<<endl << "Preorden" << endl;
+	_tree.imprimirPreorden(_tree.get_root());
+	cout<<endl<< "Postorden" << endl;
+>>>>>>> Stashed changes
 	return output;
 }
