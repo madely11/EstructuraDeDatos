@@ -1,31 +1,26 @@
 #include "Conection_DB.h"
-#include <cstdint>
-#include <vector>
-#include <bsoncxx/json.hpp>
-#include <bsoncxx/builder/stream/document.hpp>
-#include <bsoncxx/exception/exception.hpp>
-#include <mongocxx/client.hpp>
-#include <mongocxx/stdx.hpp>
-#include <mongocxx/uri.hpp>
-#include <mongocxx/instance.hpp>
 
-
-using bsoncxx::builder::stream::close_array;
-using bsoncxx::builder::stream::close_document;
-using bsoncxx::builder::stream::document;
-using bsoncxx::builder::stream::finalize;
-using bsoncxx::builder::stream::open_array;
-using bsoncxx::builder::stream::open_document;
+//Conection_DB* Conection_DB::instance = 0;
+//
+//Conection_DB* Conection_DB::getInstance()
+//{
+//	if (instance == 0)
+//	{
+//		instance = new Conection_DB();
+//	}
+//
+//	return instance;
+//}
+//
+//Conection_DB::Conection_DB()
+//{
+//	mongocxx::instance instance{};	 // This should be done only once.
+//}
 
 void Conection_DB::insert_data_DB(Translate word)
 {
-
-	mongocxx::instance instance{};	 // This should be done only once.
-	mongocxx::uri uri("mongodb://localhost:27017");
-	mongocxx::client client(uri);
-	mongocxx::database db = client["Translate"];
-	mongocxx::collection coll = db["word"];
 	//agregar a la base de datos
+	
 	auto builder = bsoncxx::builder::stream::document{};
 	bsoncxx::document::value doc_value = builder
 		<< "english" << word.get_english()
@@ -37,12 +32,6 @@ void Conection_DB::insert_data_DB(Translate word)
 
 void Conection_DB::read_DB(Binary_Tree<Translate>* _tree)
 {
-	
-	mongocxx::instance instance{};	 // This should be done only once.
-	mongocxx::uri uri("mongodb://localhost:27017");
-	mongocxx::client client(uri);
-	mongocxx::database db = client["Translate"];
-	mongocxx::collection coll = db["word"];
 	mongocxx::cursor cursor = coll.find({});
 	for (auto doc : cursor) {
 		bsoncxx::document::element data = doc["english"];

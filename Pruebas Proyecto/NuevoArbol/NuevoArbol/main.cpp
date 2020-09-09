@@ -8,9 +8,13 @@ int main()
 {
 	setlocale(LC_ALL, "");
 	Menu menu;
-	//File_Manager file("words.txt");
-	//file.load_file(&menu._tree);
 	Conection_DB conection;
+	//Conection_DB* conection = Conection_DB::getInstance();
+	mongocxx::instance instance{};
+	mongocxx::uri uri("mongodb://localhost:27017");
+	mongocxx::client client(uri);
+	mongocxx::database db = client["Translate"];
+	mongocxx::collection coll = db["word"];
 	conection.read_DB(&menu._tree);
 	menu.menuTeclas();
 	return 0;

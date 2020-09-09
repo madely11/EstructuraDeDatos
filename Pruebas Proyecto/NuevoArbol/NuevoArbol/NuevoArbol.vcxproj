@@ -145,6 +145,9 @@
     <ClCompile Include="Ingreso.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Mongo_DB_Access.cpp" />
+    <ClCompile Include="Mongo_DB_Instance.cpp" />
+    <ClCompile Include="Mongo_DB_Thread.cpp" />
     <ClCompile Include="Translate.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Tree_Node.cpp" />
@@ -156,6 +159,9 @@
     <ClInclude Include="File_Manager.h" />
     <ClInclude Include="Ingreso.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Mongo_DB_Access.h" />
+    <ClInclude Include="Mongo_DB_Instance.h" />
+    <ClInclude Include="Mongo_DB_Thread.h" />
     <ClInclude Include="Translate.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="Tree_Node.h" />

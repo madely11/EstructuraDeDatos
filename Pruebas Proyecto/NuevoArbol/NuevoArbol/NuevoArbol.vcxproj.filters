@@ -45,6 +45,15 @@
     <ClCompile Include="Conection_DB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Mongo_DB_Instance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mongo_DB_Access.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mongo_DB_Thread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Binary_Tree.h">
@@ -72,6 +81,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Conection_DB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mongo_DB_Instance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mongo_DB_Access.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mongo_DB_Thread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
