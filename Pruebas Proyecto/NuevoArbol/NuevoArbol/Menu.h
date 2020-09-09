@@ -1,5 +1,8 @@
 #pragma once
-
+#include <iostream>
+#include "Ingreso.h"
+#include "Translate.h"
+#include "Binary_Tree.cpp"
 /******************************************************************
 *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
 * CLASE PARA DEFINIR EL MENU DEL PROGRAMA                         *
@@ -20,12 +23,7 @@
 */
 
 
-
-#include <iostream>
-#include "Ingreso.h"
-#include "Translate.h"
-#include "Binary_Tree.cpp"
-#include "File_Manager.h"
+//#include "File_Manager.h"
 //#include"Conection_DB.h"
 using namespace std;
 

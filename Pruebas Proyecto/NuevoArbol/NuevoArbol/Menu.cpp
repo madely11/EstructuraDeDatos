@@ -1,10 +1,13 @@
-
+#pragma once
+#define NOMINMAX
 #include "Menu.h"
 #include <conio.h>
-#include <string>
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
+#include "Mongo_DB_Instance.h"
+#include "Mongo_DB_Access.h"
+//#include <string>
+//#include <stdio.h>
+//#include <stdlib.h>
+
 //#include <math.h>
 /**
 	@brief Funcion para oculta Cursor en la consola
@@ -128,6 +131,10 @@ void Menu::menuTeclas()
 
 							_data.set_english(ingreso.leerString("Ingrese la palabra en ingles: ", 1));
 							_tree._add(_data, _tree.get_root(), NULL);
+							Mongo_DB_Instance::GetInstance()->createPool("mongodb://localhost:27017");
+							auto dbClient_A = Mongo_DB_Instance::GetInstance()->getClientFromPool();
+							Mongo_DB_Access access(*dbClient_A, "Translate", "word");
+							access.insert(_data);
 							//conection.insert_data_DB(_data);
 							cout << "Palabra ingresada exitosamente!" << endl;
 						}
