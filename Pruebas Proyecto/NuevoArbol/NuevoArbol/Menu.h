@@ -26,7 +26,7 @@
 #include "Translate.h"
 #include "Binary_Tree.cpp"
 #include "File_Manager.h"
-#include"Conection_DB.h"
+//#include"Conection_DB.h"
 using namespace std;
 
 class Menu

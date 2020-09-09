@@ -4,7 +4,6 @@
 #include <mongocxx/pool.hpp> 
 #include <iostream>
 #include <memory>
-
 class Mongo_DB_Instance
 {
 private:
@@ -30,8 +29,6 @@ public:
     /* Acquire a client from the pool */
     mongocxx::pool::entry
         getClientFromPool() { return m_client_pool->acquire(); }
-    ~Mongo_DB_Instance();
-
-    
+    ~Mongo_DB_Instance() {}
 };
 

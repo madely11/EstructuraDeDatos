@@ -3,8 +3,8 @@
 #include <mongocxx/database.hpp>
 #include <mongocxx/pool.hpp>
 #include <mongocxx/client.hpp>
-#include <mongocxx/exception/bulk_write_exception.hpp>
 #include <bsoncxx/builder/stream/document.hpp>
+#include <mongocxx/exception/bulk_write_exception.hpp>
 #include <bsoncxx/json.hpp>
 #include <bsoncxx/exception/exception.hpp>
 #include "Translate.h"
@@ -69,7 +69,7 @@ public:
             std::string errInfo = std::string("Error saving data, Err Msg : ") + e.what();
             return 0;
         }
-        return;
+        return 0;
     }
 };
 

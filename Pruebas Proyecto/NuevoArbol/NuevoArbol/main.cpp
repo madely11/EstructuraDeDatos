@@ -1,32 +1,31 @@
 #pragma once
 
-#include "Menu.h"
-#include "Mongo_DB_Thread.h"
+//#include "Menu.h"
+#include "Mongo_DB_Instance.h"
+#include "Mongo_DB_Access.h"
 #include <locale.h>
 
 
 int main()
 {
 	setlocale(LC_ALL, "");
-	Menu menu;
+	//Menu menu;
+	Translate _data;
+	Binary_Tree<Translate> _tree;
 	int cont = 1;
 
 	Mongo_DB_Instance::GetInstance()->createPool("mongodb://localhost:27017");
 
-	auto dbClient_A =
-		Mongo_DB_Instance::GetInstance()->getClientFromPool();
+	auto dbClient_A = Mongo_DB_Instance::GetInstance()->getClientFromPool();
 
-	/*std::thread thread_A{
-	  Mongo_DB_Thread(*dbClient_A, "Translate", "word", menu._data, menu._tree)
-	};*/
+	Mongo_DB_Access access(*dbClient_A, "Translate", "word");
+	_data.set_english("water");
+	_data.set_spanish("agua");
+	access.insert(_data);
+	access.get_Word(&_tree);
 
-	std::thread thread_A{
-	  Mongo_DB_Thread(*dbClient_A, "Translate", "word", menu._data)
-	};
 
-	thread_A.join();
-
-	menu._tree.showTree(menu._tree.get_root(), cont);
+	_tree.showTree(_tree.get_root(), cont);
 
 	//Conection_DB conection;
 	//Conection_DB* conection = Conection_DB::getInstance();
@@ -37,6 +36,6 @@ int main()
 	mongocxx::collection coll = db["word"];*/
 	//conection.read_DB(&menu._tree);
 
-	menu.menuTeclas();
+	//menu.menuTeclas();
 	return 0;
 }
