@@ -16,6 +16,7 @@ int main()
 	Mongo_DB_Access access(*dbClient_A, "Translate", "word");
 	Menu menu;
 	access.get_Word(&menu._tree);
+	//access.get_all_documents();
 	menu.menuTeclas();
 
 	

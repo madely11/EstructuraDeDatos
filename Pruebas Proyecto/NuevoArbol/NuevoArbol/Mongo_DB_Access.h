@@ -74,6 +74,28 @@ public:
         }
         return 0;
     }
+
+   /* int get_all_documents() {
+        try {
+            mongocxx::cursor cursor = m_collection.find({});
+            for (auto doc : cursor) {
+                bsoncxx::document::element data = doc["english"];
+                bsoncxx::document::element data2 = doc["spanish"];
+
+            }
+        }
+        catch (const bsoncxx::exception& e) {
+            std::string errInfo = std::string("Error saving data, Err Msg:") + e.what();
+            return 0;
+        }
+        catch (mongocxx::bulk_write_exception e) {
+            std::string errInfo = std::string("Error saving data, Err Msg : ") + e.what();
+            return 0;
+        }
+        return 0;
+    }*/
+
+   
 };
 
 
