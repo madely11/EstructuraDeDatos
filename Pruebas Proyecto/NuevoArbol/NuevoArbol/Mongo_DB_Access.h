@@ -26,11 +26,13 @@ public:
         m_collectionName(collName_) {
         m_db = m_client[dbName_];
         m_collection = m_db[collName_];
-    }
+    } 
 
-
+    
+    
     int insert(Translate word) {
         try {
+     
             auto builder = bsoncxx::builder::stream::document{};
             bsoncxx::document::value doc_value = builder
                 << "english" << word.get_english()
@@ -38,6 +40,7 @@ public:
                 << bsoncxx::builder::stream::finalize;
             auto result = m_collection.insert_one(move(doc_value));
         }
+        
         catch (const bsoncxx::exception& e) {
             std::string errInfo = std::string("Error saving data, Err Msg:" ) + e.what();
                 return -1;
