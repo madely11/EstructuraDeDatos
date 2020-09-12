@@ -51,3 +51,23 @@ bool Validacion::validarString(string entrada, int tipo) {
 	return false;
 }
 
+string Validacion::ingresaNumericos(string msg) {
+	int caracter;
+	puts(msg.c_str());
+	int i = 0;
+	string valor;
+	while ((caracter = _getch()) != 13) {
+		if (!(caracter >= 48 && caracter <= 57)) {
+			valor += caracter;
+			printf("%c", caracter);
+		}
+	}
+	if (!validarString(valor, 1)) {
+		return valor;
+	}
+	else {
+		return ingresaNumericos(" \n Dato invalido, ingrese de nuevo: ");
+	}
+}
+
+

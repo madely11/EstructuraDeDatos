@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Ingreso.h"
+#include "Validacion.h"
 #include "Translate.h"
 #include "Binary_Tree.cpp"
 /******************************************************************
@@ -36,6 +36,6 @@ public:
 public:
 	Binary_Tree<Translate> _tree;
 	Translate _data;
-	Ingreso ingreso;
+	Validacion v;
 	string datoS;
 };

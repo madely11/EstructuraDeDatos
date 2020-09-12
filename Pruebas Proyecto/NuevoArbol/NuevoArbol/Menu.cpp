@@ -86,80 +86,93 @@ void Menu::menuTeclas()
 				switch (cursor)
 				{
 				case 0:
-					if (true) {
+					try {
 						system("cls");
-						_data.set_spanish(ingreso.leerString("Ingrese la palabra en español que desea traducir: ", 1));
+						_data.set_spanish(v.ingresaNumericos(" Ingrese la palabra en español que desea traducir:"));
 						_data.set_english("");
 						_data = _tree._look(_data, _tree.get_root());
-						//cout << _data.get_spanish() << ", " << _data.get_english() << endl;
 						if (_data.get_english()._Equal("")) {
-							cout << "Esta palabra no se cuentra en nuestro diccionario" << endl;
+							cout<< endl << " Esta palabra no se cuentra en nuestro diccionario" << endl;
 						}
 						else {
-							cout << "Traducción: " << _data.get_english()<<endl;
+							cout<< endl << " \t\t\t\tTraducción: " << _data.get_english() << endl;
 							_data.hablar(1);
 						}
 						system("pause");
 						menuTeclas();
 					}
+					catch (int e) {
+						return;
+					}
 					break;
 				case 1:
-					if (true) {
+					try{
 						system("cls");
-						_data.set_english(ingreso.leerString("Ingrese la palabra en ingles que desea traducir: ", 1));
+						_data.set_english(v.ingresaNumericos(" Ingrese la palabra en ingles que desea traducir:"));
 						_data.set_spanish("");
 						 _tree._look_english(&_data, _tree.get_root());
 						//cout << _data.get_spanish() << ", " << _data.get_english() << endl;
 						if (_data.get_spanish()._Equal("")) {
-							cout << "Esta palaabra no se cuentra en nuestro diccionario" << endl;
+							cout << endl <<"Esta palabra no se cuentra en nuestro diccionario" << endl;
 						}
 						else {
-							cout << "Traducción: " << _data.get_spanish()<<endl;
+							cout << endl << "\t\t\t\tTraducción: " << _data.get_spanish()<<endl;
 							_data.hablar(2);
 						}
 						system("pause");
 						menuTeclas();
 					}
+					catch (int e) {
+						return;
+					}
 
 					break;
 				case 2:
-					if (true) {
+					try {
 						system("cls");
-						//Conection_DB conection;
-						_data.set_spanish(ingreso.leerString("Ingrese la palabra en español: ", 1));
+						_data.set_spanish(v.ingresaNumericos(" Ingrese la palabra en español:"));
+						_data.set_english("");
 						if (_data == _tree._look(_data, _tree.get_root())) {
-
-							_data.set_english(ingreso.leerString("Ingrese la palabra en ingles: ", 1));
+							_data.set_english(v.ingresaNumericos(" \nIngrese la palabra en ingles:"));
 							_tree._add(_data, _tree.get_root(), NULL);
 							Mongo_DB_Instance::GetInstance()->createPool("mongodb://localhost:27017");
 							auto dbClient_A = Mongo_DB_Instance::GetInstance()->getClientFromPool();
 							Mongo_DB_Access access(*dbClient_A, "Translate", "word");
 							access.insert(_data);
-							//conection.insert_data_DB(_data);
-							cout << "Palabra ingresada exitosamente!" << endl;
+							cout << endl <<"\t\t\t\tPalabra ingresada exitosamente!" << endl;
 						}
-						else cout << "La palabra ya existe!" << endl;
+						else {
+							cout << endl <<"\t\t\t\tLa palabra ya se encuentra en el diccionario!" << endl;
+						}
 						system("pause");
+						menuTeclas();
 					}
-					menuTeclas();
+					catch (int e) {
+						return;
+					}
 					break;
 				case 3:
-				
-					if (true) {
+					try {
 						system("cls");
 						int cont=1;
 						_tree.showTree(_tree.get_root(), cont);
 						system("pause");
 						//Sleep(3000);
+						menuTeclas();
 					}
-					menuTeclas();
+					catch (int e) {
+						return;
+					}
 					break;
 				case 4:
-					if (true) {
+					try {
 						system("cls");
 						cout << endl << "\n\t\t\t\t\t\t\t\t Gracias!" << endl;
 						Sleep(3000);
 						exit(1);
+					}
+					catch (int e) {
+						return;
 					}
 					break;
 				}

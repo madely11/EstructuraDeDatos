@@ -79,12 +79,12 @@ void Binary_Tree::imprimirInorden(Tree_Node* node)
 {
 	if (node != NULL) {
 		if (node->get_left_node())
-			imprimir(node->get_left_node());
+			imprimirInorden(node->get_left_node());
 
 		cout << node->get_data()<<" ";
 
 		if (node->get_right_node())
-			imprimir(node->get_right_node());
+			imprimirInorden(node->get_right_node());
 	}
 }
 

@@ -118,14 +118,7 @@ void Validar::separarExpresion(string exp)
             cont += 1;
         }
     }
-    for (int i = 0; i < cont; i++)
-    {
-        cout << arr[i] << endl;
-    }
     Polish p1;
-    cout << endl;
-    cout << endl;
-    cout << endl;
     cout << endl;
     cout<< p1.stringPost(arr, cont)<<endl;
 }

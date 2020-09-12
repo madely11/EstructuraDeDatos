@@ -5,8 +5,8 @@ void main() {
 	cout << "Ingrese la expresion matematica: " << endl;
 	cin >> exp;
 	if (v.validarExpresion(exp))
-		cout << "expresion valida" << endl;
+		cout << "Expresion valida" << endl;
 	else
-		cout << "expresion no valida" << endl;
+		cout << "Epresion no valida" << endl;
 	v.separarExpresion(exp);
 }

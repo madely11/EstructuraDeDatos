@@ -20,17 +20,11 @@ bool Polish::jerarquia(char op1,char op2)
 
 void Polish::resolverEcuacion(string expPos[], int lon)
 {
-	for (int i = 0; i < lon; i++)
-	{
-		cout << expPos[i] << endl;
-	}
-
 	PilaString pil2;
 	string dato;
 	for (int i = 0; i < lon; i++)
 	{
 		dato = expPos[i];
-		cout << "daato " << dato << endl;
 		if (isdigit(dato.at(0))) {
 			pil2.push(dato);
 		}
@@ -149,16 +143,16 @@ string Polish::stringPost(string inf[],int cont )
 		output += " ";
 	}
 	_tree._add(output);
-	_tree.showTree(_tree.get_root(),1);
-<<<<<<< Updated upstream
-	_tree.
+	//_tree.showTree(_tree.get_root(),1);
+
 	separar(output);
-=======
-	cout << "Inorden" << endl;
+
+	cout << endl << "Respuesta: " << respuesta << endl;
+
+	cout << endl << "Inorden" << endl;
 	_tree.imprimirInorden(_tree.get_root());
-	cout<<endl << "Preorden" << endl;
+	cout << endl <<endl << "Preorden" << endl;
 	_tree.imprimirPreorden(_tree.get_root());
-	cout<<endl<< "Postorden" << endl;
->>>>>>> Stashed changes
+	cout << endl <<endl<< "Postorden" << endl;
 	return output;
 }

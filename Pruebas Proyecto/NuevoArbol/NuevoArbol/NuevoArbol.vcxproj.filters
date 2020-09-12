@@ -51,9 +51,6 @@
     <ClCompile Include="Mongo_DB_Access.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Mongo_DB_Thread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Binary_Tree.h">
@@ -87,9 +84,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Mongo_DB_Access.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Mongo_DB_Thread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

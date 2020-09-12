@@ -18,6 +18,7 @@
 */
 #pragma once
 #include<string>
+#include <conio.h>
 #include <iostream>
 using namespace std;
 
@@ -25,5 +26,6 @@ class Validacion
 {
 public:
 	bool validarString(string, int);
+	string ingresaNumericos(string);
 };
 
