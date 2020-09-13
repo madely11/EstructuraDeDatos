@@ -70,7 +70,7 @@ char* Ingreso::ingresaNumericos(const char* msg) {
 	char* valor;
 	valor = (char*)calloc(10, sizeof(char));
 	while ((caracter = _getch()) != 13) {
-		if (caracter >= 48 && caracter <= 57) {
+		if (!(caracter >= 48 && caracter <= 57)) {
 			*(valor + i) = caracter;
 			printf("%c", caracter);
 			i++;
