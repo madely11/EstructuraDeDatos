@@ -45,7 +45,7 @@ void Binary_Tree<T>::_add(T _data, Tree_Node<T>* node, Tree_Node<T>* parent) {
 template<typename T>
 T Binary_Tree<T>::_look(T _data, Tree_Node<T>* node) {
 	if (this->_is_empty()) {
-		cout << "Nodo Vacio" << endl;
+		//cout << "Nodo Vacio" << endl;
 		return _data;
 	}
 	else {
@@ -83,55 +83,18 @@ void Binary_Tree<T>::_look_english(T* _data, Tree_Node<T>* _node)
 	}else *_data=_node->get_data();
 }
 
-template<typename T>
-void Binary_Tree<T>::_delete(T _data, Tree_Node<T>* node, Tree_Node<T>* parent) {
-
-	if (this->_is_empty()) {
-		cout << "Arbol Vacio" << endl;
-	}
-	else {
-		if (node != NULL && _data != node->get_data()) {
-			if (_data < node->get_data()) {
-				parent = node;
-				node = node->get_left_node();
-				_delete(_data, node, parent);
-			}
-			else {
-				parent = node;
-				node = node->get_right_node();
-				_delete(_data, node, parent);
-			}
-		}
-		else {
-			if (node == NULL) {
-				cout << "No existe el dato" << endl;
-			}
-			else {
-				//Cuando es hoja
-				if (node->get_left_node() == NULL && node->get_right_node() == NULL) {
-					_delete_leaf(node, parent);
-					return;
-				}
-				//cuando tiene un hijo a la izquierda
-				else if (node->get_left_node() != NULL && node->get_right_node() == NULL) {
-					_delete_leaf_left(node, parent);
-					return;
-				}
-				//cuando tiene un hijo a la derecha
-				else if (node->get_left_node() == NULL && node->get_right_node() != NULL) {
-					_delete_leaf_right(node, parent);
-					return;
-				}
-				//cuando tiene dos hijitos <3
-				else if (node->get_left_node() != NULL && node->get_right_node() != NULL) {
-					_delete_branch(node, parent);
-					return;
-				}
-			}
-		}
+template<class T>
+void Binary_Tree<T>::delete_Tree()
+{
+	Tree_Node<T>* _node = this->get_root();
+	if (this->get_root() != NULL) {
+		this->set_root(_node->get_left_node());
+		delete_Tree();
+		this->set_root(_node->get_right_node());
+		delete_Tree();
+		this->set_root(NULL);
 	}
 }
-
 
 
 template <typename T>

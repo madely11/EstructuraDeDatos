@@ -71,6 +71,22 @@ void File_Manager::cerrarEscritura()
 	archivoEscritura.close();
 }
 
+void File_Manager::imprimir()
+{
+	string texto;
+	string linea;
+	int i = 0;
+
+	crearLectura();
+
+	while (!archivoLectura.eof())
+	{
+		getline(archivoLectura, linea);
+		cout << linea << endl;
+	}
+	cerrarLectura();
+}
+
 
 /**
 	@brief Funcion para crear la lectura de un archivo

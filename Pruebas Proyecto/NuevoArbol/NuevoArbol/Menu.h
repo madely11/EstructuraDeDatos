@@ -1,7 +1,11 @@
 #pragma once
 #include <iostream>
+#include <string>
+#include <string.h>
+#include "Fecha.h"
 #include "Validacion.h"
 #include "Translate.h"
+#include "File_Manager.h"
 #include "Binary_Tree.cpp"
 /******************************************************************
 *            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *

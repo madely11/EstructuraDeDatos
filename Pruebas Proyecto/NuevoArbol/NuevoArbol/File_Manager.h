@@ -21,6 +21,7 @@ class File_Manager
 		void agregarLinea(string);
 		void cerrarLectura();
 		void cerrarEscritura();
+		void imprimir();
 		string leerArchivo();
 
 		

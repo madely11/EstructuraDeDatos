@@ -3,12 +3,14 @@
 #include <mongocxx/database.hpp>
 #include <mongocxx/pool.hpp>
 #include <mongocxx/client.hpp>
-#include <bsoncxx/builder/stream/document.hpp>
 #include <mongocxx/exception/bulk_write_exception.hpp>
+#include <bsoncxx/builder/stream/document.hpp>
 #include <bsoncxx/json.hpp>
 #include <bsoncxx/exception/exception.hpp>
 #include "Translate.h"
 #include "Binary_Tree.cpp"
+#include <bsoncxx\builder\stream\document.hpp>
+using namespace bsoncxx::builder::stream;
 
 class Mongo_DB_Access
 {
@@ -75,25 +77,26 @@ public:
         return 0;
     }
 
-   /* int get_all_documents() {
+   int delete_all_documents() {
         try {
+            Translate new_data;
             mongocxx::cursor cursor = m_collection.find({});
             for (auto doc : cursor) {
-                bsoncxx::document::element data = doc["english"];
                 bsoncxx::document::element data2 = doc["spanish"];
-
+                new_data.set_spanish((string)data2.get_utf8().value);
+                m_collection.delete_one(document{} << "spanish" << new_data.get_spanish() << finalize);
             }
         }
         catch (const bsoncxx::exception& e) {
-            std::string errInfo = std::string("Error saving data, Err Msg:") + e.what();
+            std::string errInfo = std::string("Error deleting data, Err Msg:") + e.what();
             return 0;
         }
         catch (mongocxx::bulk_write_exception e) {
-            std::string errInfo = std::string("Error saving data, Err Msg : ") + e.what();
+            std::string errInfo = std::string("Error deleting data, Err Msg : ") + e.what();
             return 0;
         }
         return 0;
-    }*/
+    }
 
    
 };

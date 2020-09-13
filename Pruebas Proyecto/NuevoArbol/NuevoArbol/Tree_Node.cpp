@@ -81,6 +81,14 @@ void Tree_Node<T>::set_right_node(Tree_Node* _data) {
 	this->_right = _data;
 }
 
+template<class T>
+void Tree_Node<T>::set_Node(Tree_Node* _node, T _data)
+{
+	this->set_left_node(_node);
+	this->set_right_node(_node);
+	this->set_data(T);
+}
+
 /**
  * @brief get_data
  * @tparam T
@@ -124,6 +132,8 @@ string Tree_Node<T>::to_string() {
 	oss << this->get_data();
 	return oss.str();
 }
+
+
 
 /**
  * @brief ~Tree_Node

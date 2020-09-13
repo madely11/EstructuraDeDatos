@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Binary_Tree.cpp" />
     <ClCompile Include="Conection_DB.cpp" />
+    <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="File_Manager.cpp" />
     <ClCompile Include="Ingreso.cpp" />
     <ClCompile Include="main.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="Binary_Tree.h" />
     <ClInclude Include="Conection_DB.h" />
+    <ClInclude Include="Fecha.h" />
     <ClInclude Include="File_Manager.h" />
     <ClInclude Include="Ingreso.h" />
     <ClInclude Include="Menu.h" />

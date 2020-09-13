@@ -37,13 +37,15 @@ void Menu::menuTeclas()
 	string menu[] = { "Traducir de Español a Ingles              ",
 					  "Traducir de Ingles a Español            ",
 					  "Agregar palabra              ",
-					  "Imprimir Arbol           ",
+					  "Realizar Backup           ",
+					  "Restaurar Backup           ",
+					  //"Imprimir arbol           ",
 					  "Salir                     " };
 	for (;;) {
 		system("cls");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 60);
 		cout << "                SELECCIONE UNA OPCION         " << endl;
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			if (cursor == i)
 			{
@@ -66,7 +68,7 @@ void Menu::menuTeclas()
 			if (tecla == 80)
 			{
 				cursor++;
-				if (cursor == 5)
+				if (cursor == 6)
 				{
 					cursor = 0;
 				}
@@ -77,7 +79,7 @@ void Menu::menuTeclas()
 				cursor--;
 				if (cursor == -1)
 				{
-					cursor = 4;
+					cursor = 5;
 				}
 				break;
 			}
@@ -153,9 +155,14 @@ void Menu::menuTeclas()
 					break;
 				case 3:
 					try {
-						system("cls");
-						int cont=1;
-						_tree.showTree(_tree.get_root(), cont);
+						Fecha f;
+						File_Manager file_m("respaldo.txt");
+						string hora = f.horaUnida() + f.fechaUnida();
+						file_m.agregarLinea("Backup" + hora);
+						string nombre = "C:\\mongodump.exe --db Translate -o Backup" + hora;
+						cout << endl;
+						cout << "\t\t\t\tRealizando Backup ..." << endl;
+					    system(nombre.c_str());
 						system("pause");
 						//Sleep(3000);
 						menuTeclas();
@@ -165,6 +172,49 @@ void Menu::menuTeclas()
 					}
 					break;
 				case 4:
+					try {
+						system("cls");
+						string entrada;
+						string nombre = "C:\\mongorestore.exe --db Translate ";
+						_tree.delete_Tree();
+						File_Manager file_m("respaldo.txt");
+						Mongo_DB_Instance::GetInstance()->createPool("mongodb://localhost:27017");
+						auto dbClient_A = Mongo_DB_Instance::GetInstance()->getClientFromPool();
+						Mongo_DB_Access access(*dbClient_A, "Translate", "word");
+						access.delete_all_documents();
+						cout << endl;
+						cout << "Respaldos creados: " << endl;
+						file_m.imprimir();
+						cout << "Ingrese el nombre del respaldo que desea restaurar " << endl;
+						cin >> entrada;
+						nombre += entrada;
+						nombre += "/Translate";
+						cout << endl;
+						cout << "\t\t\t\tRestaurando Backup..." << endl;
+						system(nombre.c_str());
+						access.get_Word(&_tree);
+						system("pause");
+						//Sleep(3000);
+						menuTeclas();
+					}
+					catch (int e) {
+						return;
+					}
+					break;
+				//case 5:
+				//	try {
+				//		system("cls");
+				//		int cont=1;
+				//		_tree.showTree(_tree.get_root(), cont);
+				//		system("pause");
+				//		//Sleep(3000);
+				//		menuTeclas();
+				//	}
+				//	catch (int e) {
+				//		return;
+				//	}
+				//	break;
+				case 5:
 					try {
 						system("cls");
 						cout << endl << "\n\t\t\t\t\t\t\t\t Gracias!" << endl;

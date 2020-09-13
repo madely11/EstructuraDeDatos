@@ -18,11 +18,11 @@ public:
     void set_right_node(T _data);
     void set_left_node(Tree_Node* _data);
     void set_right_node(Tree_Node* _data);
+    void set_Node(Tree_Node* _node, T _data);
     T get_data();
     Tree_Node* get_right_node();
     Tree_Node* get_left_node();
     string to_string();
-
     virtual ~Tree_Node();
 protected:
 private:
