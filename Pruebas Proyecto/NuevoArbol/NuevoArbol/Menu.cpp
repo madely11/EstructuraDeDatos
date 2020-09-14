@@ -77,6 +77,11 @@ void Menu::menuTeclas()
 				}
 				break;
 			}
+			if (tecla == 59)
+			{
+				system("Traductor.chm");
+				break;
+			}
 			if (tecla == 13)
 			{
 				switch (cursor)
@@ -107,7 +112,6 @@ void Menu::menuTeclas()
 						_data.set_english(v.noNumericos(" Ingrese la palabra en ingles que desea traducir:"));
 						_data.set_spanish("");
 						 _tree._look_english(&_data, _tree.get_root());
-						//cout << _data.get_spanish() << ", " << _data.get_english() << endl;
 						if (_data.get_spanish()._Equal("")) {
 							cout << endl <<"Esta palabra no se cuentra en nuestro diccionario" << endl;
 						}
@@ -153,14 +157,13 @@ void Menu::menuTeclas()
 						File_Manager file_m("respaldo.txt");
 						string hora = f.horaUnida() + f.fechaUnida();
 						file_m.agregarLinea("Backup" + hora);
-						string nombre = "C:\\mongodump.exe --db Translate -o Backup" + hora;
+						string nombre = "C:\\mongodump.exe --db Translate -o BackupESPE" ;
 						cout << endl;
 						cout << endl <<"\t\t\t\tRealizando Backup ..." << endl;
 						cout << endl;
 					    system(nombre.c_str());
 						cout << endl;
 						system("pause");
-						//Sleep(3000);
 						menuTeclas();
 					}
 					catch (int e) {
@@ -193,26 +196,12 @@ void Menu::menuTeclas()
 						}
 						cout << endl;
 						system("pause");
-						//Sleep(3000);
 						menuTeclas();
 					}
 					catch (int e) {
 						return;
 					}
 					break;
-				//case 5:
-				//	try {
-				//		system("cls");
-				//		int cont=1;
-				//		_tree.showTree(_tree.get_root(), cont);
-				//		system("pause");
-				//		//Sleep(3000);
-				//		menuTeclas();
-				//	}
-				//	catch (int e) {
-				//		return;
-				//	}
-				//	break;
 				case 5:
 					try {
 						system("cls");
