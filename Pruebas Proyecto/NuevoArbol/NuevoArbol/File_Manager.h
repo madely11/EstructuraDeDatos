@@ -40,7 +40,7 @@ class File_Manager
 		void agregarLinea(string);
 		void cerrarLectura();
 		void cerrarEscritura();
-		void imprimir();
+		bool imprimir();
 		string leerArchivo();
 
 };

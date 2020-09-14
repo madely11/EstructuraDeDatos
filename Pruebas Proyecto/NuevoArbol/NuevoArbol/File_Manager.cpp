@@ -74,10 +74,10 @@ void File_Manager::cerrarEscritura()
 	@param void
 	@returns void
 */
-void File_Manager::imprimir()
+bool File_Manager::imprimir()
 {
-	string texto;
-	string linea;
+	string texto, linea;
+	bool v = false; 
 	int i = 0;
 
 	crearLectura();
@@ -85,10 +85,31 @@ void File_Manager::imprimir()
 	while (!archivoLectura.eof())
 	{
 		getline(archivoLectura, linea);
-		cout << linea << endl;
+		if (linea != "")
+			v = true;
 	}
 	cerrarLectura();
+
+	crearLectura();
+
+	while (!archivoLectura.eof())
+	{
+		getline(archivoLectura, linea);
+		if (v) {
+			cout << linea << endl;
+		}
+			
+		else {
+			cout << "No existen Backups creados" << endl;
+			return false;
+		}
+			
+	}
+	cerrarLectura();
+	return true;
 }
+
+
 
 
 /**
@@ -132,6 +153,7 @@ void File_Manager::agregarLinea(string linea)
 	archivoEscritura << linea << endl;
 	cerrarEscritura();
 }
+
 
 /**
 	@brief Funcion para leer archivo

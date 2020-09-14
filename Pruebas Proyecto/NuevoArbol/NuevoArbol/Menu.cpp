@@ -155,8 +155,10 @@ void Menu::menuTeclas()
 						file_m.agregarLinea("Backup" + hora);
 						string nombre = "C:\\mongodump.exe --db Translate -o Backup" + hora;
 						cout << endl;
-						cout << "\t\t\t\tRealizando Backup ..." << endl;
+						cout << endl <<"\t\t\t\tRealizando Backup ..." << endl;
+						cout << endl;
 					    system(nombre.c_str());
+						cout << endl;
 						system("pause");
 						//Sleep(3000);
 						menuTeclas();
@@ -170,7 +172,6 @@ void Menu::menuTeclas()
 						system("cls");
 						string entrada;
 						string nombre = "C:\\mongorestore.exe --db Translate ";
-						_tree.delete_Tree();
 						File_Manager file_m("respaldo.txt");
 						Mongo_DB_Instance::GetInstance()->createPool("mongodb://localhost:27017");
 						auto dbClient_A = Mongo_DB_Instance::GetInstance()->getClientFromPool();
@@ -178,15 +179,19 @@ void Menu::menuTeclas()
 						access.delete_all_documents();
 						cout << endl;
 						cout << "Respaldos creados: " << endl;
-						file_m.imprimir();
-						cout << "Ingrese el nombre del respaldo que desea restaurar " << endl;
-						cin >> entrada;
-						nombre += entrada;
-						nombre += "/Translate";
+						if (file_m.imprimir()) {
+							_tree.delete_Tree();
+							cout << "Ingrese el nombre del respaldo que desea restaurar " << endl;
+							cin >> entrada;
+							nombre += entrada;
+							nombre += "/Translate";
+							cout << endl;
+							cout << endl <<"\t\t\t\tRestaurando Backup..." << endl;
+							cout << endl;
+							system(nombre.c_str());
+							access.get_Word(&_tree);
+						}
 						cout << endl;
-						cout << "\t\t\t\tRestaurando Backup..." << endl;
-						system(nombre.c_str());
-						access.get_Word(&_tree);
 						system("pause");
 						//Sleep(3000);
 						menuTeclas();

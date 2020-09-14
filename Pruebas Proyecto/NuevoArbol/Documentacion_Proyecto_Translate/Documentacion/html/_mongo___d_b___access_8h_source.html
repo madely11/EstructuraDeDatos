@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto_Traductor: Fichero Fuente C:/Users/Kevin Caicedo/Desktop/2d0 repo/EstructuraDeDatos/Pruebas Proyecto/NuevoArbol/NuevoArbol/Mongo_DB_Access.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="images.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto_Traductor
+   &#160;<span id="projectnumber">1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_mongo___d_b___access_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Mongo_DB_Access.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_mongo___d_b___access_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/******************************************************************</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">* CLASE INGRESO                                                   *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">* AUTORES: Madely Betancourt, Kevin Caicedo                       *</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">* CARRERA: Ingenieria de Software                                 *</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">* SEMESTRE: Tercer semestre                                       *</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">* MATERIA: Estructura de Datos                                    *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">* NRC: 6396                                                       *</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">* FECHA DE CREACIÓN: 1/09/20                                      *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">* FECHA DE MODIFICACIÓN: 13/09/20                                 *</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">******************************************************************/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;mongocxx/database.hpp&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;mongocxx/pool.hpp&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;mongocxx/client.hpp&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;mongocxx/exception/bulk_write_exception.hpp&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;bsoncxx/builder/stream/document.hpp&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;bsoncxx/json.hpp&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;bsoncxx/exception/exception.hpp&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_translate_8h.html">Translate.h</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_binary___tree_8cpp.html">Binary_Tree.cpp</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;bsoncxx\builder\stream\document.hpp&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">using namespace </span>bsoncxx::builder::stream;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_mongo___d_b___access.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_mongo___d_b___access.html">Mongo_DB_Access</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    mongocxx::client&amp; m_client;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::string m_dbName;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::string m_collectionName;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    mongocxx::database m_db;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    mongocxx::collection m_collection;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_mongo___d_b___access.html#ad610bb1589a191ba88132518382a8078">   45</a></span>&#160;    <a class="code" href="class_mongo___d_b___access.html#ad610bb1589a191ba88132518382a8078">Mongo_DB_Access</a>(mongocxx::client&amp; client_, std::string dbName_,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        std::string collName_) : m_client(client_), m_dbName(dbName_),</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        m_collectionName(collName_) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        m_db = m_client[dbName_];</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        m_collection = m_db[collName_];</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    } </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_mongo___d_b___access.html#a20971fbcf46aa01c38042f65f097d909">   58</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_mongo___d_b___access.html#a20971fbcf46aa01c38042f65f097d909">insert</a>(<a class="code" href="class_translate.html">Translate</a> word) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;     </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">auto</span> builder = bsoncxx::builder::stream::document{};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            bsoncxx::document::value doc_value = builder</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;english&quot;</span> &lt;&lt; word.<a class="code" href="class_translate.html#a494dee5ba3302c1d1ed29380bc08bdd2">get_english</a>()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                &lt;&lt; <span class="stringliteral">&quot;spanish&quot;</span> &lt;&lt; word.<a class="code" href="class_translate.html#a18cba3fdcfaf84138f31119627944032">get_spanish</a>()</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                &lt;&lt; bsoncxx::builder::stream::finalize;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keyword">auto</span> result = m_collection.insert_one(move(doc_value));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">catch</span> (<span class="keyword">const</span> bsoncxx::exception&amp; e) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            std::string errInfo = std::string(<span class="stringliteral">&quot;Error saving data, Err Msg:&quot;</span> ) + e.what();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">catch</span> (mongocxx::bulk_write_exception e) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            std::string errInfo = std::string(<span class="stringliteral">&quot;Error saving data, Err Msg : &quot;</span>) + e.what();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_mongo___d_b___access.html#a4d07a38cdf4f5cb0b113e1a6967924d7">   84</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_mongo___d_b___access.html#a4d07a38cdf4f5cb0b113e1a6967924d7">get_Word</a>(<a class="code" href="class_binary___tree.html">Binary_Tree&lt;Translate&gt;</a>* _tree) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <a class="code" href="class_translate.html">Translate</a> new_data;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            mongocxx::cursor cursor = m_collection.find({});</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> doc : cursor) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                bsoncxx::document::element data = doc[<span class="stringliteral">&quot;english&quot;</span>];</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                bsoncxx::document::element data2 = doc[<span class="stringliteral">&quot;spanish&quot;</span>];</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                new_data.<a class="code" href="class_translate.html#a48d59c6d024b1d523b119208a657099b">set_english</a>((<span class="keywordtype">string</span>)data.get_utf8().value);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                new_data.<a class="code" href="class_translate.html#ae2e3b00ad52ddcb9054f9b320f82c2c0">set_spanish</a>((<span class="keywordtype">string</span>)data2.get_utf8().value);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                _tree-&gt;<a class="code" href="class_binary___tree.html#a20021cc6fb78da707f771500db97b4a4">_add</a>(new_data, _tree-&gt;<a class="code" href="class_tree.html#aa3092166f765f7d147ff186a37866e47">get_root</a>(), NULL);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">catch</span> (<span class="keyword">const</span> bsoncxx::exception&amp; e) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            std::string errInfo = std::string(<span class="stringliteral">&quot;Error saving data, Err Msg:&quot;</span>) + e.what();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">catch</span> (mongocxx::bulk_write_exception e) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            std::string errInfo = std::string(<span class="stringliteral">&quot;Error saving data, Err Msg : &quot;</span>) + e.what();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="class_mongo___d_b___access.html#a12ba209995c45a17ba66d2397d4a3273">  111</a></span>&#160;   <span class="keywordtype">int</span> <a class="code" href="class_mongo___d_b___access.html#a12ba209995c45a17ba66d2397d4a3273">delete_all_documents</a>() {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <a class="code" href="class_translate.html">Translate</a> new_data;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            mongocxx::cursor cursor = m_collection.find({});</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span> doc : cursor) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                bsoncxx::document::element data2 = doc[<span class="stringliteral">&quot;spanish&quot;</span>];</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                new_data.<a class="code" href="class_translate.html#ae2e3b00ad52ddcb9054f9b320f82c2c0">set_spanish</a>((<span class="keywordtype">string</span>)data2.get_utf8().value);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                m_collection.delete_one(document{} &lt;&lt; <span class="stringliteral">&quot;spanish&quot;</span> &lt;&lt; new_data.<a class="code" href="class_translate.html#a18cba3fdcfaf84138f31119627944032">get_spanish</a>() &lt;&lt; finalize);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">catch</span> (<span class="keyword">const</span> bsoncxx::exception&amp; e) {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            std::string errInfo = std::string(<span class="stringliteral">&quot;Error deleting data, Err Msg:&quot;</span>) + e.what();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">catch</span> (mongocxx::bulk_write_exception e) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            std::string errInfo = std::string(<span class="stringliteral">&quot;Error deleting data, Err Msg : &quot;</span>) + e.what();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;   </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;};</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclass_translate_html_ae2e3b00ad52ddcb9054f9b320f82c2c0"><div class="ttname"><a href="class_translate.html#ae2e3b00ad52ddcb9054f9b320f82c2c0">Translate::set_spanish</a></div><div class="ttdeci">void set_spanish(string _word)</div><div class="ttdoc">Funcion para setear la palabra en español.</div><div class="ttdef"><b>Definition:</b> <a href="_translate_8cpp_source.html#l00030">Translate.cpp:30</a></div></div>
+<div class="ttc" id="aclass_binary___tree_html"><div class="ttname"><a href="class_binary___tree.html">Binary_Tree&lt; Translate &gt;</a></div></div>
+<div class="ttc" id="aclass_mongo___d_b___access_html"><div class="ttname"><a href="class_mongo___d_b___access.html">Mongo_DB_Access</a></div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___access_8h_source.html#l00034">Mongo_DB_Access.h:35</a></div></div>
+<div class="ttc" id="aclass_translate_html"><div class="ttname"><a href="class_translate.html">Translate</a></div><div class="ttdef"><b>Definition:</b> <a href="_translate_8h_source.html#l00027">Translate.h:28</a></div></div>
+<div class="ttc" id="aclass_translate_html_a494dee5ba3302c1d1ed29380bc08bdd2"><div class="ttname"><a href="class_translate.html#a494dee5ba3302c1d1ed29380bc08bdd2">Translate::get_english</a></div><div class="ttdeci">string get_english()</div><div class="ttdoc">Funcion para obtener la palabra en ingles.</div><div class="ttdef"><b>Definition:</b> <a href="_translate_8cpp_source.html#l00066">Translate.cpp:66</a></div></div>
+<div class="ttc" id="a_translate_8h_html"><div class="ttname"><a href="_translate_8h.html">Translate.h</a></div><div class="ttdoc">Clase que contiene metodos para manejar un objeto Translate.</div></div>
+<div class="ttc" id="a_binary___tree_8cpp_html"><div class="ttname"><a href="_binary___tree_8cpp.html">Binary_Tree.cpp</a></div></div>
+<div class="ttc" id="aclass_mongo___d_b___access_html_a12ba209995c45a17ba66d2397d4a3273"><div class="ttname"><a href="class_mongo___d_b___access.html#a12ba209995c45a17ba66d2397d4a3273">Mongo_DB_Access::delete_all_documents</a></div><div class="ttdeci">int delete_all_documents()</div><div class="ttdoc">Funcion para limpiar toda la base de datos.</div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___access_8h_source.html#l00111">Mongo_DB_Access.h:111</a></div></div>
+<div class="ttc" id="aclass_tree_html_aa3092166f765f7d147ff186a37866e47"><div class="ttname"><a href="class_tree.html#aa3092166f765f7d147ff186a37866e47">Tree::get_root</a></div><div class="ttdeci">Tree_Node&lt; T &gt; * get_root()</div><div class="ttdoc">Funcion obtener raiz del arbol.</div><div class="ttdef"><b>Definition:</b> <a href="_tree_8cpp_source.html#l00027">Tree.cpp:27</a></div></div>
+<div class="ttc" id="aclass_mongo___d_b___access_html_a4d07a38cdf4f5cb0b113e1a6967924d7"><div class="ttname"><a href="class_mongo___d_b___access.html#a4d07a38cdf4f5cb0b113e1a6967924d7">Mongo_DB_Access::get_Word</a></div><div class="ttdeci">int get_Word(Binary_Tree&lt; Translate &gt; *_tree)</div><div class="ttdoc">Funcion para leer elemento en la base de datos y llenar arbol.</div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___access_8h_source.html#l00084">Mongo_DB_Access.h:84</a></div></div>
+<div class="ttc" id="aclass_binary___tree_html_a20021cc6fb78da707f771500db97b4a4"><div class="ttname"><a href="class_binary___tree.html#a20021cc6fb78da707f771500db97b4a4">Binary_Tree::_add</a></div><div class="ttdeci">void _add(T, Tree_Node&lt; T &gt; *, Tree_Node&lt; T &gt; *)</div><div class="ttdoc">Funcion para insertar un dato al arbo.</div><div class="ttdef"><b>Definition:</b> <a href="_binary___tree_8cpp_source.html#l00015">Binary_Tree.cpp:15</a></div></div>
+<div class="ttc" id="aclass_translate_html_a48d59c6d024b1d523b119208a657099b"><div class="ttname"><a href="class_translate.html#a48d59c6d024b1d523b119208a657099b">Translate::set_english</a></div><div class="ttdeci">void set_english(string _word)</div><div class="ttdoc">Funcion para setear la palabra en ingles.</div><div class="ttdef"><b>Definition:</b> <a href="_translate_8cpp_source.html#l00039">Translate.cpp:39</a></div></div>
+<div class="ttc" id="aclass_mongo___d_b___access_html_a20971fbcf46aa01c38042f65f097d909"><div class="ttname"><a href="class_mongo___d_b___access.html#a20971fbcf46aa01c38042f65f097d909">Mongo_DB_Access::insert</a></div><div class="ttdeci">int insert(Translate word)</div><div class="ttdoc">Funcion para insertar elemento en la base de datos.</div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___access_8h_source.html#l00058">Mongo_DB_Access.h:58</a></div></div>
+<div class="ttc" id="aclass_translate_html_a18cba3fdcfaf84138f31119627944032"><div class="ttname"><a href="class_translate.html#a18cba3fdcfaf84138f31119627944032">Translate::get_spanish</a></div><div class="ttdeci">string get_spanish()</div><div class="ttdoc">Funcion para obtener la palabra en español.</div><div class="ttdef"><b>Definition:</b> <a href="_translate_8cpp_source.html#l00057">Translate.cpp:57</a></div></div>
+<div class="ttc" id="aclass_mongo___d_b___access_html_ad610bb1589a191ba88132518382a8078"><div class="ttname"><a href="class_mongo___d_b___access.html#ad610bb1589a191ba88132518382a8078">Mongo_DB_Access::Mongo_DB_Access</a></div><div class="ttdeci">Mongo_DB_Access(mongocxx::client &amp;client_, std::string dbName_, std::string collName_)</div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___access_8h_source.html#l00045">Mongo_DB_Access.h:45</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_adff61cebde60f8b6233b8b996395b4d.html">2d0 repo</a></li><li class="navelem"><a class="el" href="dir_908955172103742aad162973217b5791.html">EstructuraDeDatos</a></li><li class="navelem"><a class="el" href="dir_2c7e622efd24cef5b53dcf39e24e556c.html">Pruebas Proyecto</a></li><li class="navelem"><a class="el" href="dir_24d735ba53ffba95ae129df17ac7cb44.html">NuevoArbol</a></li><li class="navelem"><a class="el" href="dir_9d240936532cc800e3124df385578bc6.html">NuevoArbol</a></li><li class="navelem"><a class="el" href="_mongo___d_b___access_8h.html">Mongo_DB_Access.h</a></li>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.18"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Proyecto_Traductor: Fichero Fuente C:/Users/Kevin Caicedo/Desktop/2d0 repo/EstructuraDeDatos/Pruebas Proyecto/NuevoArbol/NuevoArbol/main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="images.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto_Traductor
+   &#160;<span id="projectnumber">1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.18 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">main.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8cpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define NOMINMAX</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="main_8cpp.html#a9f918755b601cf4bffca775992e6fb90">    3</a></span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_menu_8h.html">Menu.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_mongo___d_b___instance_8h.html">Mongo_DB_Instance.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_mongo___d_b___access_8h.html">Mongo_DB_Access.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_validacion_8h.html">Validacion.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;locale.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   11</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    setlocale(LC_ALL,<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_mongo___d_b___instance.html#a3718bcdcee846ff80a3fee81cc27beba">Mongo_DB_Instance::GetInstance</a>()-&gt;<a class="code" href="class_mongo___d_b___instance.html#a23aa836f0eae27837908f3cacc82b0fe">createPool</a>(<span class="stringliteral">&quot;mongodb://localhost:27017&quot;</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">auto</span> dbClient_A = <a class="code" href="class_mongo___d_b___instance.html#a3718bcdcee846ff80a3fee81cc27beba">Mongo_DB_Instance::GetInstance</a>()-&gt;<a class="code" href="class_mongo___d_b___instance.html#a9e10188b16a627dbf6896d3a47bba669">getClientFromPool</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_mongo___d_b___access.html">Mongo_DB_Access</a> access(*dbClient_A, <span class="stringliteral">&quot;Translate&quot;</span>, <span class="stringliteral">&quot;word&quot;</span>);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_menu.html">Menu</a> menu;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    access.<a class="code" href="class_mongo___d_b___access.html#a4d07a38cdf4f5cb0b113e1a6967924d7">get_Word</a>(&amp;menu.<a class="code" href="class_menu.html#ac9e08d1285306daa922dca58a15864fb">_tree</a>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    menu.<a class="code" href="class_menu.html#adb61bd6cde70924a1a79ec2df8cb2bae">menuTeclas</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclass_mongo___d_b___access_html"><div class="ttname"><a href="class_mongo___d_b___access.html">Mongo_DB_Access</a></div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___access_8h_source.html#l00034">Mongo_DB_Access.h:35</a></div></div>
+<div class="ttc" id="a_validacion_8h_html"><div class="ttname"><a href="_validacion_8h.html">Validacion.h</a></div><div class="ttdoc">Clase que contiene metodos para realizar las validaciones de los ingresos de datos.</div></div>
+<div class="ttc" id="a_menu_8h_html"><div class="ttname"><a href="_menu_8h.html">Menu.h</a></div><div class="ttdoc">Clase que contiene metodos para presentar el menu en la consola.</div></div>
+<div class="ttc" id="a_mongo___d_b___access_8h_html"><div class="ttname"><a href="_mongo___d_b___access_8h.html">Mongo_DB_Access.h</a></div><div class="ttdoc">Clase que contiene metodos para conectarse a la base de Datos.</div></div>
+<div class="ttc" id="aclass_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdef"><b>Definition:</b> <a href="_menu_8h_source.html#l00032">Menu.h:33</a></div></div>
+<div class="ttc" id="aclass_mongo___d_b___instance_html_a3718bcdcee846ff80a3fee81cc27beba"><div class="ttname"><a href="class_mongo___d_b___instance.html#a3718bcdcee846ff80a3fee81cc27beba">Mongo_DB_Instance::GetInstance</a></div><div class="ttdeci">static Mongo_DB_Instance * GetInstance()</div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___instance_8h_source.html#l00034">Mongo_DB_Instance.h:34</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00011">main.cpp:11</a></div></div>
+<div class="ttc" id="aclass_mongo___d_b___access_html_a4d07a38cdf4f5cb0b113e1a6967924d7"><div class="ttname"><a href="class_mongo___d_b___access.html#a4d07a38cdf4f5cb0b113e1a6967924d7">Mongo_DB_Access::get_Word</a></div><div class="ttdeci">int get_Word(Binary_Tree&lt; Translate &gt; *_tree)</div><div class="ttdoc">Funcion para leer elemento en la base de datos y llenar arbol.</div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___access_8h_source.html#l00084">Mongo_DB_Access.h:84</a></div></div>
+<div class="ttc" id="aclass_mongo___d_b___instance_html_a9e10188b16a627dbf6896d3a47bba669"><div class="ttname"><a href="class_mongo___d_b___instance.html#a9e10188b16a627dbf6896d3a47bba669">Mongo_DB_Instance::getClientFromPool</a></div><div class="ttdeci">mongocxx::pool::entry getClientFromPool()</div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___instance_8h_source.html#l00049">Mongo_DB_Instance.h:49</a></div></div>
+<div class="ttc" id="aclass_mongo___d_b___instance_html_a23aa836f0eae27837908f3cacc82b0fe"><div class="ttname"><a href="class_mongo___d_b___instance.html#a23aa836f0eae27837908f3cacc82b0fe">Mongo_DB_Instance::createPool</a></div><div class="ttdeci">void createPool(std::string uri_)</div><div class="ttdef"><b>Definition:</b> <a href="_mongo___d_b___instance_8h_source.html#l00040">Mongo_DB_Instance.h:40</a></div></div>
+<div class="ttc" id="aclass_menu_html_adb61bd6cde70924a1a79ec2df8cb2bae"><div class="ttname"><a href="class_menu.html#adb61bd6cde70924a1a79ec2df8cb2bae">Menu::menuTeclas</a></div><div class="ttdeci">void menuTeclas()</div><div class="ttdoc">Funcion para manejar el menu con las teclas desde la consola.</div><div class="ttdef"><b>Definition:</b> <a href="_menu_8cpp_source.html#l00026">Menu.cpp:26</a></div></div>
+<div class="ttc" id="a_mongo___d_b___instance_8h_html"><div class="ttname"><a href="_mongo___d_b___instance_8h.html">Mongo_DB_Instance.h</a></div><div class="ttdoc">Clase que contiene metodos para instanciar la base de Datos.</div></div>
+<div class="ttc" id="aclass_menu_html_ac9e08d1285306daa922dca58a15864fb"><div class="ttname"><a href="class_menu.html#ac9e08d1285306daa922dca58a15864fb">Menu::_tree</a></div><div class="ttdeci">Binary_Tree&lt; Translate &gt; _tree</div><div class="ttdef"><b>Definition:</b> <a href="_menu_8h_source.html#l00039">Menu.h:39</a></div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_adff61cebde60f8b6233b8b996395b4d.html">2d0 repo</a></li><li class="navelem"><a class="el" href="dir_908955172103742aad162973217b5791.html">EstructuraDeDatos</a></li><li class="navelem"><a class="el" href="dir_2c7e622efd24cef5b53dcf39e24e556c.html">Pruebas Proyecto</a></li><li class="navelem"><a class="el" href="dir_24d735ba53ffba95ae129df17ac7cb44.html">NuevoArbol</a></li><li class="navelem"><a class="el" href="dir_9d240936532cc800e3124df385578bc6.html">NuevoArbol</a></li><li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
+    <li class="footer">Generado por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.18 </li>
+  </ul>
+</div>
+</body>
+</html>
