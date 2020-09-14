@@ -6,23 +6,24 @@
 * SEMESTRE: Tercer semestre                                       *
 * MATERIA: Estructura de Datos                                    *
 * NRC: 6396														  *
-* FECHA DE CREACIÓN: 20/06/20									  *
-* FECHA DE MODIFICACIÓN: 02/07/20								  *
+* FECHA DE CREACIÓN: 01/09/20									  *
+* FECHA DE MODIFICACIÓN: 13/09/20								  *
 ******************************************************************/
 
 /**
 	@file Validacion.cpp
 	@brief Clase que contiene metodos para realizar las validaciones de los ingresos de datos
 	@author Madely Betancourt y Kevin Caicedo
-	@date 6/2020
+	@date 9/2020
 */
 
 #include "Validacion.h"
 
 /**
 	@brief Funcion para validar entrada de Letras
-	@param entrada de datos tipo string y entero tipo int
-	@returns verdadero o falso
+	@param string  
+	@param int
+	@returns bool
 */
 bool Validacion::validarString(string entrada, int tipo) {
 	int contador = 0;
@@ -50,8 +51,12 @@ bool Validacion::validarString(string entrada, int tipo) {
 	}
 	return false;
 }
-
-string Validacion::ingresaNumericos(string msg) {
+/**
+	@brief Funcion para invalidar el ingreso de numero
+	@param string
+	@returns string
+*/
+string Validacion::noNumericos(string msg) {
 	int caracter;
 	puts(msg.c_str());
 	int i = 0;
@@ -66,7 +71,7 @@ string Validacion::ingresaNumericos(string msg) {
 		return valor;
 	}
 	else {
-		return ingresaNumericos(" \n Dato invalido, ingrese de nuevo: ");
+		return noNumericos(" \n Dato invalido, ingrese de nuevo: ");
 	}
 }
 

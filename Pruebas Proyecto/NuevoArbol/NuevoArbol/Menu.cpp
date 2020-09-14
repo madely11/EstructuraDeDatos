@@ -4,11 +4,7 @@
 #include <conio.h>
 #include "Mongo_DB_Instance.h"
 #include "Mongo_DB_Access.h"
-//#include <string>
-//#include <stdio.h>
-//#include <stdlib.h>
 
-//#include <math.h>
 /**
 	@brief Funcion para oculta Cursor en la consola
 	@param void
@@ -31,7 +27,6 @@ void Menu::menuTeclas()
 {
 	int cursor = 0;
 	char tecla;
-	//int opcion;
 	int cont = 1;
 	system("cls");
 	string menu[] = { "Traducir de Español a Ingles              ",
@@ -39,7 +34,6 @@ void Menu::menuTeclas()
 					  "Agregar palabra              ",
 					  "Realizar Backup           ",
 					  "Restaurar Backup           ",
-					  //"Imprimir arbol           ",
 					  "Salir                     " };
 	for (;;) {
 		system("cls");
@@ -90,7 +84,7 @@ void Menu::menuTeclas()
 				case 0:
 					try {
 						system("cls");
-						_data.set_spanish(v.ingresaNumericos(" Ingrese la palabra en español que desea traducir:"));
+						_data.set_spanish(v.noNumericos(" Ingrese la palabra en español que desea traducir:"));
 						_data.set_english("");
 						_data = _tree._look(_data, _tree.get_root());
 						if (_data.get_english()._Equal("")) {
@@ -110,7 +104,7 @@ void Menu::menuTeclas()
 				case 1:
 					try{
 						system("cls");
-						_data.set_english(v.ingresaNumericos(" Ingrese la palabra en ingles que desea traducir:"));
+						_data.set_english(v.noNumericos(" Ingrese la palabra en ingles que desea traducir:"));
 						_data.set_spanish("");
 						 _tree._look_english(&_data, _tree.get_root());
 						//cout << _data.get_spanish() << ", " << _data.get_english() << endl;
@@ -132,10 +126,10 @@ void Menu::menuTeclas()
 				case 2:
 					try {
 						system("cls");
-						_data.set_spanish(v.ingresaNumericos(" Ingrese la palabra en español:"));
+						_data.set_spanish(v.noNumericos(" Ingrese la palabra en español:"));
 						_data.set_english("");
 						if (_data == _tree._look(_data, _tree.get_root())) {
-							_data.set_english(v.ingresaNumericos(" \nIngrese la palabra en ingles:"));
+							_data.set_english(v.noNumericos(" \nIngrese la palabra en ingles:"));
 							_tree._add(_data, _tree.get_root(), NULL);
 							Mongo_DB_Instance::GetInstance()->createPool("mongodb://localhost:27017");
 							auto dbClient_A = Mongo_DB_Instance::GetInstance()->getClientFromPool();

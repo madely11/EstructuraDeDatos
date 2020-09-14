@@ -4,11 +4,15 @@
 #include "Tree_Node.cpp"
 
 
-
-
+/**
+	@brief Funcion para insertar un dato al arbo
+	@tparam T dato
+	@param Tree_Node* node
+	@param Tree_Node* parent
+	@returns void
+*/
 template<typename T>
 void Binary_Tree<T>::_add(T _data, Tree_Node<T>* node, Tree_Node<T>* parent) {
-	//cout << "Ingreso add " << endl;
 	Tree_Node<T>* _aux = new Tree_Node<T>(_data, NULL, NULL);
 	if (this->_is_empty()) {
 		this->_root = _aux;
@@ -41,7 +45,12 @@ void Binary_Tree<T>::_add(T _data, Tree_Node<T>* node, Tree_Node<T>* parent) {
 
 		
 }
-
+/**
+	@brief Funcion para buscar un elemento en el arbol
+	@tparam T dato
+	@param Tree_Node* node
+	@returns void
+*/
 template<typename T>
 T Binary_Tree<T>::_look(T _data, Tree_Node<T>* node) {
 	if (this->_is_empty()) {
@@ -61,7 +70,6 @@ T Binary_Tree<T>::_look(T _data, Tree_Node<T>* node) {
 		}
 		else {
 			if (node == NULL) {
-				//cout << "No existe" << endl;
 				return _data;
 			}
 			else {
@@ -70,7 +78,12 @@ T Binary_Tree<T>::_look(T _data, Tree_Node<T>* node) {
 		}
 	}
 }
-
+/**
+	@brief Funcion para buscar un elemento 
+	@tparam T dato
+	@param Tree_Node* node
+	@returns void
+*/
 template<class T>
 void Binary_Tree<T>::_look_english(T* _data, Tree_Node<T>* _node)
 {
@@ -82,7 +95,11 @@ void Binary_Tree<T>::_look_english(T* _data, Tree_Node<T>* _node)
 		return;
 	}else *_data=_node->get_data();
 }
-
+/**
+	@brief Funcion para limpiar el arbol
+	@param void
+	@returns void
+*/
 template<class T>
 void Binary_Tree<T>::delete_Tree()
 {
@@ -93,47 +110,6 @@ void Binary_Tree<T>::delete_Tree()
 		this->set_root(_node->get_right_node());
 		delete_Tree();
 		this->set_root(NULL);
-	}
-}
-
-
-template <typename T>
-void Binary_Tree<T>::imprimirPosorden() {
-	imprimir(this->_root);
-}
-
-template <typename T>
-void Binary_Tree<T>::imprimir(Tree_Node<T>* node) {
-	if (node != NULL)
-	{
-		if (node->get_left_node())
-			imprimir(node->get_left_node());
-		if (node->get_right_node())
-			imprimir(node->get_right_node());
-
-		cout << "     " << node->get_data() << "\n ";
-	}
-	else return;
-}
-
-template <class T>
-void Binary_Tree<T>::showTree(Tree_Node<T>* tree, int cont) {
-	if (this->_is_empty()) {
-		cout << "Arbol vacio" << endl;
-	}
-	else {
-		if (tree == NULL) {
-			return;
-		}
-		else {
-			showTree(tree->get_right_node(), cont + 1);
-			for (int i = 0; i < cont; i++) {
-				cout << "   ";
-			}
-			cout << tree->get_data() << endl;
-			showTree(tree->get_left_node(), cont + 1);
-			return;
-		}
 	}
 }
 

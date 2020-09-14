@@ -15,20 +15,18 @@
 * SEMESTRE: Tercer semestre                                       *
 * MATERIA: Estructura de Datos                                    *
 * NRC: 6396														  *
-* FECHA DE CREACIÓN: 20/06/20									  *
-* FECHA DE MODIFICACIÓN: 02/07/20								  *
+* FECHA DE CREACIÓN: 01/09/20									  *
+* FECHA DE MODIFICACIÓN: 13/09/20								  *
 ******************************************************************/
 
 /**
 	@file Menu.h
 	@brief Clase que contiene metodos para presentar el menu en la consola
 	@author Madely Betancourt y Kevin Caicedo
-	@date 6/2020
+	@date 9/2020
 */
 
 
-//#include "File_Manager.h"
-//#include"Conection_DB.h"
 using namespace std;
 
 class Menu

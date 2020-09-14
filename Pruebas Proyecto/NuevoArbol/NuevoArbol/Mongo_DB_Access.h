@@ -1,3 +1,22 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE INGRESO                                                   *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 1/09/20									  *
+* FECHA DE MODIFICACIÓN: 13/09/20								  *
+******************************************************************/
+
+/**
+    @file Mongo_DB_Access.h
+    @brief Clase que contiene metodos para conectarse a la base de Datos
+    @author Madely Betancourt y Kevin Caicedo
+    @date 9/2020
+*/
+
 #pragma once
 #include <iostream>
 #include <mongocxx/database.hpp>
@@ -31,7 +50,11 @@ public:
     } 
 
     
-    
+    /**
+    @brief Funcion para insertar elemento en la base de datos
+    @param Translate word
+    @returns int
+*/
     int insert(Translate word) {
         try {
      
@@ -53,7 +76,11 @@ public:
         }
         return 0;
     }
-
+/**
+   @brief Funcion para leer elemento en la base de datos y llenar arbol
+   @param Binary_Tree* _tree
+   @returns int
+*/
     int get_Word(Binary_Tree<Translate>* _tree) {
         try {
             Translate new_data;
@@ -76,7 +103,11 @@ public:
         }
         return 0;
     }
-
+    /**
+       @brief Funcion para limpiar toda la base de datos
+       @param void
+       @returns int
+   */
    int delete_all_documents() {
         try {
             Translate new_data;

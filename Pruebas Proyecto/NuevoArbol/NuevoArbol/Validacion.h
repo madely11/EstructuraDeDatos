@@ -6,15 +6,15 @@
 * SEMESTRE: Tercer semestre                                       *
 * MATERIA: Estructura de Datos                                    *
 * NRC: 6396														  *
-* FECHA DE CREACIÓN: 20/06/20									  *
-* FECHA DE MODIFICACIÓN: 02/07/20								  *
+* FECHA DE CREACIÓN: 1/09/20									  *
+* FECHA DE MODIFICACIÓN: 13/09/20								  *
 ******************************************************************/
 
 /**
 	@file Validacion.h
 	@brief Clase que contiene metodos para realizar las validaciones de los ingresos de datos
 	@author Madely Betancourt y Kevin Caicedo
-	@date 6/2020
+	@date 9/2020
 */
 #pragma once
 #include<string>
@@ -26,6 +26,6 @@ class Validacion
 {
 public:
 	bool validarString(string, int);
-	string ingresaNumericos(string);
+	string noNumericos(string);
 };
 

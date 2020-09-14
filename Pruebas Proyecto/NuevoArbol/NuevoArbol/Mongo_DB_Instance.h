@@ -1,3 +1,21 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE INGRESO                                                   *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 1/09/20									  *
+* FECHA DE MODIFICACIÓN: 13/09/20								  *
+******************************************************************/
+
+/**
+    @file Mongo_DB_Instance.h
+    @brief Clase que contiene metodos para instanciar la base de Datos
+    @author Madely Betancourt y Kevin Caicedo
+    @date 9/2020
+*/
 #pragma once
 #include <mongocxx/uri.hpp>
 #include <mongocxx/instance.hpp>

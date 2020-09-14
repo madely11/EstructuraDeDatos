@@ -3,7 +3,7 @@
 
 /**
     @brief Funcion para cambiar fecha
-    @param Entrada fecha de tipo string
+    @param string entrada
     @returns void
 */
 void Fecha::setFecha(string newFecha) {
@@ -12,7 +12,7 @@ void Fecha::setFecha(string newFecha) {
 }
 /**
     @brief Funcion para cambiar la hora
-    @param Entrada hora de tipo string
+    @param string entrada
     @returns void
 */
 void Fecha::setHora(string newHora) {
@@ -22,7 +22,7 @@ void Fecha::setHora(string newHora) {
 /**
     @brief Funcion para obtener la fecha del  sistema
     @param void
-    @returns salida fecha del sistema tipo string
+    @returns string fecha
 */
 string Fecha::getFecha()
 {
@@ -51,7 +51,7 @@ string Fecha::getFecha()
 /**
     @brief Funcion para obtener la fecha completa del sistema
     @param void
-    @returns salida fecha completa del sistema tipo string
+    @returns string fecha
 */
 string Fecha::fechaUnida() {
     string f;
@@ -86,7 +86,7 @@ string Fecha::getHora()
 /**
     @brief Funcion para obtener la hora completa del  sistema
     @param void
-    @returns salida hora completa del sistema tipo string
+    @returns string hora
 */
 string Fecha::horaUnida() {
     string h;

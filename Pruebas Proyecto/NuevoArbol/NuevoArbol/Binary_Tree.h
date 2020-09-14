@@ -1,3 +1,21 @@
+/******************************************************************
+*            UNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE              *
+* CLASE INGRESO                                                   *
+* AUTORES: Madely Betancourt, Kevin Caicedo                       *
+* CARRERA: Ingenieria de Software                                 *
+* SEMESTRE: Tercer semestre                                       *
+* MATERIA: Estructura de Datos                                    *
+* NRC: 6396														  *
+* FECHA DE CREACIÓN: 1/09/20									  *
+* FECHA DE MODIFICACIÓN: 13/09/20								  *
+******************************************************************/
+
+/**
+    @file Binary_Tree.h
+    @brief Clase que contiene metodos para manejar un arbol
+    @author Madely Betancourt y Kevin Caicedo
+    @date 9/2020
+*/
 #pragma once
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
@@ -16,9 +34,6 @@ public:
     void _add(T, Tree_Node<T>*, Tree_Node<T>*);
     T _look(T _data, Tree_Node<T>*);
     void _look_english(T* _data, Tree_Node<T>*);
-    void imprimir(Tree_Node<T>*);
-    void imprimirPosorden();
-    void showTree(Tree_Node<T>*, int );
     void delete_Tree();
     string to_string();
 protected:

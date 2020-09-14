@@ -6,24 +6,24 @@
 * SEMESTRE: Tercer semestre                                       *
 * MATERIA: Estructura de Datos                                    *
 * NRC: 6396														  *
-* FECHA DE CREACIÓN: 20/06/20									  *
-* FECHA DE MODIFICACIÓN: 02/07/20								  *
+* FECHA DE CREACIÓN: 01/09/20									  *
+* FECHA DE MODIFICACIÓN: 13/09/20								  *
 ******************************************************************/
 
 /**
-	@file ManejoArchivos.cpp
+	@file File_Manager.cpp
 	@brief Clase que contiene metodos manejar archivos
 	@author Madely Betancourt y Kevin Caicedo
-	@date 6/2020
+	@date 9/2020
 */
 
 
 
 #include "File_Manager.h"
 /**
-	@brief Constructor de la Clase ManejoArchivo
-	@param entrada archivo tipo string
-	@returns ManejoArchivo
+	@brief Constructor de la Clase File_Manager
+	@param string nombre
+	@returns File_Manager
 */
 File_Manager::File_Manager(string archivo)
 {
@@ -58,8 +58,6 @@ bool File_Manager::crearEscritura()
 		return true;
 	}
 }
-
-
 /**
 	@brief Funcion para cerrar la escritura de un archivo
 	@param void
@@ -71,6 +69,11 @@ void File_Manager::cerrarEscritura()
 	archivoEscritura.close();
 }
 
+/**
+	@brief Funcion para mostrar datos del archivo
+	@param void
+	@returns void
+*/
 void File_Manager::imprimir()
 {
 	string texto;
@@ -154,40 +157,4 @@ string File_Manager::leerArchivo() {
 	}
 	cerrarLectura();
 	return texto;
-}
-
-
-void File_Manager::load_file(Binary_Tree<Translate>* _tree)
-{
-	string _text;
-	string _line;
-	Translate _obj;
-	int i = 0;
-	crearLectura();
-
-	while (!archivoLectura.eof())
-	{
-		getline(archivoLectura, _line);
-		//cout << _line << endl;
-		if (_line != "") {
-			while (i < _line.length()) {
-				if (_line.at(i) == ',') {
-					_obj.set_spanish(_text);
-					_text = "";
-					i++;
-				}
-				else {
-					_text += _line.at(i);
-					i++;
-				}
-			}
-			_obj.set_english(_text);
-			i = 0;
-			_text ="";
-			_tree->_add(_obj, _tree->get_root(), NULL);
-		}
-		
-		
-	}
-	cerrarLectura();
 }

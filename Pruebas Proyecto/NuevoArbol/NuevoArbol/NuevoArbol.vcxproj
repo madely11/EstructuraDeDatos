@@ -140,14 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Binary_Tree.cpp" />
-    <ClCompile Include="Conection_DB.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="File_Manager.cpp" />
     <ClCompile Include="Ingreso.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="Mongo_DB_Access.cpp" />
-    <ClCompile Include="Mongo_DB_Instance.cpp" />
     <ClCompile Include="Translate.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Tree_Node.cpp" />
@@ -155,7 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Binary_Tree.h" />
-    <ClInclude Include="Conection_DB.h" />
     <ClInclude Include="Fecha.h" />
     <ClInclude Include="File_Manager.h" />
     <ClInclude Include="Ingreso.h" />
